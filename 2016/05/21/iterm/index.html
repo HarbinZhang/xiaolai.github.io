@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>必要的装备（2）iTerm | {am} xiaolai</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="iTerm 比 OS X 里自带的 Terminal 不知道要强大多少倍…… 看两张图片就知道了。更多的功能介绍，可直接移步 iTer 官方网站了解。
+
+
+在 Finder 上添加一个按钮，“Open here in iTerm”用 Automator 创建一个 Application（不是 Workflow 或者 Service；与创建 Sublimetext 的 Finder 工具栏应用一样）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="必要的装备（2）iTerm">
+<meta property="og:url" content="http://xiaolai.li/2016/05/21/iterm/index.html">
+<meta property="og:site_name" content="{am} xiaolai">
+<meta property="og:description" content="iTerm 比 OS X 里自带的 Terminal 不知道要强大多少倍…… 看两张图片就知道了。更多的功能介绍，可直接移步 iTer 官方网站了解。
+
+
+在 Finder 上添加一个按钮，“Open here in iTerm”用 Automator 创建一个 Application（不是 Workflow 或者 Service；与创建 Sublimetext 的 Finder 工具栏应用一样）">
+<meta property="og:image" content="http://xiaolai.li/images/iterm-autocomplete.png">
+<meta property="og:image" content="http://xiaolai.li/images/iterm-pastehistory.png">
+<meta property="og:updated_time" content="2016-05-23T19:23:05.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="必要的装备（2）iTerm">
+<meta name="twitter:description" content="iTerm 比 OS X 里自带的 Terminal 不知道要强大多少倍…… 看两张图片就知道了。更多的功能介绍，可直接移步 iTer 官方网站了解。
+
+
+在 Finder 上添加一个按钮，“Open here in iTerm”用 Automator 创建一个 Application（不是 Workflow 或者 Service；与创建 Sublimetext 的 Finder 工具栏应用一样）">
+<meta name="twitter:image" content="http://xiaolai.li/images/iterm-autocomplete.png">
+  
+    <link rel="alternate" href="/atom.xml" title="{am} xiaolai" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">{am} xiaolai</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">an ever-growing brain</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://xiaolai.li"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-iterm" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/05/21/iterm/" class="article-date">
+  <time datetime="2016-05-20T16:00:00.000Z" itemprop="datePublished">2016-05-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      必要的装备（2）iTerm
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>iTerm 比 OS X 里自带的 Terminal 不知道要强大多少倍…… 看两张图片就知道了。更多的功能介绍，可直接移步 <a href="https://www.iterm2.com/features.html" target="_blank" rel="external">iTer 官方网站</a>了解。</p>
+<img src="/images/iterm-autocomplete.png">
+<img src="/images/iterm-pastehistory.png">
+<h2 id="在-Finder-上添加一个按钮，“Open-here-in-iTerm”"><a href="#在-Finder-上添加一个按钮，“Open-here-in-iTerm”" class="headerlink" title="在 Finder 上添加一个按钮，“Open here in iTerm”"></a>在 Finder 上添加一个按钮，“Open here in iTerm”</h2><p>用 Automator 创建一个 Application（不是 Workflow 或者 Service；与<a href="http://xiaolai.li/#在-finder-上添加个按钮open-with-sublimetext">创建 Sublimetext 的 Finder 工具栏应用一样</a>），添加一个 AppleScript:</p>
+<figure class="highlight applescript"><figcaption><span>Open here in iTerm</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">on</span> <span class="built_in">run</span> &#123;input, parameters&#125;</span><br><span class="line">  <span class="keyword">tell</span> <span class="built_in">application</span> <span class="string">"Finder"</span></span><br><span class="line">    <span class="keyword">set</span> dir_path <span class="keyword">to</span> <span class="keyword">quoted form</span> <span class="keyword">of</span> (<span class="keyword">POSIX path</span> <span class="keyword">of</span> (folder <span class="keyword">of</span> <span class="keyword">the</span> <span class="keyword">front</span> window <span class="keyword">as</span> <span class="built_in">alias</span>))</span><br><span class="line">  <span class="keyword">end</span> <span class="keyword">tell</span></span><br><span class="line">  CD_to(dir_path)</span><br><span class="line"><span class="keyword">end</span> <span class="built_in">run</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">on</span> CD_to(theDir)</span><br><span class="line">  <span class="keyword">tell</span> <span class="built_in">application</span> <span class="string">"iTerm"</span></span><br><span class="line">    <span class="built_in">activate</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span></span><br><span class="line">      <span class="keyword">set</span> sesh <span class="keyword">to</span> current session <span class="keyword">of</span> current terminal</span><br><span class="line">    <span class="keyword">on</span> <span class="keyword">error</span></span><br><span class="line">      <span class="keyword">set</span> term <span class="keyword">to</span> (make new terminal)</span><br><span class="line">      <span class="keyword">tell</span> term</span><br><span class="line">        <span class="built_in">launch</span> session <span class="string">"Default"</span></span><br><span class="line">        <span class="keyword">set</span> sesh <span class="keyword">to</span> current session</span><br><span class="line">      <span class="keyword">end</span> <span class="keyword">tell</span></span><br><span class="line">    <span class="keyword">end</span> <span class="keyword">try</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">tell</span> sesh</span><br><span class="line">      <span class="built_in">write</span> <span class="built_in">text</span> <span class="string">"cd "</span> &amp; theDir &amp; <span class="string">";clear;"</span></span><br><span class="line">    <span class="keyword">end</span> <span class="keyword">tell</span></span><br><span class="line">  <span class="keyword">end</span> <span class="keyword">tell</span></span><br><span class="line"><span class="keyword">end</span> CD_to</span><br></pre></td></tr></table></figure>
+<p>而后把这个 Application 保存到 <code>~/Applications</code> 目录中，在按住 Command 键的同时，将这个程序拖到 Finder 工具栏上……</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://xiaolai.li/2016/05/21/iterm/" data-id="ciowp88wz0003gtgx1ilunhuv" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工具/">工具</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/05/23/publish-an-npm-package/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          如何在 npm 上发布一个包 (npm module/package)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/05/19/sublimetext/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">必要的装备（1）SublimeText</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/">npm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublimetext-texteditor-puretext/">sublimetext texteditor puretext</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工具/">工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/未分类/">未分类</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/sublimetext-texteditor-puretext/" style="font-size: 10px;">sublimetext texteditor puretext</a> <a href="/tags/工具/" style="font-size: 20px;">工具</a> <a href="/tags/未分类/" style="font-size: 10px;">未分类</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/06/01/Using-Markdown-writer-Package-in-Atom/">Using Markdown-writer Package in Atom</a>
+          </li>
+        
+          <li>
+            <a href="/2016/05/25/sublimetext-tutorial/">Sublimetext Tutorial</a>
+          </li>
+        
+          <li>
+            <a href="/2016/05/23/publish-an-npm-package/">如何在 npm 上发布一个包 (npm module/package)</a>
+          </li>
+        
+          <li>
+            <a href="/2016/05/21/iterm/">必要的装备（2）iTerm</a>
+          </li>
+        
+          <li>
+            <a href="/2016/05/19/sublimetext/">必要的装备（1）SublimeText</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 xiaolai<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
