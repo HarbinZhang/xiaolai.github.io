@@ -836,7 +836,7 @@ pre .javascript .function {
 }
 .tag-cloud a {
   display: inline-block;
-  margin: 10px;
+  margin: 16px;
 }
 .back-to-top {
   box-sizing: border-box;
@@ -1524,7 +1524,7 @@ pre .javascript .function {
 }
 .feed-link a i {
   color: #fc6423;
-  font-size: 14px;
+  font-size: 16px;
 }
 .feed-link a:hover {
   color: #fff;
@@ -1542,7 +1542,7 @@ pre .javascript .function {
   margin-right: 10px;
   margin-bottom: 10px;
   border-bottom-color: #555;
-  font-size: 13px;
+  font-size: 16px;
 }
 .links-of-author a:before {
   display: inline-block;
@@ -1552,14 +1552,14 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #18de22;
+  background: #145034;
 }
 .links-of-blogroll {
   font-size: 13px;
 }
 .links-of-blogroll-title {
   margin-top: 20px;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
 }
 .links-of-blogroll-list {
@@ -1577,7 +1577,7 @@ pre .javascript .function {
   display: inline-block;
   cursor: pointer;
   border-bottom: 1px solid transparent;
-  font-size: 14px;
+  font-size: 16px;
   color: #555;
 }
 .sidebar-nav li:hover {
@@ -1603,7 +1603,7 @@ pre .javascript .function {
   display: block;
 }
 .post-toc-empty {
-  font-size: 14px;
+  font-size: 16px;
   color: #666;
 }
 .post-toc-wrap {
@@ -2353,6 +2353,7 @@ body {
   transition-duration: 0.2s;
   transition-timing-function: ease-in-out;
   transition-delay: 0s;
+  font-size: 16px !important;
 }
 .menu .menu-item a:hover,
 .menu-item-active a {
