@@ -270,13 +270,13 @@
 <p>我的习惯是把 Spotlight 设置为 <code>⌥Space</code>，把更换输入法设置为 <code>⌘Space</code>；而 <code>Spotlight</code> 中，<code>Show Finder Search Window</code> 不使用快捷键；<code>Input Sources</code>中，<code>Select next source in Input menu</code> 不使用快捷键。</p>
 <h2 id="命令行工具（Terminal-iTerm）的基本设置"><a href="#命令行工具（Terminal-iTerm）的基本设置" class="headerlink" title="命令行工具（Terminal/iTerm）的基本设置"></a>命令行工具（Terminal/iTerm）的基本设置</h2><p>用 Spotlight 呼出 <code>Terminal</code>，无论是谁，都得从熟悉它的使用开始。</p>
 <p>打开 Terminal 之后，可以试试以下两个命令:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /</span><br><span class="line">ls</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd /</span><br><span class="line">ls</span><br></pre></td></tr></table></figure>
 <p>现在需要知道的就是，每一行命令都必须做到每个字符都不能错，输入正确之后，按回车键 <kbd>⏎</kbd> 执行命令。</p>
 <p>接下来要做的事情，按步骤完成，但你肯定完全不知道自己在做什么，照着做就行了（为了保证不出错，请逐次拷贝粘贴以下命令行，而后再按回车键执行）：</p>
-<p>(1)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd ~</span><br></pre></td></tr></table></figure></p>
-<p>(2)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -O https://raw.githubusercontent.com/donnemartin/dev-setup/master/.bash_profile</span><br></pre></td></tr></table></figure></p>
-<p>(3)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -O https://raw.githubusercontent.com/donnemartin/dev-setup/master/.bash_prompt</span><br></pre></td></tr></table></figure></p>
-<p>(4)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -O https://raw.githubusercontent.com/donnemartin/dev-setup/master/.aliases</span><br></pre></td></tr></table></figure></p>
+<p>(1)<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd ~</span><br></pre></td></tr></table></figure></p>
+<p>(2)<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">curl -O https://raw.githubusercontent.com/donnemartin/dev-setup/master/.bash_profile</span><br></pre></td></tr></table></figure></p>
+<p>(3)<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">curl -O https://raw.githubusercontent.com/donnemartin/dev-setup/master/.bash_prompt</span><br></pre></td></tr></table></figure></p>
+<p>(4)<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">curl -O https://raw.githubusercontent.com/donnemartin/dev-setup/master/.aliases</span><br></pre></td></tr></table></figure></p>
 <p>全部完成之后，重启 Terminal（就是关掉退出之后，再重新打开）。刚才的命令完成了很多事情，只不过现在你搞不懂，你能看到的就是命令行提示变得花花绿绿了，各种颜色有不同的意义 —— 但以后再说。</p>
 <p>接下来，要为 Terminal 换个皮肤 —— 天天要用的东西，不好看太难受了。我个人喜欢这两个：</p>
 <blockquote>
@@ -306,7 +306,7 @@
 <p>下载 iTerm 之后，你要做的就是为它更换皮肤，更换字体，设置字体大小…… 其实你已经做过一遍了，和设置 Terminal 没什么太大差别。</p>
 <h2 id="命令行的使用"><a href="#命令行的使用" class="headerlink" title="命令行的使用"></a>命令行的使用</h2><p>使用命令行工具，可以对系统下的文件（file）和目录（folder/dirctory/dir，这三个词在大多数情况下是一回事儿）进行罗列、创建、复制、移动、删除、修改等操作。</p>
 <p>以下是一些最常用的命令（’<code>#</code>‘ 之后的文字是注释，输入命令的时候不能有它们）：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">ls #罗列当前目录下的内容</span><br><span class="line">cd #更换工作目录</span><br><span class="line">pwd #现实当前完整工作目录</span><br><span class="line">touch #创建一个文件</span><br><span class="line">mv #移动/更名文件或目录</span><br><span class="line">rm #删除文件活目录</span><br><span class="line">nano #使用 nano 编辑纯文本文件</span><br><span class="line">open #打开一个文件，就好像你在 Finder 里双击那个文件图标一样</span><br><span class="line">clear #清空屏幕</span><br><span class="line">sudo #用管理员身份去执行一个命令</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ls #罗列当前目录下的内容</span><br><span class="line">cd #更换工作目录</span><br><span class="line">pwd #现实当前完整工作目录</span><br><span class="line">touch #创建一个文件</span><br><span class="line">mv #移动/更名文件或目录</span><br><span class="line">rm #删除文件活目录</span><br><span class="line">nano #使用 nano 编辑纯文本文件</span><br><span class="line">open #打开一个文件，就好像你在 Finder 里双击那个文件图标一样</span><br><span class="line">clear #清空屏幕</span><br><span class="line">sudo #用管理员身份去执行一个命令</span><br></pre></td></tr></table></figure>
 <p>这些命令现在倒没必要马上深入研究，因为你早晚会不得不深入研究他们的。现在更必要的是学习 Terminal/iTerm2 的使用，有哪些快捷键等等…… 倒有个好去处，在 Github 上：</p>
 <blockquote>
 <p><a href="https://github.com/0nn0/terminal-mac-cheatsheet" target="_blank" rel="external">https://github.com/0nn0/terminal-mac-cheatsheet</a></p>
@@ -323,26 +323,26 @@
 </blockquote>
 <p>所以说，“优秀是一种习惯”真的并不是空话，是放之四海皆准的道理。随后的过程中，<strong>我们会建立很多很多的好习惯</strong>，甚至这句话本身也会在各个地方重复 —— 生活质量就是这样一点一点提高的，放在哪个领域里其实都一样。</p>
 <h2 id="安装必要开发环境"><a href="#安装必要开发环境" class="headerlink" title="安装必要开发环境"></a>安装必要开发环境</h2><h3 id="XCode-Command-Line-Tool"><a href="#XCode-Command-Line-Tool" class="headerlink" title="XCode Command Line Tool"></a>XCode Command Line Tool</h3><p>过去安装这个东西费劲死了，在需要翻山越岭的情况下下载两个多 G 的东西，唉…… Mac OSX EI Capitan 之后，终于可以在命令行工具（<code>Terminal</code>）下这样安装了：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xcode-select --install</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">xcode-select --install</span><br></pre></td></tr></table></figure>
 <h3 id="安装-Homebrew"><a href="#安装-Homebrew" class="headerlink" title="安装 Homebrew"></a>安装 Homebrew</h3><p>还是在命令行工具中拷贝粘贴以下代码，而后按回车键 <kbd>⏎</kbd>……</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</span><br></pre></td></tr></table></figure>
 <p>随后再次在命令行工具中拷贝粘贴以下代码，而后按回车键 <kbd>⏎</kbd>……</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &apos;export PATH=&quot;/usr/local/bin:$PATH&quot;&apos; &gt;&gt; ~/.bash_profile</span><br></pre></td></tr></table></figure>
-<h3 id="安装-Git"><a href="#安装-Git" class="headerlink" title="安装 Git"></a>安装 Git</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install git</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">echo &apos;export PATH=&quot;/usr/local/bin:$PATH&quot;&apos; &gt;&gt; ~/.bash_profile</span><br></pre></td></tr></table></figure>
+<h3 id="安装-Git"><a href="#安装-Git" class="headerlink" title="安装 Git"></a>安装 Git</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">brew install git</span><br></pre></td></tr></table></figure>
 <h3 id="安装-rvm-与-Ruby-2-3-1"><a href="#安装-rvm-与-Ruby-2-3-1" class="headerlink" title="安装 rvm 与 Ruby 2.3.1"></a>安装 rvm 与 Ruby 2.3.1</h3><p>注意，以下是三行命令，要分别输入，每行都要按接回车键（<code>⏎</code>）执行。以后为了书写方便，经常会把一系列命令放到一个代码块中……</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">\curl -sSL https://get.rvm.io | bash -s stable</span><br><span class="line">rvm install 2.3.1</span><br><span class="line">rvm use 2.3.1</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">\curl -sSL https://get.rvm.io | bash -s stable</span><br><span class="line">rvm install 2.3.1</span><br><span class="line">rvm use 2.3.1</span><br></pre></td></tr></table></figure>
 <p><code>rvm</code> 是 Ruby 的版本管理工具，其作用是在系统中安装若干个不同版本的 Ruby，且不让它们之间发生冲突。你可以安装很多个版本的 Ruby，比如，刚刚安装了 <code>2.3.1</code>，随后你还可以安装 <code>1.9.2</code>：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rvm install 1.9.2</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rvm install 1.9.2</span><br></pre></td></tr></table></figure>
 <p>需要使用 <code>1.9.2</code> 版本的 Ruby 的时候，就可以用这个命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rvm use 1.9.2</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rvm use 1.9.2</span><br></pre></td></tr></table></figure>
 <p>也可以随时用这个命令切换回 <code>2.3.1</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rvm use 2.3.1</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rvm use 2.3.1</span><br></pre></td></tr></table></figure>
 <p>你也随时可以用这个命令查看自己都安装过哪些版本：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rvm list</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rvm list</span><br></pre></td></tr></table></figure>
 <p>想要卸载哪个版本的 Ruby，你就用这样的命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rvm uninstall 1.9.2</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rvm uninstall 1.9.2</span><br></pre></td></tr></table></figure>
 <p>下面要接着安装的 <code>nvm</code>，跟 <code>rvm</code> 一个原理，只不过 <code>nvm</code> 是 <code>nodejs</code> 的版本管理器。</p>
-<h3 id="安装-nvm-和-node-4-4-5"><a href="#安装-nvm-和-node-4-4-5" class="headerlink" title="安装 nvm 和 node 4.4.5"></a>安装 nvm 和 node 4.4.5</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">brew install nvm</span><br><span class="line">nvm install 4.4.5</span><br><span class="line">nvm use 4.4.5</span><br></pre></td></tr></table></figure>
+<h3 id="安装-nvm-和-node-4-4-5"><a href="#安装-nvm-和-node-4-4-5" class="headerlink" title="安装 nvm 和 node 4.4.5"></a>安装 nvm 和 node 4.4.5</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">brew install nvm</span><br><span class="line">nvm install 4.4.5</span><br><span class="line">nvm use 4.4.5</span><br></pre></td></tr></table></figure>
 <p>为什么要安装 4.4.5 这个版本呢？nodejs 有两个版本，一个叫 LTS（Long Term Support，提供长期支持的稳定版），一个叫 Current（提供最新功能的当下版，通常也不够稳定，尚需改进）。很多软件系统都采用这种方式，比如著名的 Ubuntu …… 所以，当我们需要安装什么软件的时候，必须到官方网站上看一看，看看当前的稳定版本是什么，然后选择它就是了。将来你成了高手，啥都敢于、且确实有能力尝鲜的时候，就随便你喽。</p>
 <p>如此这般，最基础的开发环境算是完成了 —— 理论上来讲，还有更多的事儿要做，不过，反正也一下子做不过来，就先到这里为止罢。</p>
 <p>关于更详细的开发环境设置，请参阅这两个 Github 项目：</p>
@@ -358,7 +358,7 @@
 <h4 id="建议"><a href="#建议" class="headerlink" title="建议"></a>建议</h4><p> <strong>永远不要参与编程语言之间或编辑器之间的比较争论</strong> —— 在工程师世界里，那是永无宁日的争论，但价值并不大，事实上，一切争论的价值都不大：<strong>平息争论的能力才是更有价值的能力，若是不能平息争论，就不要参与争论了，因为参与无法平息的争论，本质上就是，耗费了时间耗费了生命却没有任何结果</strong> —— 这是一个很重要的价值观，它会帮你节省无数未来的时间精力，它也有可能让你成为那个最终能够平息争论的人。</p>
 </blockquote>
 <h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>打开 <code>iTerm</code>，用以下命令安装 <code>Atom</code>：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew cask install atom</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">brew cask install atom</span><br></pre></td></tr></table></figure>
 <p>关于 <code>brew cask</code> 命令的说明，请参阅其官方网站：<a href="https://caskroom.io" target="_blank" rel="external">https://caskroom.io</a>…… 学任何工具，第一件事情就是去把官方网站翻个遍，是必须的习惯。</p>
 <p>当然，也可以使用传统的安装方法，到 <a href="https://atom.io" target="_blank" rel="external">https://atom.io</a> 去下载 <code>dmg</code> 文件，打开之后，将应用程序拖到 <code>Application</code> 目录中去……</p>
 <h4 id="阅读-Atom-官方网站"><a href="#阅读-Atom-官方网站" class="headerlink" title="阅读 Atom 官方网站"></a>阅读 Atom 官方网站</h4><p><code>Atom</code> 的官方网站是，<a href="https://atom.io" target="_blank" rel="external">https://atom.io</a> ，Documentation 栏目里，他们放了一个 <a href="http://flight-manual.atom.io" target="_blank" rel="external">Atom Flight Manual</a> —— 这就是第一步要读的东西。</p>
@@ -381,9 +381,9 @@
 </blockquote>
 <p>熟悉到一定程度之后，就可以卸载它们了。</p>
 <p>还有个程序值得试试：<a href="https://www.grandtotal.biz/CheatSheet/" target="_blank" rel="external">CheatSheet</a>，无论什么时候，只要有它在，按住 ⌘ 一会儿，就会跳出一个面板，让你看到所有可用的快捷键。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew cask install cheatsheet</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">brew cask install cheatsheet</span><br></pre></td></tr></table></figure>
 <h3 id="安装-Dash"><a href="#安装-Dash" class="headerlink" title="安装 Dash"></a>安装 Dash</h3><p><a href="https://kapeli.com/dash" target="_blank" rel="external">Dash</a> 是个神奇的个人作品，现在几乎每一个在 Mac 上开发的人都会用到 Dash，估计你也不例外，装上吧，该付费就马上付费…… 想想真的不算贵。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew cask install dash</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">brew cask install dash</span><br></pre></td></tr></table></figure>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>除了各种安装配置之外，你重点要看的是这俩文档：</p>
 <blockquote>
 <ul>
@@ -501,7 +501,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/">
-              <span class="site-state-item-count">7</span>
+              <span class="site-state-item-count">8</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
