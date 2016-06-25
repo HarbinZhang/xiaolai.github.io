@@ -92,7 +92,7 @@
 <meta property="og:site_name" content="{am} xiaolai">
 <meta property="og:description" content="无论什么东西，快速了解都是有可能的，之后就要通过反复使用、反复操作获得并磨炼熟练程度。很多人被误导，总是以为“一定要学到一定程度才算学会，才可以拿出手……” 这是肤浅的。要尽快掌握“最少必要知识”（MAKE），然后就开始行动、开始践行…… 真正的熟练，只能在践行之中通过试错、改进、总结、纠正等必要的环节才能获得。
 1. HTML/CSS 都是了解一句话之后就可以开始写的HTML 是什么东西呢？一句">
-<meta property="og:updated_time" content="2016-06-25T03:03:36.000Z">
+<meta property="og:updated_time" content="2016-06-25T03:09:21.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="快速学习 HTML 和 CSS">
 <meta name="twitter:description" content="无论什么东西，快速了解都是有可能的，之后就要通过反复使用、反复操作获得并磨炼熟练程度。很多人被误导，总是以为“一定要学到一定程度才算学会，才可以拿出手……” 这是肤浅的。要尽快掌握“最少必要知识”（MAKE），然后就开始行动、开始践行…… 真正的熟练，只能在践行之中通过试错、改进、总结、纠正等必要的环节才能获得。
@@ -324,7 +324,8 @@
 <p>当然，冒号后面的值，你都可以（也应该）随便写写多试试…… 比如，<code>max-width: 1024px;</code> 你可以试试 <code>max-width: 768px;</code> …… 在输入的过程中，你会发现 Safari 提供了列表选择功能和自动补全功能 —— 非常方便 —— 甚至，行末的分号是不用输入的……</p>
 <p>好玩吧？你刚刚是重新定义了 <code>body</code> 这个元素里的内容的显示样式。</p>
 <p>文章开头，有一个 <strong>Revision History</strong> 部分，里面是作者多次修改更新过的记录。在那个暗色的边框上点鼠标右键，选择 <code>Inspect Element</code> ……</p>
-<p>你可以看到，这里面的所有内容都被包在一个 <figure class="highlight plain"><figcaption><span>class="revhistory">``` 的区块里。在右下角的输入框里输入 `revhistory`，你会看到这个 `class` 并没有被定义样式。在输入框里已经输入了 `revhistory` 的情况下，再点一下那个 `+` 按钮…… 输入：</span></figcaption><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">```css</span><br><span class="line">  display: none;</span><br></pre></td></tr></table></figure></p>
+<p>你可以看到，这里面的所有内容都被包在一个 <code>&lt;div class=&quot;revhistory&quot;&gt;</code> 的区块里。在右下角的输入框里输入 <code>revhistory</code>，你会看到这个 <code>class</code> 并没有被定义样式。在输入框里已经输入了 <code>revhistory</code> 的情况下，再点一下那个 <code>+</code> 按钮…… 输入：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">display</span>: <span class="selector-tag">none</span>;</span><br></pre></td></tr></table></figure>
 <p>…… 那一整块内容“不见了”！是呀，你刚刚要求的麽！</p>
 <p>当我们用浏览器打开一个网页的时候，看到的那些内容是浏览器将从服务器那里获得的 HTML、CSS、JAVASCRIPT 等文件的内容，组合起来解析之后，“渲染”（Render）出来的…… 由于这个原理，Firefox 有一个插件，Greasemonkey，可以编制一些 JAVASCRIPT 脚本，用来改变任意网站的显示样式…… 在以下网站上，可以找到很多别人写好的用户脚本：</p>
 <blockquote>
