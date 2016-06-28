@@ -104,7 +104,7 @@
     fancybox: true,
     motion: true,
     duoshuo: {
-      userId: 0,
+      userId: undefined,
       author: '博主'
     }
   };
@@ -117,6 +117,15 @@
 
   
 
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-48155608-1', 'auto');
+  ga('send', 'pageview');
+</script>
 
 
 
@@ -266,6 +275,13 @@
 
           
             
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/25/makecs-html-css/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/25/makecs-html-css/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -287,140 +303,14 @@
       
         
           
-            <p>无论什么东西，快速了解都是有可能的，之后就要通过反复使用、反复操作获得并磨炼熟练程度。很多人被误导，总是以为“一定要学到一定程度才算学会，才可以拿出手……” 这是肤浅的。要尽快掌握“最少必要知识”（MAKE），然后就开始行动、开始践行…… 真正的熟练，只能在践行之中通过试错、改进、总结、纠正等必要的环节才能获得。</p>
-<h2 id="1-HTML-CSS-都是了解一句话之后就可以开始写的"><a href="#1-HTML-CSS-都是了解一句话之后就可以开始写的" class="headerlink" title="1. HTML/CSS 都是了解一句话之后就可以开始写的"></a>1. HTML/CSS 都是了解一句话之后就可以开始写的</h2><p>HTML 是什么东西呢？一句话就够了 —— 真用不着非得读完一本书才能开始行动。</p>
-<blockquote>
-<p>HTML 是用来在纯文本内添加各种标记（用尖括号括起来的标记，叫做“<strong>TAG</strong>”），以便让浏览器能以正确的格式显示那些内容的“语言”。</p>
-</blockquote>
-<p>所以，假设你在 HTML 里写的是这样的：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span> This is the first paragraph.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span> This is the second paragraph.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span> This is a <span class="tag">&lt;<span class="name">strong</span>&gt;</span>word<span class="tag">&lt;/<span class="name">strong</span>&gt;</span> marked as strong.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span> This is a word <span class="tag">&lt;<span class="name">em</span>&gt;</span>marked<span class="tag">&lt;/<span class="name">em</span>&gt;</span> as emphasized.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>然后浏览器会将其显示成这样子：</p>
-<blockquote>
-<p>This is the first paragraph.<br>This is the second paragraph.<br>This is a <strong>word</strong> marked as strong.<br>This is a <em>word</em> marked as emphasized.</p>
-</blockquote>
-<p>格式（Format），通常很简陋，只包括字体大小、字体加重、倾斜、删除线、下划线等等；另外一个词叫样式（Style），除了最基本的格式之外，还可以包括更多的细节，行间距、字间距、背景色等等……</p>
-<p>那么，CSS 是什么呢？</p>
-<blockquote>
-<p>CSS 就是用来批量指定标签内容样式的方法。</p>
-</blockquote>
-<p>你只要在 HTML 文件里加上这么一句：</p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;style&gt;strong &#123;color: blue;&#125;&lt;/style&gt;</span><br></pre></td></tr></table></figure>
-<p>那么整个文档里的所有被标记为“加重”的文字（<code>&lt;strong&gt;</code>）就都显示为蓝色（blue）了…… 当然你还可以为所有加重的文字加上更多的样式：</p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">  strong &#123;</span><br><span class="line">    font-family: "Courier New";</span><br><span class="line">    font-size: 20px;</span><br><span class="line">    border: yellow solid 1px;</span><br><span class="line">    padding: 3px;</span><br><span class="line">    margin: 5px;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
-<p>其实很直观的，不是吗？</p>
-<h2 id="2-快速体验"><a href="#2-快速体验" class="headerlink" title="2. 快速体验"></a>2. 快速体验</h2><p>打开 Safari，输入以下网址（将来还是推荐使用 Firefox 或者 Chrome 的，只不过，现在先用 Safari 玩玩……）：</p>
-<blockquote>
-<p><a href="http://www.catb.org/esr/faqs/smart-questions.html" target="_blank" rel="external">http://www.catb.org/esr/faqs/smart-questions.html</a></p>
-</blockquote>
-<p>这是篇工程师必须熟读、牢记的文章 —— 事实上，你读过之后就知道了，无论是谁，不管哪一个行业，其实都应该深入了解这篇文章的。</p>
-<p>打开之后，你会看到一个相对格式、样式都极端朴素的文档。</p>
-<p>基本上，任意一个浏览器，无论是 Safari, 还是 Chrome, Firefox, Opera, 它们的一些基础快捷键都是一样的，比如，都可以用 <kbd>⌥</kbd>-<kbd>⌘</kbd>-<kbd>I</kbd> 呼出一个“Developer Tools Pane”…… 即便在 Atom 里，也一样可以用这个快捷键 —— 因为 Atom 本身也是个基于 Chromium 的浏览器。</p>
-<p>如果你没有安装 Safari 以外的浏览器，建议你把几个常用的浏览器全都安装好，反正以后都用得着……<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">brew cask install chrome</span><br><span class="line">brew cask install firefox</span><br><span class="line">brew cask install opera</span><br></pre></td></tr></table></figure></p>
-<p>以下我们先用 Safari 体验一下 HTML 和 CSS 的基本功能…… 请注意：在这个过程中不要刷新浏览器，否则你刚刚做过的改动就都不见了…… 当然，若是你想重新来过，就刷新一下浏览器好了。</p>
-<p>在 Safari 上按下快捷键 <kbd>⌥</kbd>-<kbd>⌘</kbd>-<kbd>I</kbd> 之后，底部会出现一个工具台，工具台左侧，是当前文档的 HTML 源码，右侧是样式编辑器…… 上面还有一些标签，等你以后再熟悉。</p>
-<p>工具台最低部的左侧，<code>&gt;</code> 标记右边，其实是个命令行输入框，在那里可以输入一些 javascript 命令，比如，你可以输入以下代码试试：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">alert(&apos;hello&apos;);</span><br></pre></td></tr></table></figure>
-<p>在工具台的左侧，你可以看到 HTML 源码，随时可以点击鼠标右键，再点击 <code>Edit as Html</code> 之后做任意的修改 —— 别怕，你玩不坏它的。随便搞，胡搞瞎搞才好玩……</p>
-<p>在工具台最低部的右侧，有一个<code>+</code> —— 那是个按钮…… 边上还有个输入框，在里面输入 <code>body</code>，于是，样式编辑器里面就聚焦于 <code>body</code> 这个元素了；这时候，再点一下那个 <code>+</code> 按钮……</p>
-<p>你会看到多了一个 <code>body</code> 的字样，在这一行的下方输入：</p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">font-family: 'Courier New';</span><br><span class="line">font-size: large;</span><br><span class="line">max-width: 1024px;</span><br><span class="line">margin: auto 100px;</span><br><span class="line">background-color: #eee;</span><br></pre></td></tr></table></figure>
-<p>当然，冒号后面的值，你都可以（也应该）随便写写多试试…… 比如，<code>max-width: 1024px;</code> 你可以试试 <code>max-width: 768px;</code> …… 在输入的过程中，你会发现 Safari 提供了列表选择功能和自动补全功能 —— 非常方便 —— 甚至，行末的分号是不用输入的……</p>
-<p>好玩吧？你刚刚是重新定义了 <code>body</code> 这个元素里的内容的显示样式。</p>
-<p>文章开头，有一个 <strong>Revision History</strong> 部分，里面是作者多次修改更新过的记录。在那个暗色的边框上点鼠标右键，选择 <code>Inspect Element</code> ……</p>
-<p>你可以看到，这里面的所有内容都被包在一个 <code>&lt;div class=&quot;revhistory&quot;&gt;</code> 的区块里。在右下角的输入框里输入 <code>revhistory</code>，你会看到这个 <code>class</code> 并没有被定义样式。在输入框里已经输入了 <code>revhistory</code> 的情况下，再点一下那个 <code>+</code> 按钮…… 输入：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">display</span>: <span class="selector-tag">none</span>;</span><br></pre></td></tr></table></figure>
-<p>…… 那一整块内容“不见了”！是呀，你刚刚要求的麽！</p>
-<p>当我们用浏览器打开一个网页的时候，看到的那些内容是浏览器将从服务器那里获得的 HTML、CSS、JAVASCRIPT 等文件的内容，组合起来解析之后，“渲染”（Render）出来的…… 由于这个原理，Firefox 有一个插件，Greasemonkey，可以编制一些 JAVASCRIPT 脚本，用来改变任意网站的显示样式…… 在以下网站上，可以找到很多别人写好的用户脚本：</p>
-<blockquote>
-<ul>
-<li><a href="https://openuserjs.org/" target="_blank" rel="external">https://openuserjs.org/</a></li>
-<li><a href="https://greasyfork.org/en/scripts" target="_blank" rel="external">https://greasyfork.org/en/scripts</a></li>
-<li><a href="http://userscripts-mirror.org/" target="_blank" rel="external">http://userscripts-mirror.org/</a></li>
-</ul>
-</blockquote>
-<p><strong>注意</strong>：去看看体验一下就好，千万别玩过头了…… <strong>给自己定个闹钟，15 分钟之后要回来干正事儿！</strong> 很多人都是这样，一不小心就被各种东西分散了注意力。</p>
-<h2 id="3-系统了解-HTML-和-CSS"><a href="#3-系统了解-HTML-和-CSS" class="headerlink" title="3. 系统了解 HTML 和 CSS"></a>3. 系统了解 HTML 和 CSS</h2><p>行了！尝鲜之后，就需要快速系统了解 HTML 和 CSS 了。先去这个地方：</p>
-<blockquote>
-<ul>
-<li><strong>HTML</strong> <a href="http://www.w3schools.com/html/default.asp" target="_blank" rel="external">http://www.w3schools.com/html/default.asp</a></li>
-<li><strong>CSS</strong> <a href="http://www.w3schools.com/css/default.asp" target="_blank" rel="external">http://www.w3schools.com/css/default.asp</a></li>
-</ul>
-</blockquote>
-<p>天了个噜，这个全球访问量最大的网页开发教程网站竟然是用微软的 asp 写的…… 可这背后有个特别重要的道理：</p>
-<blockquote>
-<p>用的技术是否时髦或者是否过时，在另外一个因素面前完全没有意义：做的事情有没有价值。w3schools 做的事情明显价值很大…… 所以说，在很多的时候，“做对的事情”（do right things），远“比把事情做对”（do things right）重要得多…… 再进一步，技术是用来实现思想的…… 所以，思想更重要。只钻研技术，没有思想，其实很可怜的…… 当然，有丰富的思想却没有技术，那更可怜。</p>
-</blockquote>
-<p>把 w3schools 上的这两个教程反复看个两三遍，对不止一遍 —— 当然，光看完不够，要每个要素都要逐一实验过。别觉得自己记不住，记不住的原因只有一个，就是用的次数不够多而已。</p>
-<h2 id="4-读不止一个教程"><a href="#4-读不止一个教程" class="headerlink" title="4. 读不止一个教程"></a>4. 读不止一个教程</h2><p>一般来说，Documentation，只要看 Official Documentation 一个就够了，把一个 OD 读透就行。很多的时候，所谓的读透，只不过是把结构弄清楚，以便将来随便查询…… 真的不难。</p>
-<p>可若是读教程，那有个好建议就是：</p>
-<blockquote>
-<p>读一个以上的教程。同一个话题的书，可以读很多本 —— 这绝对是最好的学习习惯之一。</p>
-</blockquote>
-<p>除了 w3schools 之外，有关 <code>HTML/CSS</code> 的教程，其实很多，你不妨搜索一下：</p>
-<blockquote>
-<ul>
-<li>Google Web Fundamentals</li>
-<li>MDN Learning web Developement</li>
-</ul>
-</blockquote>
-<p>也一定有所收获。</p>
-<h2 id="5-先学范儿，某种意义上也是对的"><a href="#5-先学范儿，某种意义上也是对的" class="headerlink" title="5. 先学范儿，某种意义上也是对的"></a>5. 先学范儿，某种意义上也是对的</h2><p>第一遍读完 w3schools 上的 HTML Tutorial 之后，要看的是这个：</p>
-<blockquote>
-<p><a href="http://www.w3schools.com/html/html5_syntax.asp" target="_blank" rel="external">HTML(5) Style Guide and Coding Conventions</a></p>
-</blockquote>
-<p>凡事儿都需要做得有模有样…… 我一直认为所谓真正的专家，其实是那些真正用专家的标准要求自己的人，而不一定是那些被别人称为专家的人。</p>
-<p>不管学什么，先认真观察那些专家的“范儿”，是有益处的，虽然有很多细节目前做不到，但目标就是将来要做到，所以要提前观察，提前模仿，提前准备…… 以后学各种语言的时候，都要这样，先去看看 <strong>Style Guide</strong> 和 <strong>Coding Conventions</strong>……</p>
-<h2 id="6-学会就能用一辈子：总结、整理、提炼重点"><a href="#6-学会就能用一辈子：总结、整理、提炼重点" class="headerlink" title="6. 学会就能用一辈子：总结、整理、提炼重点"></a>6. 学会就能用一辈子：总结、整理、提炼重点</h2><p>HTML5 的学习难度，确实比之前的 HTML3 高了一些，因为标签的数量明显增加了很多，并且还有各种浏览器不完全兼容的情况需要注意……</p>
-<p>然而，最终，有些人跨越不过去的原因很简单：</p>
-<blockquote>
-<p>基本的总结概括能力差而导致的任务量过大……</p>
-</blockquote>
-<p>上学的时候，学习能力强的同学，经常做各种总结整理，并分享出来…… 殊不知，那些喜欢等别人整理好了再用的人，常常因为缺失了自己动脑总结整理的过程而使得这方面能力逐步下降直至退化为零…… 观察一下生活吧，学习能力差的人，其实说穿了都有统一的局限：</p>
-<blockquote>
-<ol>
-<li>总结整理能力差</li>
-<li>提炼重点能力差</li>
-</ol>
-</blockquote>
-<p>其中的第二条，基本上与第一条是互为因果的关系。</p>
-<p>所以，总结、整理、提炼重点，这类事情一定要自己动手做。别嫌麻烦，这种事情不是麻烦，是修炼。怕麻烦的人，就是这样在每一个重要的环节上都吃亏却觉得自己占了便宜，乃至于有一天发现自己吃了亏，却完全不知道哪儿吃了亏…… 而上一章中提到的 “<a href="02.atom-advanced.md">Atom 的 Snippets 最好自己动手写</a>” 其实也是一样的道理。</p>
-<p>在 w3schools 上把 HTML Tutorial 反复看两三遍的过程中，要不断地想：</p>
-<blockquote>
-<p>我有什么办法把这些 Tag 分类，以便在脑子里形成一个清晰的框架呢？<br>重点究竟是什么呢？</p>
-</blockquote>
-<p>分类的一个基本技巧，虽然简单，很多人却并不知道：</p>
-<blockquote>
-<p>总是有一些元素最终无法精确分类…… 于是只好放到“其它”这么个无奈而必须的类别中去。</p>
-</blockquote>
-<p>说实话，“其它”这个无奈的类别，也是很多人总结整理的功夫总也练不成的主要原因，因为他们不知道那个“其它”是最终对谁来说都是因无奈而必要的类别，所以总是觉得自己做得不够好，或者干脆不会做…… 于是因为只好等别人的所以自己的能力不断退化；又由于他们确实不知道这个事实，所以，当他们在别人的分类中看到“其它”类别的时候，竟然反应不过来“那是最终对谁来说都是因无奈而必要的类别”…… 听起来有点绕，但仔细琢磨一下吧，看看是不是这么回事儿？</p>
-<p>如果自己没把握，不妨还是“故技重演”，去网上搜索一下 <code>HTML5 CheatSheet</code>，看看别人是怎么总结、怎么整理、如何分类、如何提炼重点的…… 然后自己再试试。</p>
-<p>甚至为了锻炼自己的总结整理、提炼重点的能力，可以尝试很多种分类方法，比如，随便举个分类方法的例子：</p>
-<blockquote>
-<ul>
-<li>隐含的：像 <code>&lt;head&gt;</code>、<code>&lt;link&gt;</code>、<code>&lt;meta&gt;</code> 标签所标记的内容，是不会在浏览器上直接显示的……</li>
-<li>显示的：大多数 Tag 都是标记内容格式的，所以当然是属于“显示的”……</li>
-</ul>
-</blockquote>
-<p>“显示的标签中”，也可以继续分类：</p>
-<blockquote>
-<p>事关布局的（比如 <code>&lt;header&gt;</code>、<code>&lt;section&gt;</code>、<code>&lt;aside&gt;</code>、<code>&lt;footer&gt;</code> 等等）<br>事关内容的（比如 <code>&lt;p&gt;</code>、<code>&lt;table&gt;</code>、<code>&lt;blockquote&gt;</code> 等等）<br>事关提交的（比如 <code>&lt;form&gt;</code>、<code>&lt;input&gt;</code> 等等）</p>
-</blockquote>
-<p>这种看起来耗时费力的事情，都不要偷懒不去做，因为这是一种虽然简单，但必然有积累效应的能力获取，以后你的总结整理能力会越来越强的，然后基本上最终就是遇到这种情况，“随手一做”就比别人弄得好 —— 当然，显然会学得更快、应用得更好…… 就好像你真的像他们说的那样“更聪明似的”…… 说实话，最终也确实是的。</p>
-<p>可这么简单的东西居然是很大的窍门，那些笨蛋们怎么可能相信呢？</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>HTML 和 CSS 其实都不难，但以后你会知道，真的要足够深入，确实还是挺难的 —— 可之所以难，只不过是因为深入了解需要时间，而大多数人总是舍不得花自己的时间在正地方而已，他们一方面舍不得自己的时间花在正地儿，却又在另一方面把大量的时间浪费在自己都不知道是哪儿的地方 —— 说来也怪。</p>
-<p>HTML 和 CSS 肯定是未来你一定会反复回来研究的东西。到了 2016 年，有一个趋势越来越明显：</p>
-<blockquote>
-<p>未来一切都是 Web Application……</p>
-</blockquote>
-<p>现在，无论是网站，还是 APP，还是 PC/Mac 上程序，都可以用 HTML 写了（Github 为了打造一个 Atom 编辑器，甚至之前先写了一个跨平台程序开发框架：<a href="http://electron.atom.io" target="_blank" rel="external">Electron</a>…… 早晚你也要学会的）。</p>
-<p>另外，还有一个刻意练习 —— 就是自己动手写 HTML 和 CSS 的<br>Atom Snippets…… 对自己认真一点的话，就边练边写罢。</p>
-<p>顺带给大家看个在学习上“洁身自好”的实例：</p>
-<blockquote>
-<p><a href="http://ricostacruz.com/cheatsheets/" target="_blank" rel="external">http://ricostacruz.com/cheatsheets/</a></p>
-</blockquote>
-<p>看看人家这些年写了多少个 Cheatsheets 给自己……</p>
+          无论什么东西，快速了解都是有可能的，之后就要通过反复使用、反复操作获得并磨炼熟练程度。很多人被误导，总是以为“一定要学到一定程度才算学会，才可以拿出手……” 这是肤浅的。要尽快掌握“最少必要知识”（MAKE），然后就开始行动、开始践行…… 真正的熟练，只能在践行之中通过试错、改进、总结、纠正等必要的
+          ...
 
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/06/25/makecs-html-css/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -491,6 +381,13 @@
 
           
             
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/22/makecs-build-a-blog-with-hexo-on-github/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/22/makecs-build-a-blog-with-hexo-on-github/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -512,140 +409,19 @@
       
         
           
-            <p>在开始之前就说过，必须去注册一个 Github 帐号…… 以下假定你已经注册好了。</p>
-<p>想学什么，可以先假装已经会了什么…… 听起来很没道理，但你试试就知道了……</p>
-<blockquote>
-<p>习得任何技能的最根本技巧，就是一句话而已：<strong>马上开始像那些已经精通这个技能的人一样生活。</strong></p>
-</blockquote>
-<p>这是很重要的方法论，它会让你无视很多障碍，跨越很多障碍，甚至那些障碍对你来说就好像完全不存在一样。心理学家告诉我们，当你不开心的时候，假装开心，做出笑脸，过一会儿就没那么不开心了，甚至真的开心起来…… 这个原理其实可以用在很多地方，比如，某项技能你不会，但你想会，那就从假装会了这个技能开始，然后当真去做、去学，没多久就真的会了…… 我小时候学吉他也是这样，买来吉他其实是不会的啊，但也不知道为什么就是有欲望坐在那里乱弹一气，就好像会了一样 —— 可真的没多一会儿就开始渐渐调整自己，让手的拨动多少有点节奏…… 竟然比之前好听多了！</p>
-<p>我们只不过注册了一个 Github 帐号而已，还装得不够像…… 让我们费一点周折，装得更像一点罢。</p>
-<p>我从来都是这样的，装就装得真像 —— 这样后来就真的是了。你看，我有个网站：<a href="http://xiaolai.github.io" target="_blank" rel="external">xiaolai.github.io</a>，你不妨打开看一看。接下来，你就跟着我一步一步地给自己搭建一个跟工程师们用的一样的个人网站。</p>
-<p>这个过程其实不太费劲的，甚至很简单，相信我。但在这个过程中你也一定会七七八八学很多东西…… 你会感觉时间一晃就过去了 —— 因为你会在这个过程中一不小心就进入所谓的 “flow”（心流）。学习从来不是杀时间的方式，恰恰相反，学习是“时间加速器”，它会让时间一晃而过，却又与此同时增加了时间质量与密度 —— 你不可能没有感受的！</p>
-<p>在这个过程中，我们会熟悉起来的东西包括</p>
-<blockquote>
-<ul>
-<li>命令行工具的使用</li>
-<li>Atom 的使用</li>
-<li>如何书写 Markdown 文档</li>
-</ul>
-</blockquote>
-<p>开始罢。</p>
-<h2 id="1-初步搭建"><a href="#1-初步搭建" class="headerlink" title="1. 初步搭建"></a>1. 初步搭建</h2><h3 id="1-1-在-Github-上创建一个-Repo"><a href="#1-1-在-Github-上创建一个-Repo" class="headerlink" title="1.1. 在 Github 上创建一个 Repo"></a>1.1. 在 Github 上创建一个 Repo</h3><p>在浏览器中登录 <a href="https://githu.com" target="_blank" rel="external">Github</a>，创建一个 Repo，名称格式为 <code>yourname.github.io</code>。比如，我个人的 Github 账户用户名是 <code>xiaolai</code>，所以，我的这个 Repo 的名称就是 <code>xiaolai.github.io</code>。这个特殊的 Repo 有个审核过程，所以，创建完了之后，直接干下一步去……</p>
-<h3 id="1-2-确认本地已经安装好-git-和-npm"><a href="#1-2-确认本地已经安装好-git-和-npm" class="headerlink" title="1.2. 确认本地已经安装好 git 和 npm"></a>1.2. 确认本地已经安装好 git 和 npm</h3><p>在 Terminal 里（或者 iTerm 里）输入以下命令确认 git 与 npm 已经安装妥当（<a href="01.basic-dev-env-setup.md">第一章</a>完成了的话，这些已经安装好了，若是没完成，请退回完成再回来重新继续……）</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git --version</span><br><span class="line">npm --version</span><br></pre></td></tr></table></figure>
-<h3 id="1-3-安装-hexo"><a href="#1-3-安装-hexo" class="headerlink" title="1.3. 安装 hexo"></a>1.3. 安装 hexo</h3><p>在 Terminal 中继续输入</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo -g</span><br><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
-<h3 id="1-4-创建本地工作目录"><a href="#1-4-创建本地工作目录" class="headerlink" title="1.4. 创建本地工作目录"></a>1.4. 创建本地工作目录</h3><p>去 Github 把你的 Repo 的 git 地址拷贝出来。</p>
-<blockquote>
-<ul>
-<li>我的是 <a href="https://github.com/xiaolai/xiaolai.github.io.git" target="_blank" rel="external">https://github.com/xiaolai/xiaolai.github.io.git</a></li>
-<li>你的是 <a href="https://github.com/yourname/yourname.github.io.git" target="_blank" rel="external">https://github.com/yourname/yourname.github.io.git</a> （其中，yourname 应该换乘你的 Github 用户名）。</li>
-</ul>
-</blockquote>
-<p>然后在 Terminal 面板里输入</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd ~/Public</span><br><span class="line">git clone https://github.com/yourname/yourname.github.io.git</span><br></pre></td></tr></table></figure>
-<h3 id="1-5-初始化你的本地站点"><a href="#1-5-初始化你的本地站点" class="headerlink" title="1.5. 初始化你的本地站点"></a>1.5. 初始化你的本地站点</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo init yourname.github.io</span><br><span class="line">cd yourname.github.io</span><br><span class="line">npm install hexo-deployer-git --save</span><br><span class="line">hexo generate</span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure>
-<p>这些完成之后，你就可以打开浏览器，在地址栏里输入： <code>localhost:4000</code>，在本地先看看网站是什么样子了。</p>
-<h3 id="1-6-部署到-Github-上"><a href="#1-6-部署到-Github-上" class="headerlink" title="1.6. 部署到 Github 上"></a>1.6. 部署到 Github 上</h3><p>回到命令行下，输入</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">atom .</span><br></pre></td></tr></table></figure>
-<p>Atom 就会打开 <code>yourname.github.io</code> 这个文件夹…… 在计算机世界里，<code>.</code> 是个特殊字符，代表“所有的”（以后你会越来越了解的），所以，<code>atom .</code> 的意思相当于“用 Atom 这个程序打开当前目录内的所有文件”……</p>
-<p>在 Atom 的左侧面板中，选择 <code>_config.yml</code> 文件，找到 deploy 哪一部分，改成：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https://github.com/yourname/yourname.github.io.git</span><br></pre></td></tr></table></figure>
-<p>注意，把 <code>yourname</code> 改成你的 Github 用户名。</p>
-<p>现在是最后一步了，在 Terminal 里依次输入：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo deploy</span><br><span class="line">open yourname.github.io</span><br></pre></td></tr></table></figure>
-<h3 id="1-7-阶段性成果"><a href="#1-7-阶段性成果" class="headerlink" title="1.7. 阶段性成果"></a>1.7. 阶段性成果</h3><p>稍等一下，你就可以看到默认浏览器被打开，且已经浏览到 <code>yourname.github.io</code> 这个网址了……（嗯…… 工程师们打开浏览流程的姿势都不太一样…… 对了，试试 <code>open .</code> 会发生什么？）</p>
-<p>简单吧？！</p>
-<p>不一定很简单 —— 对新手因为上面的过程中，每一个尽管相当简单的步骤，都可能出现各种莫名其妙的错误（比如，不小心使用了中文输入法的点字符“。”等等）…… 保持耐心，反复来过就好。</p>
-<p>不妨再说一遍，因为这是工程师必备的素质（其实是任何人在任何领域都应该必备的素质）：</p>
-<blockquote>
-<p><strong>保持耐心，反复来过，直至成功。</strong></p>
-</blockquote>
-<h2 id="2-继续折腾"><a href="#2-继续折腾" class="headerlink" title="2. 继续折腾"></a>2. 继续折腾</h2><p>没完事儿呢…… 这才刚刚开始，你现在有了个个性化域名，有了个所有人都可通过它访问的站点，然后就要做起码两件事儿了：</p>
-<blockquote>
-<ul>
-<li>学会在本地使用 Markdown 书写文章，而后发布到网上；</li>
-<li>把站点装扮得更好看一些。</li>
-</ul>
-</blockquote>
-<p>当然，这之前，我们还要学会做更多的事情，包括很多非常细琐的东西。反正我们不着急。</p>
-<h3 id="2-1-给-Atom-安装一个命令行面板"><a href="#2-1-给-Atom-安装一个命令行面板" class="headerlink" title="2.1 给 Atom 安装一个命令行面板"></a>2.1 给 Atom 安装一个命令行面板</h3><p>有一个 Atom Package，可以在 Atom 里调用 Terminal 面板，叫 <a href="https://atom.io/packages/platformio-ide-terminal" target="_blank" rel="external">platformio-ide-terminal</a> 不妨装上玩玩。我是怎么想到找这个东西的呢？很简单，经常需要从 Atom 切换到 Terminal / iTerm …… 工程师们肯定也一样觉得麻烦，所以，估计他们已经有了解决方案…… 于是，到 Google 里搜索了一下：</p>
-<blockquote>
-<p>terminal in Atom</p>
-</blockquote>
-<p>果然有这种东西…… 希望你现在已经对命令行有一定了解了，没有的话，回去第一章再看看你找到的那个 Cheatsheet 罢，边看边练。</p>
-<p>这是学习过程中必须学会的思考模式（Mindset）和行为模式（Action Pattern）：</p>
-<blockquote>
-<ol>
-<li>随时准备深入了解某个小领域</li>
-<li>借助地球上最强大的人工智能（Google）找到学习资源</li>
-<li>给自己一小段时间刻意练习</li>
-<li>不怕死记硬背，更要善于死记硬背，通过短时间内的大量重复，把那些别人看起来枯燥的东西迅速变成自己“内建的技能” —— 通过刻意练习将其熟练到“想都不用想就能用的地步”……</li>
-<li>给自己定个“最后期限”，比如一小时之内一定做到把这些命令谙熟于心…… 绝对不能“过些天就想不起来了”，否则，那就是思考监管的“只因为学习习惯不好造成的永久性愚蠢”。</li>
-</ol>
-</blockquote>
-<p>再提醒一遍，别忘了给自己洗脑：“<strong>只搜索、只阅读英文文档</strong>”，有中文的也不能看，就是不能看……</p>
-<p><strong>还有就是，每次脑子里闪出“呀，好麻烦！”这个念头的时候，就要知道自己脑子脏了，该洗了。</strong> 无论干什么都挺麻烦的，怕麻烦的人什么都做不成，躲避麻烦的唯一正确方式就是“不怕麻烦，逐一完成”，否则就会反复麻烦一辈子又一辈子（甚至会遗传，不耐心的父母必然养出不耐心的孩子）。凡事道理都是一样的，我有一句口头禅：“偷懒的唯一方式就是不偷懒……” 也还是一样的道理。</p>
-<h3 id="2-2-为-Atom-安装-markdown-相关-Packages"><a href="#2-2-为-Atom-安装-markdown-相关-Packages" class="headerlink" title="2.2 为 Atom 安装 markdown 相关 Packages"></a>2.2 为 Atom 安装 markdown 相关 Packages</h3><p>Markdown 是程序员们最喜欢用的书写工具，是一种简化版的文字标记方式，你的 yourname.github.io 站点上的文章，就得用这种方式书写。怎么用、怎么写？Google <code>github markdown</code> 就知道了，别忘了在搜索一遍 <code>github markdown cheatsheet</code>，嗯，这个基本上用不着刻意练习 —— 因为它太简单，另外也因为反正你以后天天用。</p>
-<p>点击 Preference 的左侧倒数第二项 <code>+ install</code>，在搜索框中输入 <code>markdown</code>，依次安装一下几个 Package：</p>
-<blockquote>
-<ul>
-<li>markdown-scroll-sync</li>
-<li>linter-markdown</li>
-<li>markdown-writer</li>
-<li>markdown-toc</li>
-<li>markdown-pdf</li>
-<li>markdown-preview</li>
-</ul>
-</blockquote>
-<p>设置一遍 markdown-writer，你就知道应该如何设置其它的 Package 了。还是进入 <code>Preference</code>，在左侧选择 <code>Packages</code>，在右侧找到 <code>markdown-writer</code>，点击 <code>Settings</code> 按钮…… 然后在里面上下翻一翻。在 <code>Site Engine</code> 里，竟然直接有个 <code>Hexo</code> 选项…… 真好！勾选罢！</p>
-<p>另外，如果快捷键 <kbd>⌘</kbd><kbd>b</kbd>、<kbd>⌘</kbd><kbd>i</kbd> 之类的不起作用，那么可以把以下代码拷贝粘贴到 <code>keymap.cson</code> 文件中（在 Preference 中点击左侧第二项 <code>Keybindings</code>，即可打开这个文件），随后用 <kbd>⌘</kbd><kbd>s</kbd> 保存之后重新启动 Atom 即可（或者在 Command Palette 里使用 <code>Windows: Reload</code> 命令）。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># for markdown-writer</span><br><span class="line">&quot;.platform-darwin atom-text-editor:not([mini])&quot;:</span><br><span class="line">  &quot;shift-cmd-K&quot;: &quot;markdown-writer:insert-link&quot;</span><br><span class="line">  &quot;shift-cmd-I&quot;: &quot;markdown-writer:insert-image&quot;</span><br><span class="line">  &quot;cmd-i&quot;:       &quot;markdown-writer:toggle-italic-text&quot;</span><br><span class="line">  &quot;cmd-b&quot;:       &quot;markdown-writer:toggle-bold-text&quot;</span><br><span class="line">  &quot;cmd-&apos;&quot;:       &quot;markdown-writer:toggle-code-text&quot;</span><br><span class="line">  &quot;cmd-k&quot;:       &quot;markdown-writer:toggle-keystroke-text&quot;</span><br><span class="line">  &quot;cmd-h&quot;:       &quot;markdown-writer:toggle-strikethrough-text&quot;</span><br><span class="line">  &apos;cmd-&gt;&apos;:       &quot;markdown-writer:toggle-blockquote&quot;</span><br><span class="line">  &apos;cmd-&quot;&apos;:       &quot;markdown-writer:toggle-codeblock-text&quot;</span><br><span class="line">  &quot;ctrl-alt-1&quot;:  &quot;markdown-writer:toggle-h1&quot;</span><br><span class="line">  &quot;ctrl-alt-2&quot;:  &quot;markdown-writer:toggle-h2&quot;</span><br><span class="line">  &quot;ctrl-alt-3&quot;:  &quot;markdown-writer:toggle-h3&quot;</span><br><span class="line">  &quot;ctrl-alt-4&quot;:  &quot;markdown-writer:toggle-h4&quot;</span><br><span class="line">  &quot;ctrl-alt-5&quot;:  &quot;markdown-writer:toggle-h5&quot;</span><br><span class="line">  &quot;shift-cmd-O&quot;: &quot;markdown-writer:toggle-ol&quot;</span><br><span class="line">  &quot;shift-cmd-U&quot;: &quot;markdown-writer:toggle-ul&quot;</span><br><span class="line">  &quot;cmd-j cmd-p&quot;: &quot;markdown-writer:jump-to-previous-heading&quot;</span><br><span class="line">  &quot;cmd-j cmd-n&quot;: &quot;markdown-writer:jump-to-next-heading&quot;</span><br><span class="line">  &quot;cmd-j cmd-d&quot;: &quot;markdown-writer:jump-to-reference-definition&quot;</span><br><span class="line">  &quot;cmd-j cmd-t&quot;: &quot;markdown-writer:jump-to-next-table-cell&quot;</span><br></pre></td></tr></table></figure>
-<p><strong>注意</strong></p>
-<p>在 Atom 里，<kbd>⌘</kbd><kbd>k</kbd> 默认被设置成了一些双组合键的第一个，比如，你按过一次 <kbd>⌘</kbd><kbd>k</kbd>  之后再按右方向键 <kbd>→</kbd> 的话，你当前的输入区域就会在一个新生成的右侧面板（Right Pance）上打开一份…… 所以，你想输入这样的文字之时：</p>
-<blockquote>
-<p><code>&lt;kbd&gt;k&lt;/kbd&gt;</code></p>
-</blockquote>
-<p>你的按键顺序是这样的（最后一个 <kbd>⎋</kbd> 是键盘最左上角的 <code>esc</code> 键盘）</p>
-<blockquote>
-<p><kbd>k</kbd>，<kbd>⇧</kbd><kbd>←</kbd>，<kbd>⌘</kbd><kbd>k</kbd>，<kbd>⎋</kbd></p>
-</blockquote>
-<h3 id="2-3-学习使用-markdown-书写文章并发布"><a href="#2-3-学习使用-markdown-书写文章并发布" class="headerlink" title="2.3 学习使用 markdown 书写文章并发布"></a>2.3 学习使用 markdown 书写文章并发布</h3><p>这次我们走另外一个路径。关掉所有程序，重新来过。用 Spotlight 打开 Terminal，输入</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd ~/Public/yourname.github.io</span><br></pre></td></tr></table></figure>
-<p>输入方法是这样的：输入 <code>cd ~/Pu</code> 之后，就按一下 <kbd>⇥</kbd>（Tab 键），应该能自动补全为 <code>cd ~/Public/</code>，接着再输入 <code>yourname</code>…… 其实可能输入前两个字符的时候已经可以用 <kbd>⇥</kbd> 完成自动补全了。补全之后，就可以直接按 <kbd>⏎</kbd> （回车键）进入你的目标目录了。</p>
-<p>然后再输入命令：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">atom .</span><br></pre></td></tr></table></figure>
-<p>进而用 Atom 打开当前目录中的所有文件。</p>
-<p>在右侧的面板里展开 <code>source</code> 目录，进一步再展开 <code>_posts</code> 目录，点击 <code>hello-world.md</code> 文件，正文编辑器里所显示的就是你现在能在网站上看得到的 <code>hello-world</code> 的源文件了。</p>
-<p>随便在那里面写任何内容，用一下你已经习得的 markdown 标记，玩玩。由于已经安装了 markdown-preview，所以在书写 Markdown 文档的时候，随时可以用 <kbd>⇧</kbd><kbd>⌃</kbd><kbd>m</kbd> 呼出预览，甚至可以实时更新预览。（不过，预览的时候和最终发布的时候看起来稍微不一样，自己体会一下……）</p>
-<p>然后就可以在 Terminal 面板中用 <code>hexo generate</code>生成静态 html 文件，用 <code>hexo server</code>本地查看（在浏览器中用这个地址：localhost:4000），或用 <code>hexo deploy</code> 发布到 yourname.github.io 上去……</p>
-<p>以后你想发表博客文章的时候，无非就是在 <code>source</code> 目录中创建新的 <code>.md</code> 文件，而后 <code>hexo generate</code>，之后再 <code>hexo deploy</code>.</p>
-<h3 id="2-4-一旦发现需要重复的工作……"><a href="#2-4-一旦发现需要重复的工作……" class="headerlink" title="2.4 一旦发现需要重复的工作……"></a>2.4 一旦发现需要重复的工作……</h3><p>—— 就要马上想办法要么 1)<strong>自动化</strong>，要么 2) <strong>减少工作量</strong>。这是工程师的思考行动方式，在工程师的世界里，懒惰有另外一种用处，是积极的用处：它是用来刺激寻找提高效率的手段。普通人懒起来就什么都不干了；工程师懒起来就使劲琢磨：</p>
-<blockquote>
-<p>“怎么做才能将来不用做或者起码少做却可以实际上干更多呢？”</p>
-</blockquote>
-<p>注意：“<strong>实际上干更多</strong>”才是重点！</p>
-<p>反复地敲 <code>hexo generate</code>、<code>hexo server</code>、<code>hexo deploy</code> 好累啊！怎么办？我们可以给命令行里反复输入的命令编制缩写……</p>
-<p>命令行下输入，其实就是用 Atom 打开 <code>~/.aliases</code> 文件：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">atom ~/.aliases</span><br></pre></td></tr></table></figure>
-<p>在该文件下输入以下内容：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">alias hgs=&quot;hexo g&amp;&amp;hexo s&quot;</span><br><span class="line">alias hgd=&quot;hexo g&amp;&amp;hexo d&quot;</span><br></pre></td></tr></table></figure>
-<p>重新启动 Terminal 之后，只要输入 <code>hgs</code> 就是生成内容之后在 <code>localhost:4000</code> 里预览，输入 <code>hgd</code> 就是部署到服务器上……</p>
-<p>能这么做的原因在于之前在<a href="01.basic-dev-env-setup.md">配置开发环境</a>的时候输入过这么三个命令：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">https://raw.githubusercontent.com/donnemartin/dev-setup/master/.bash_profile</span><br><span class="line">curl -O https://raw.githubusercontent.com/donnemartin/dev-setup/master/.bash_prompt</span><br><span class="line">curl -O https://raw.githubusercontent.com/donnemartin/dev-setup/master/.aliases</span><br></pre></td></tr></table></figure>
-<p><code>.bash_profile</code> 文件里引用了 <code>.bash_prompt</code> 和 <code>.aliases</code>，每次启动 Terminal 的时候，它都会引用 <code>.bash_profile</code> 里的设置，所以，以后你就可以把所有你需要的缩写都放到 <code>.aliases</code> 文件里去。</p>
-<p>比如我这个懒蛋就用来好几个这样的缩写：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">alias -=&quot;cd -&quot;</span><br><span class="line">alias ~=&quot;cd ~&quot;</span><br><span class="line">alias ..=&quot;cd ..&quot;</span><br><span class="line">alias ...=&quot;cd ../..&quot;</span><br><span class="line">alias ....=&quot;cd ../../..&quot;</span><br><span class="line">alias bp=&quot;atom ~/.bash_profile&quot;</span><br><span class="line">alias bpr=&quot;source ~/.bash_profile&quot;</span><br></pre></td></tr></table></figure>
-<p>所以，我需要修改 <code>~/.bash_profile</code> 文件的时候，就在 Terminal 里输入 <code>bp</code>，修改完了之后，保存好，然后在 Terminal 里输入 <code>bpr</code> 就行了，不用为了更改生效而重启 Terminal。</p>
-<h2 id="任务"><a href="#任务" class="headerlink" title="任务"></a>任务</h2><p>接下来你要做的是，以后经常写文章发表在网上 —— 衡量标准倒是有一个：</p>
-<blockquote>
-<p>尽量只写对别人有用的文章……</p>
-</blockquote>
-<p>毕竟这是发表在网上的基本意义之一。</p>
-<p>在接下来的时间里，若是有空，就给自己的 Blog 换个模板；加上评论，加上搜索，加上统计，加上…… 反正，在 Google 上随便一搜，每个任务都有很多教程 —— 自力更生好了。</p>
-<p>等将来弄明白了 html/jade、css/less/sass/ 之类的东西之后，也可以自己不断深入定制…… 现在就先在使用中把 <a href="https://help.github.com/categories/writing-on-github/" target="_blank" rel="external">(github flavored) Markdown</a> 彻底熟悉了罢。</p>
+          在开始之前就说过，必须去注册一个 Github 帐号…… 以下假定你已经注册好了。
+想学什么，可以先假装已经会了什么…… 听起来很没道理，但你试试就知道了……
 
-          
+习得任何技能的最根本技巧，就是一句话而已：马上开始像那些已经精通这个技能的人一样生活。
+
+这是很重要的方法论，它会让你无视很多障碍，跨越很
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/06/22/makecs-build-a-blog-with-hexo-on-github/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -716,6 +492,13 @@
 
           
             
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/17/makecs-atom-advanced/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/17/makecs-atom-advanced/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -737,112 +520,24 @@
       
         
           
-            <h2 id="1-两个共同的目标"><a href="#1-两个共同的目标" class="headerlink" title="1. 两个共同的目标"></a>1. 两个共同的目标</h2><p>以下的内容，假定你已经读完 Atom 官方教程 <a href="http://flight-manual.atom.io" target="_blank" rel="external">Atom Flight Manual</a> 的第一章：</p>
-<blockquote>
-<ul>
-<li>Chapter 1: Getting Started</li>
-</ul>
-</blockquote>
-<p>否则不要看下去了，回去先把那一章读完再说……</p>
-<p>工程师们使用的编辑器，有两个最基本的设计目标：</p>
-<blockquote>
-<ol>
-<li>尽量少敲键盘、少出错、多做事</li>
-<li>一定要可扩展、可定制、可积累</li>
-</ol>
-</blockquote>
-<p>Mac 上的编辑器，工程师们最喜欢用的曾经是 <em>TextMate</em>，后来是 <em>Sublimetext</em> 和 <strong>Atom</strong>…… 它们都是这样的编辑器。</p>
-<p>新手在 Atom 里敲键盘的时候，可能会“惊讶”地发现，括号、引号等等，都是成对出现的…… 比如，你按一下单引号，<kbd>‘</kbd>，实际出现的是一对单引号，而光标则闪烁在两个引号之间： <code>&#39;|&#39;</code> …… 圆括号、方括号、尖括号、大括号，等等，也都是这样的 —— 这就是工程师们不断给自己提高效率的一种方式，他们会想尽一切办法让自己可以少敲键盘、少出错，当然，为的是做更多的事。</p>
-<p>现在问题来了，按一下引号 <kbd>‘</kbd>，出来的是两个引号，然后光标在中间，于是你就可以在两个引号之间输入了…… 引号之间的内容输入完毕之后，你还得按一下右方向键<kbd>→</kbd>，右手移动的距离很大，因为右方向键在最右下角…… 很烦人是吧？</p>
-<p>在 Atom 编辑器中，用 <kbd>⇧</kbd><kbd>⌘</kbd><kbd>P</kbd> 呼出 Command Palette，在里面输入 <code>init script</code>，由于这个输入框里使用的是 <code>Fuzy matching</code>, 你输入到 <code>s</code> 的时候，估计 <code>Application: Open Your Init Script</code> 已经排在第一位了，当它是第一位的时候，直接回车键 <kbd>⏎</kbd>就可以了…… 在 <code>init script</code> 文件里拷贝粘贴以下代码：</p>
-<figure class="highlight coffee"><table><tr><td class="code"><pre><span class="line"><span class="comment"># move cursor across the ending symbols...</span></span><br><span class="line">EndingSymbolRegex = <span class="regexp">/\s*[)&#125;&gt;\]/</span><span class="string">'";:=-]/</span><br><span class="line">atom.commands.add '</span>atom-text-editor<span class="string">', '</span>custom:jump-over-symbol<span class="string">': (event) -&gt;</span><br><span class="line">  editor = atom.workspace.getActiveTextEditor()</span><br><span class="line">  cursorMoved = false</span><br><span class="line">  for cursor in editor.getCursors()</span><br><span class="line">    range = cursor.getCurrentWordBufferRange(wordRegex: EndingSymbolRegex)</span><br><span class="line">    unless range.isEmpty()</span><br><span class="line">      cursor.setBufferPosition(range.end)</span><br><span class="line">      cursorMoved = true</span><br><span class="line">  event.abortKeyBinding() unless cursorMoved</span></span><br></pre></td></tr></table></figure>
-<p>然后用 <kbd>⇧</kbd><kbd>⌘</kbd><kbd>P</kbd> 呼出 Command Palette，在里面输入 <code>keymap</code>，你应该能看到<code>Application: Open Your keymap</code> 已经排在第一位了，当它是第一位的时候，直接回车键 <kbd>⏎</kbd> …… 在 <code>Keymap</code> 文件里拷贝粘贴以下代码：</p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">"enter": "custom:jump-over-symbol"</span><br></pre></td></tr></table></figure>
-<p>其中这个”<code>enter</code>“，你可以换成你自己喜欢的、习惯的，比如”<code>tab</code>“，或者”<code>shift-enter</code>“。</p>
-<p>现在，用 <kbd>⇧</kbd><kbd>⌘</kbd><kbd>P</kbd> 呼出 Command Palette，在里面输入 <code>reload</code>，你应该能看到<code>Window: Reload</code> 已经排在第一位了，当它是第一位的时候，直接回车键 <kbd>⏎</kbd>就可以了…… 你也能看到这个命令其实有个快捷键： <kbd>⌃</kbd><kbd>⌥</kbd><kbd>⌘</kbd><kbd>L</kbd>，但 Command Palette 太好用了，以后你就知道了，记忆过多的快捷键实在是负担，虽然一些基础快捷键（比如命令行工具里的一系列与 control 键 <kbd>⌃</kbd> 组合的快捷键）必须通过大量使用变成脊髓记忆……</p>
-<p><code>Window: Reload</code> 完成之后，你刚刚设定的快捷键就生效了。</p>
-<blockquote>
-<p>整个 Atom 程序就是一个大的 HTML 文件，你刚刚的 Reload，就好像是在浏览器里刷新了一下一样。也由于整个 Atom 就是个 HTML 文件，所以，理论上来讲，它里面的任何一个地方都是可以随心所欲地定制的 —— 只要你懂 HTML/CSS/JAVASCRIPT…… 虽然你现在搞不懂之前拷贝粘贴的代码，早晚你会懂的，放心吧。</p>
-</blockquote>
-<p>现在你再按顺序依次敲以下键盘序列试试……</p>
-<blockquote>
-<p><kbd>(</kbd> <kbd>‘</kbd> <kbd>t</kbd> <kbd>h</kbd> <kbd>i</kbd> <kbd>s</kbd> <kbd>⏎</kbd> <kbd>⏎</kbd></p>
-</blockquote>
-<p>最终的显示应该是这样的（其中最后的 <code>|</code> 表示的是闪动的光标）：</p>
-<blockquote>
-<p>(‘this’)|</p>
-</blockquote>
-<p>你看，Atom 和所有现代文本编辑器一样，就是一个可高度定制的编辑器，它在 Github 上的标题就是这么写的：</p>
-<blockquote>
-<p>atom: The hackable text editor</p>
-</blockquote>
-<p>处处都可以定制…… 可是，虽然这当然是好事儿，但，警告要来了：</p>
-<blockquote>
-<p>只关注最重要的定制，不要在无关紧要的细节上浪费生命。</p>
-</blockquote>
-<p>最重要的定制，是接下来要讲的 Snippets，无关紧要的细节指的是皮肤啊、配色啊之类的东西 —— 这种无关紧要的东西，快速做出选择，而后就再也不碰了，比如，Theme 我直个人就接选了一个 <a href="https://atom.io/themes/spacegray-dark-neue-ui" target="_blank" rel="external">spacegray-dark-neue-ui</a>，而 Syntax Highlight Color，我也选了同门的 <a href="https://atom.io/themes/spacegray-dark-neue-syntax" target="_blank" rel="external">spacegray-dark-neue-syntax</a>，就完事儿了，在这上面多一秒时间都不要浪费……</p>
-<h2 id="2-Atom-Snippets"><a href="#2-Atom-Snippets" class="headerlink" title="2. Atom Snippets"></a>2. Atom Snippets</h2><p>先创建一个尾缀为 <code>.html</code> 的新文件，比如名称为 <code>test.html</code>，随便保存在那里，比如保存在桌面上（以便一会儿想删除的时候可以很快找到哈）…… 尾缀很重要，不要搞错。</p>
-<p>然后在这个文件里按顺序敲以下键盘，其中最后一个<kbd>⇥</kbd> 是神奇的 TAB 键：</p>
-<blockquote>
-<p><kbd>h</kbd><kbd>t</kbd><kbd>m</kbd><kbd>l</kbd><kbd>⇥</kbd></p>
-</blockquote>
-<p>在按 <kbd>⇥</kbd> 之前，你可以看到一个列表，先别管它，直接按 <kbd>⇥</kbd> …… 你会看到编辑器里突然多了一大堆东西：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>|<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>随便再输入点什么，比如，<code>test html title</code>，而后再按一下 <kbd>⇥</kbd>，光标就挪到 <code>&lt;body&gt;</code> 之后、<code>&lt;/body&gt;</code> 之前了。</p>
-<p>能这么做，归功于 Atom 内建了 Html Language 的插件，其中设定了所有 HTML5 的标签“自动展开代码”（即，Snippets），该插件的项目代码托管在 Github 上：</p>
-<blockquote>
-<p><a href="https://github.com/atom/language-html" target="_blank" rel="external">https://github.com/atom/language-html</a></p>
-</blockquote>
-<p>上面提到的这个 Snippets，<a href="https://github.com/atom/language-html/blob/master/snippets/language-html.cson" target="_blank" rel="external">代码</a>如下：</p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">'HTML':</span><br><span class="line">    'prefix': 'html'</span><br><span class="line">    'body': '&lt;!DOCTYPE html&gt;\n&lt;html&gt;\n\t&lt;head&gt;\n\t\t&lt;meta charset="utf-8"&gt;\n\t\t&lt;title&gt;$1&lt;/title&gt;\n\t&lt;/head&gt;\n\t&lt;body&gt;\n\t\t$2\n\t&lt;/body&gt;\n&lt;/html&gt;'</span><br></pre></td></tr></table></figure>
-<p>你可以大概理解一下，其中：</p>
-<blockquote>
-<ul>
-<li><code>\n</code> 表示的是纯文本中默认并不显示的“换行符号”；</li>
-<li><code>\t</code> 表示的是 tab（不是 tab 键，而是文本中显示的“缩进” —— 通常相当于两个空格，或者四个空格）；</li>
-<li><code>$1</code> 是展开后光标所在的位置；</li>
-<li><code>$2</code> 是再次按 <kbd>⇥</kbd> 键的时候，光标应该所在的下一个位置……</li>
-</ul>
-</blockquote>
-<p>你看，工程师们想了多少办法让自己少敲多少键盘…… 他们做事、干活，累的不是手啊，用的是脑！有脑子不用就等于没有脑子…… 不是吗？</p>
-<p>在 Atom 编辑器中，用 <kbd>⇧</kbd><kbd>⌘</kbd><kbd>P</kbd> 呼出 Command Palette，在里面输入 <code>Open Your Snippets</code>，你会看到里面有这样一段被注释掉（即，不被执行）的代码：</p>
-<figure class="highlight coffee"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Your snippets</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Atom snippets allow you to enter a simple prefix in the editor and hit tab to</span></span><br><span class="line"><span class="comment"># expand the prefix into a larger code block with templated values.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># You can create a new snippet in this file by typing "snip" and then hitting</span></span><br><span class="line"><span class="comment"># tab.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># An example CoffeeScript snippet to expand log to console.log:</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># '.source.coffee':</span></span><br><span class="line"><span class="comment">#   'Console log':</span></span><br><span class="line"><span class="comment">#     'prefix': 'log'</span></span><br><span class="line"><span class="comment">#     'body': 'console.log $1'</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Each scope (e.g. '.source.coffee' above) can only be declared once.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># This file uses CoffeeScript Object Notation (CSON).</span></span><br><span class="line"><span class="comment"># If you are unfamiliar with CSON, you can read more about it in the</span></span><br><span class="line"><span class="comment"># Atom Flight Manual:</span></span><br><span class="line"><span class="comment"># https://atom.io/docs/latest/using-atom-basic-customization#cson</span></span><br></pre></td></tr></table></figure>
-<p>以后你就可以把自己写的 Snippets 放在这里（当然以后还有更高级的方法）……</p>
-<p>在 Comman Palette 里，输入 <code>Available</code>，可以找到 <code>Snippets: Available</code>，不妨逐个玩一玩…… 给自己定个 Timer，玩上半小时之后一定要停下来。</p>
-<p>现在可以回去再仔细看看 Atom 官方教程 <a href="http://flight-manual.atom.io" target="_blank" rel="external">Atom Flight Manual</a> 的第二章了，尤其是 <a href="http://flight-manual.atom.io/using-atom/sections/snippets/" target="_blank" rel="external">Snippets 那一节</a>。</p>
-<p>读完之后再回来。</p>
-<p>Atom 的 Snippets 有个概念，叫 <code>Scope</code>，也就是说，根据文件类型确定究竟有哪些“自动展开”可以使用的。所以，你若是在一个 <code>.md</code> 的文件里敲击 <kbd>h</kbd><kbd>t</kbd><kbd>m</kbd><kbd>l</kbd><kbd>⇥</kbd>，就不可能被展开成上面那个例子那样。</p>
-<p>写 Snippets 的时候，如何确定 Scope 呢？请认真阅读这段话：</p>
-<blockquote>
-<p>If it’s difficult to determine the package handling the file type in question (for example, for <code>.md</code>-documents), you can also proceed as following. Put your cursor in a file in which you want the snippet to be available, open the Command Palette (cmd+shift+p), and run the <code>Editor: Log Cursor Scope</code> command. This will trigger a notification which will contain a list of scopes. The first scope that’s listed is the scope for that language. Here are some examples: <code>source.coffee</code>, <code>text.plain</code>, <code>text.html.basic</code>.</p>
-<p>摘自于：<a href="https://atom.io/packages/snippets" target="_blank" rel="external">https://atom.io/packages/snippets</a></p>
-</blockquote>
-<p>你现在看不懂无所谓，大致留个印象就好，反正以后都是通过反复用，反复研究产生真正理解的。</p>
-<p>这里有个重要的建议：</p>
-<blockquote>
-<p>尽量不要直接使用别人写好的 Snippets，要<strong>自己写、自己敲</strong>；而别人写好的，尽量只用来参考。</p>
-</blockquote>
-<p>无论你学什么语言（或者框架），就一定要在学习的过程中不断添加积累自己关于那个语言（或者框架）的 Snippets，这是一个自己给自己“添麻烦”的过程，但这种所谓的“麻烦”，其实是一种刻意训练，不做其实是偷懒，偷懒这东西，真心不划算的。</p>
-<p>我在参考别人写好的 Snippets 的时候，有个习惯，把那些他们定义的“缩写”全部换成自然语言。比如，人家原来写的是这样的：</p>
-<figure class="highlight coffee"><table><tr><td class="code"><pre><span class="line"><span class="string">"if/else statement"</span>:</span><br><span class="line">  prefix: <span class="string">"ies"</span></span><br><span class="line">  body: <span class="string">"""</span><br><span class="line">  if ($&#123;1:condition&#125;) &#123;</span><br><span class="line">  \t$&#123;2://statements here&#125;;</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">  \t$&#123;3://statements here&#125;;</span><br><span class="line">  &#125;;$&#123;4&#125;</span><br><span class="line">  """</span></span><br></pre></td></tr></table></figure>
-<p>我会改成这样（注意 <code>prefix</code> 那一行）：</p>
-<figure class="highlight coffee"><table><tr><td class="code"><pre><span class="line"><span class="string">"if/else statement"</span>:</span><br><span class="line">  prefix: <span class="string">"if/else statement"</span></span><br><span class="line">  body: <span class="string">"""</span><br><span class="line">  if ($&#123;1:condition&#125;) &#123;</span><br><span class="line">  \t$&#123;2://statements here&#125;;</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">  \t$&#123;3://statements here&#125;;</span><br><span class="line">  &#125;;$&#123;4&#125;</span><br><span class="line">  """</span></span><br></pre></td></tr></table></figure>
-<p>这是因为我觉得花时间记忆那么多缩写没必要，尽管他们编制的缩写也有一定的规律…… 因为在 Atom 编辑器里，无所不在的有一个叫 <code>Fuzy Matching</code> 的东西（也是工程师们设计好用来提升自己效率的东西）—— 它会不分字母前后顺序地帮你寻找你可能要输入的内容…… 在 <code>Fuzy Matching</code> 无所不在的情况下，缩写的意义其实并不大。</p>
-<p>哪怕是把别人写好的 Snippets 如此修改一下的过程中（其实本质上好像完全没干什么），也有机会读一遍，也有机会留个印象，甚至因为在修改中可能出现错误而不得不反复读了很多遍 —— 那更好，因为那就加深了印象……</p>
-<p>学会了 Snippets 的使用与编写，感觉上已经很工程师了，哈！早晚有一天你会为 Atom 写 Package 的 —— 到时候你就觉得没多难了。</p>
-<h2 id="任务"><a href="#任务" class="headerlink" title="任务"></a>任务</h2><blockquote>
-<ul>
-<li>去 Google 这些词组：<ul>
-<li><code>favorite atom packages</code></li>
-<li><code>most popular atom packages</code></li>
-<li><code>must have packages for developer</code></li>
-</ul>
-</li>
-</ul>
-</blockquote>
-<p>原则上，你没必要一下子装太多的 Packages，逐个试试，玩玩即可。玩过之后，可以将目前还用不上的 Packages 停用掉（disable）—— 因为有的时候会出现 Packages 之间快捷键冲突啊什么的，又由于你并不熟悉，可能会因此手足无措，进而浪费时间精力。</p>
+          1. 两个共同的目标以下的内容，假定你已经读完 Atom 官方教程 Atom Flight Manual 的第一章：
 
-          
+
+Chapter 1: Getting Started
+
+
+否则不要看下去了，回去先把那一章读完再说……
+工程师们使用的编辑器，有两个最基本的设计目标：
+
+
+尽量少敲键盘、少出错、
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/06/17/makecs-atom-advanced/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -913,6 +608,13 @@
 
           
             
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/16/makecs-basic-dev-env-settup/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/16/makecs-basic-dev-env-settup/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -934,137 +636,14 @@
       
         
           
-            <h2 id="小心你的中文输入法"><a href="#小心你的中文输入法" class="headerlink" title="小心你的中文输入法"></a>小心你的中文输入法</h2><p>在与计算机打交道的时候，中日韩国家的人因为输入的并非英文半角字符而造成的错误非常普遍，因为他们的输入法使用的是 CJKV “全角字符”，而非计算机编程语言可识别的“半角字符”（至于这两个词究竟是什么意思，来龙去脉是什么，自己 Google 一下就好）…… 因此新手有必要在使用编辑器书写代码的时候事先关闭非英文输入法。以后熟悉了之后，当然不再会因此浪费太多时间。</p>
-<p>也需要因此做一些特定的配置。比如，应该在 <code>System Preference &gt; Language &amp; Region &gt; Preferred Languages</code><br>里将系统的首选语言设置成英文，这会在将来节省很多时间，</p>
-<p>如果你使用中文输入法的话，那么，Spotlight 的快捷键与更换输入法的快捷键最好都重新设置一下，<strong>总之就是不要占用 <code>Control</code> 键 <kbd>⌃</kbd></strong>。请在 <code>System Preferences &gt; Keyboard &gt; Shortcuts</code> 里设置。</p>
-<p>我的习惯是把 Spotlight 设置为 <code>⌥Space</code>，把更换输入法设置为 <code>⌘Space</code>；而 <code>Spotlight</code> 中，<code>Show Finder Search Window</code> 不使用快捷键；<code>Input Sources</code>中，<code>Select next source in Input menu</code> 不使用快捷键。</p>
-<h2 id="命令行工具（Terminal-iTerm）的基本设置"><a href="#命令行工具（Terminal-iTerm）的基本设置" class="headerlink" title="命令行工具（Terminal/iTerm）的基本设置"></a>命令行工具（Terminal/iTerm）的基本设置</h2><p>用 Spotlight 呼出 <code>Terminal</code>，无论是谁，都得从熟悉它的使用开始。</p>
-<p>打开 Terminal 之后，可以试试以下两个命令:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd /</span><br><span class="line">ls</span><br></pre></td></tr></table></figure>
-<p>现在需要知道的就是，每一行命令都必须做到每个字符都不能错，输入正确之后，按回车键 <kbd>⏎</kbd> 执行命令。</p>
-<p>接下来要做的事情，按步骤完成，但你肯定完全不知道自己在做什么，照着做就行了（为了保证不出错，请逐次拷贝粘贴以下命令行，而后再按回车键执行）：</p>
-<p>(1)<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd ~</span><br></pre></td></tr></table></figure></p>
-<p>(2)<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">curl -O https://raw.githubusercontent.com/donnemartin/dev-setup/master/.bash_profile</span><br></pre></td></tr></table></figure></p>
-<p>(3)<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">curl -O https://raw.githubusercontent.com/donnemartin/dev-setup/master/.bash_prompt</span><br></pre></td></tr></table></figure></p>
-<p>(4)<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">curl -O https://raw.githubusercontent.com/donnemartin/dev-setup/master/.aliases</span><br></pre></td></tr></table></figure></p>
-<p>全部完成之后，重启 Terminal（就是关掉退出之后，再重新打开）。刚才的命令完成了很多事情，只不过现在你搞不懂，你能看到的就是命令行提示变得花花绿绿了，各种颜色有不同的意义 —— 但以后再说。</p>
-<p>接下来，要为 Terminal 换个皮肤 —— 天天要用的东西，不好看太难受了。我个人喜欢这两个：</p>
-<blockquote>
-<ul>
-<li><a href="https://github.com/tomislav/osx-terminal.app-colors-solarized" target="_blank" rel="external">Solarized</a></li>
-<li><a href="https://github.com/wtanna/Spacegray-OSX-Terminal-Theme" target="_blank" rel="external">Spacegray</a></li>
-</ul>
-</blockquote>
-<p>去 Google 一下，找到你选的那个，使用说明都非常清楚的 —— 花点时间阅读就可以了。</p>
-<p>要为所有与写代码相关的程序设置特定的字体，以便很容易识别出那些不小心输入的“全角字符”。我个人选择的是 <code>Courier New</code> 这个字体，因为这个字体的亚洲文字也挺好看，对我来说也更容易识别 —— 反正你要选择一个“等宽字体”。欧美的程序员偏爱 <code>Menlo</code> 之类的 —— 也许更多是因为他们没有亚洲输入法使用者的苦恼罢。</p>
-<p>在 iMac 大屏幕上，我会把 Terminal 的字体设置为 20px …… 可问题是，你打开 Terminal 的 <code>Preferences &gt; Profiles &gt; Solarized Dark &gt; Text &gt; Font</code>，点 <code>Change</code> 按钮，跳出来的对话框里，你会发现你无法将字体设置为 <code>20</code>，下拉框里，<code>18</code> 之后就是 <code>24</code> 了…… 苹果的这个设计糊弄了很多人 —— 你这样：拖住对话框右下角横着拉，将对话框拉长到一定程度，你就发现那个字体选择框变成了“输入框”与“下拉选择框”的组合…… 你就可以在里面输入 <code>20</code> 了。</p>
-<p>还有，Mac OSX 其实还有很多快捷键可以设置，其中一个比较重要的是 <code>New Terminal at Folder</code>，在<code>System Preferences &gt; Keyboard &gt; Shortcuts &gt; Services &gt; Files and Folders</code> 里可以找到。我把它设置成了 <kbd>⌃</kbd><kbd>⌥</kbd><kbd>⌘</kbd><kbd>T</kbd>，以后在 Finder 里，用鼠标选中某个文件夹（或称“目录”），然后按 <kbd>⌃</kbd><kbd>⌥</kbd><kbd>⌘</kbd><kbd>T</kbd>，就可以呼出 Terminal 并且将工作目录转至这个文件夹内…… 很方便。</p>
-<p>好了，Terminal 的基本设置算是完成了。</p>
-<p>另外，有三个 Mac OSX 系统自带的东西，工程师们会觉得不够用，进而造出更好的东西来替代，它们分别是：</p>
-<blockquote>
-<ul>
-<li>Terminal → <a href="https://www.iterm2.com/" target="_blank" rel="external">iTerm</a></li>
-<li>Finder → <a href="http://totalfinder.binaryage.com/" target="_blank" rel="external">TotalFinder</a> / <a href="http://www.cocoatech.com/pathfinder/" target="_blank" rel="external">Path Finder</a></li>
-<li>Spotlight → <a href="https://qsapp.com/" target="_blank" rel="external">QuickSilver</a> / <a href="https://www.alfredapp.com/" target="_blank" rel="external">Alfred</a></li>
-</ul>
-</blockquote>
-<p>我个人的选择是：</p>
-<blockquote>
-<p>iTerm &amp; TotalFinder &amp; Alfred</p>
-</blockquote>
-<p>建议你立刻硬选一组，别在这里浪费时间，往前走，要做的事情还很多很多。</p>
-<p>下载 iTerm 之后，你要做的就是为它更换皮肤，更换字体，设置字体大小…… 其实你已经做过一遍了，和设置 Terminal 没什么太大差别。</p>
-<h2 id="命令行的使用"><a href="#命令行的使用" class="headerlink" title="命令行的使用"></a>命令行的使用</h2><p>使用命令行工具，可以对系统下的文件（file）和目录（folder/dirctory/dir，这三个词在大多数情况下是一回事儿）进行罗列、创建、复制、移动、删除、修改等操作。</p>
-<p>以下是一些最常用的命令（’<code>#</code>‘ 之后的文字是注释，输入命令的时候不能有它们）：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ls #罗列当前目录下的内容</span><br><span class="line">cd #更换工作目录</span><br><span class="line">pwd #现实当前完整工作目录</span><br><span class="line">touch #创建一个文件</span><br><span class="line">mv #移动/更名文件或目录</span><br><span class="line">rm #删除文件活目录</span><br><span class="line">nano #使用 nano 编辑纯文本文件</span><br><span class="line">open #打开一个文件，就好像你在 Finder 里双击那个文件图标一样</span><br><span class="line">clear #清空屏幕</span><br><span class="line">sudo #用管理员身份去执行一个命令</span><br></pre></td></tr></table></figure>
-<p>这些命令现在倒没必要马上深入研究，因为你早晚会不得不深入研究他们的。现在更必要的是学习 Terminal/iTerm2 的使用，有哪些快捷键等等…… 倒有个好去处，在 Github 上：</p>
-<blockquote>
-<p><a href="https://github.com/0nn0/terminal-mac-cheatsheet" target="_blank" rel="external">https://github.com/0nn0/terminal-mac-cheatsheet</a></p>
-</blockquote>
-<p>还有个 Cheatsheet 值得打印出来，反复看，用的时候随时参考，直到所有视觉记忆全部变成肌肉记忆为止……</p>
-<blockquote>
-<p>…… 或者说是，“直到把一般记忆变成脊椎记忆为止”，或者说是，“直到大脑皮层表面形成了专门的沟回为止”…… 反正都是一个意思：就是熟练到可以用潜意识即可完美完成的地步。</p>
-</blockquote>
-<p>倒是 <code>Cheatsheet</code> 这个词应该记住，以后不管学什么，都到网上搜索一下 <code>xxx cheatsheet</code>，多翻几个，一定有收获。</p>
-<p>注意：<strong>“通读”是做工程师必须的能力</strong>。你不一定要全部能够理解（对任何人来说，最初都不可能做到），但你必须对整个文档有一个整体的认识。这就好像读书的时候，你能做到虽然不能完全读懂，但确实能够完整读完 —— 之后再多读几遍么！古人说的是对的：读书千遍其义自见。还有就是，若是从一开始就没有“通读”的意识，后面不知道会吃多大的亏，而且吃了多少亏自己都完全不知道…… 这很可怕。</p>
-<p>举个简单的例子罢：</p>
-<blockquote>
-<p>很多工程师，用了好多年 Terminal，竟然都不知道竟然还有个快捷键能把光标前的两个词调换一下位置：按一下 <code>esc</code> 键，然后再按一下 <code>t</code> （通常标记为：⎋-t）…… 你想想看他们在过去的那么多年里，浪费了多少次键盘敲击？—— 虽然说起来、听起来没什么，可若是真的严肃起来去想，有什么比时间更重要的呢？浪费了大量的时间、浪费宝贵的生命，只不过是因为最初的时候没有养成“只要是重要的文档，必须通读至少一遍的习惯”而已。</p>
-</blockquote>
-<p>所以说，“优秀是一种习惯”真的并不是空话，是放之四海皆准的道理。随后的过程中，<strong>我们会建立很多很多的好习惯</strong>，甚至这句话本身也会在各个地方重复 —— 生活质量就是这样一点一点提高的，放在哪个领域里其实都一样。</p>
-<h2 id="安装必要开发环境"><a href="#安装必要开发环境" class="headerlink" title="安装必要开发环境"></a>安装必要开发环境</h2><h3 id="XCode-Command-Line-Tool"><a href="#XCode-Command-Line-Tool" class="headerlink" title="XCode Command Line Tool"></a>XCode Command Line Tool</h3><p>过去安装这个东西费劲死了，在需要翻山越岭的情况下下载两个多 G 的东西，唉…… Mac OSX EI Capitan 之后，终于可以在命令行工具（<code>Terminal</code>）下这样安装了：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">xcode-select --install</span><br></pre></td></tr></table></figure>
-<h3 id="安装-Homebrew"><a href="#安装-Homebrew" class="headerlink" title="安装 Homebrew"></a>安装 Homebrew</h3><p>还是在命令行工具中拷贝粘贴以下代码，而后按回车键 <kbd>⏎</kbd>……</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</span><br></pre></td></tr></table></figure>
-<p>随后再次在命令行工具中拷贝粘贴以下代码，而后按回车键 <kbd>⏎</kbd>……</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">echo &apos;export PATH=&quot;/usr/local/bin:$PATH&quot;&apos; &gt;&gt; ~/.bash_profile</span><br></pre></td></tr></table></figure>
-<h3 id="安装-Git"><a href="#安装-Git" class="headerlink" title="安装 Git"></a>安装 Git</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">brew install git</span><br></pre></td></tr></table></figure>
-<h3 id="安装-rvm-与-Ruby-2-3-1"><a href="#安装-rvm-与-Ruby-2-3-1" class="headerlink" title="安装 rvm 与 Ruby 2.3.1"></a>安装 rvm 与 Ruby 2.3.1</h3><p>注意，以下是三行命令，要分别输入，每行都要按接回车键（<code>⏎</code>）执行。以后为了书写方便，经常会把一系列命令放到一个代码块中……</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">\curl -sSL https://get.rvm.io | bash -s stable</span><br><span class="line">rvm install 2.3.1</span><br><span class="line">rvm use 2.3.1</span><br></pre></td></tr></table></figure>
-<p><code>rvm</code> 是 Ruby 的版本管理工具，其作用是在系统中安装若干个不同版本的 Ruby，且不让它们之间发生冲突。你可以安装很多个版本的 Ruby，比如，刚刚安装了 <code>2.3.1</code>，随后你还可以安装 <code>1.9.2</code>：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rvm install 1.9.2</span><br></pre></td></tr></table></figure>
-<p>需要使用 <code>1.9.2</code> 版本的 Ruby 的时候，就可以用这个命令：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rvm use 1.9.2</span><br></pre></td></tr></table></figure>
-<p>也可以随时用这个命令切换回 <code>2.3.1</code></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rvm use 2.3.1</span><br></pre></td></tr></table></figure>
-<p>你也随时可以用这个命令查看自己都安装过哪些版本：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rvm list</span><br></pre></td></tr></table></figure>
-<p>想要卸载哪个版本的 Ruby，你就用这样的命令：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rvm uninstall 1.9.2</span><br></pre></td></tr></table></figure>
-<p>下面要接着安装的 <code>nvm</code>，跟 <code>rvm</code> 一个原理，只不过 <code>nvm</code> 是 <code>nodejs</code> 的版本管理器。</p>
-<h3 id="安装-nvm-和-node-4-4-5"><a href="#安装-nvm-和-node-4-4-5" class="headerlink" title="安装 nvm 和 node 4.4.5"></a>安装 nvm 和 node 4.4.5</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">brew install nvm</span><br><span class="line">nvm install 4.4.5</span><br><span class="line">nvm use 4.4.5</span><br></pre></td></tr></table></figure>
-<p>为什么要安装 4.4.5 这个版本呢？nodejs 有两个版本，一个叫 LTS（Long Term Support，提供长期支持的稳定版），一个叫 Current（提供最新功能的当下版，通常也不够稳定，尚需改进）。很多软件系统都采用这种方式，比如著名的 Ubuntu …… 所以，当我们需要安装什么软件的时候，必须到官方网站上看一看，看看当前的稳定版本是什么，然后选择它就是了。将来你成了高手，啥都敢于、且确实有能力尝鲜的时候，就随便你喽。</p>
-<p>如此这般，最基础的开发环境算是完成了 —— 理论上来讲，还有更多的事儿要做，不过，反正也一下子做不过来，就先到这里为止罢。</p>
-<p>关于更详细的开发环境设置，请参阅这两个 Github 项目：</p>
-<blockquote>
-<ul>
-<li><a href="https://github.com/nicolashery/mac-dev-setup" target="_blank" rel="external">nicolashery/mac-dev-setup</a></li>
-<li><a href="https://github.com/donnemartin/dev-setup" target="_blank" rel="external">donnemartin/dev-setup</a></li>
-</ul>
-</blockquote>
-<p>未来你肯定会反复去看的 —— 因为就是用得着。</p>
-<h3 id="安装-Atom"><a href="#安装-Atom" class="headerlink" title="安装 Atom"></a>安装 Atom</h3><p>工程师们对编辑器有各种各样的偏好，vi/vim, emacs, TextMate, Sublimetext… 这些不过是免费的，还有很多收费的…… 问他们用哪个最好，基本上不可能有统一的答案。在这里，我们就不讨论不探究了，就直接开用一个 Github 出品的编辑器罢：<a href="https://atom.io" target="_blank" rel="external">Atom</a>.</p>
-<blockquote>
-<h4 id="建议"><a href="#建议" class="headerlink" title="建议"></a>建议</h4><p> <strong>永远不要参与编程语言之间或编辑器之间的比较争论</strong> —— 在工程师世界里，那是永无宁日的争论，但价值并不大，事实上，一切争论的价值都不大：<strong>平息争论的能力才是更有价值的能力，若是不能平息争论，就不要参与争论了，因为参与无法平息的争论，本质上就是，耗费了时间耗费了生命却没有任何结果</strong> —— 这是一个很重要的价值观，它会帮你节省无数未来的时间精力，它也有可能让你成为那个最终能够平息争论的人。</p>
-</blockquote>
-<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>打开 <code>iTerm</code>，用以下命令安装 <code>Atom</code>：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">brew cask install atom</span><br></pre></td></tr></table></figure>
-<p>关于 <code>brew cask</code> 命令的说明，请参阅其官方网站：<a href="https://caskroom.io" target="_blank" rel="external">https://caskroom.io</a>…… 学任何工具，第一件事情就是去把官方网站翻个遍，是必须的习惯。</p>
-<p>当然，也可以使用传统的安装方法，到 <a href="https://atom.io" target="_blank" rel="external">https://atom.io</a> 去下载 <code>dmg</code> 文件，打开之后，将应用程序拖到 <code>Application</code> 目录中去……</p>
-<h4 id="阅读-Atom-官方网站"><a href="#阅读-Atom-官方网站" class="headerlink" title="阅读 Atom 官方网站"></a>阅读 Atom 官方网站</h4><p><code>Atom</code> 的官方网站是，<a href="https://atom.io" target="_blank" rel="external">https://atom.io</a> ，Documentation 栏目里，他们放了一个 <a href="http://flight-manual.atom.io" target="_blank" rel="external">Atom Flight Manual</a> —— 这就是第一步要读的东西。</p>
-<p>对于新手来说，至少应该先认真阅读第一章：</p>
-<blockquote>
-<ul>
-<li>Chapter 1: Getting Started</li>
-</ul>
-</blockquote>
-<h4 id="Atom-Cheatsheets"><a href="#Atom-Cheatsheets" class="headerlink" title="Atom Cheatsheets"></a>Atom Cheatsheets</h4><p>拿来任何一个软件工具，快速熟悉并掌握各种快捷键，是一个好习惯 —— 基本上就是耗费半小时而后用一辈子的事情。随便搜索一下 <code>Atom Cheatsheet</code> 就有一个 Cheatsheet 不错：</p>
-<blockquote>
-<p><a href="http://d2wy8f7a9ursnm.cloudfront.net/atom-editor-cheat-sheet.pdf" target="_blank" rel="external">http://d2wy8f7a9ursnm.cloudfront.net/atom-editor-cheat-sheet.pdf</a></p>
-</blockquote>
-<p>而 Atom 本身是个工具，所以它的 Cheatsheet 可以做得更为方便，有两个 Package 可以安装试一下：</p>
-<blockquote>
-<ul>
-<li><a href="https://atom.io/packages/atom-shortcuts" target="_blank" rel="external">atom-shortcuts package</a></li>
-<li><a href="https://atom.io/packages/keybinding-cheatsheet" target="_blank" rel="external">keybinding-cheatsheet package for Atom</a></li>
-</ul>
-</blockquote>
-<p>熟悉到一定程度之后，就可以卸载它们了。</p>
-<p>还有个程序值得试试：<a href="https://www.grandtotal.biz/CheatSheet/" target="_blank" rel="external">CheatSheet</a>，无论什么时候，只要有它在，按住 ⌘ 一会儿，就会跳出一个面板，让你看到所有可用的快捷键。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">brew cask install cheatsheet</span><br></pre></td></tr></table></figure>
-<h3 id="安装-Dash"><a href="#安装-Dash" class="headerlink" title="安装 Dash"></a>安装 Dash</h3><p><a href="https://kapeli.com/dash" target="_blank" rel="external">Dash</a> 是个神奇的个人作品，现在几乎每一个在 Mac 上开发的人都会用到 Dash，估计你也不例外，装上吧，该付费就马上付费…… 想想真的不算贵。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">brew cask install dash</span><br></pre></td></tr></table></figure>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>除了各种安装配置之外，你重点要看的是这俩文档：</p>
-<blockquote>
-<ul>
-<li>命令行文档 —— 先熟记那个 <a href="https://github.com/0nn0/terminal-mac-cheatsheet" target="_blank" rel="external">Cheatsheet</a>……（另外，苹果有个官方的文档：<a href="https://developer.apple.com/library/mac/documentation/OpenSource/Conceptual/ShellScripting/CommandLInePrimer/CommandLine.html" target="_blank" rel="external">Command Line Primer</a>）</li>
-<li>Atom 官方教程的前两章。</li>
-</ul>
-</blockquote>
-<p>肯定无法一下子全读懂，但“即便读不懂也要读完”，是一个特别神奇的能力，古人都知道“读书千遍其义自见” —— 说的就是这事儿。你必须积累这种能力，切记。</p>
-<p>到此为止，你做了很多事情，翻了很多网页，敲了不少字符…… 可还不知道干了什么。别着急，耐心，耐心是唯一的法宝……</p>
+          小心你的中文输入法在与计算机打交道的时候，中日韩国家的人因为输入的并非英文半角字符而造成的错误非常普遍，因为他们的输入法使用的是 CJKV “全角字符”，而非计算机编程语言可识别的“半角字符”（至于这两个词究竟是什么意思，来龙去脉是什么，自己 Google 一下就好）…… 因此新手有必要在使用编辑器
+          ...
 
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/06/16/makecs-basic-dev-env-settup/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -1135,6 +714,13 @@
 
           
             
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/15/makecs-before-starting-anything/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/15/makecs-before-starting-anything/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -1156,76 +742,15 @@
       
         
           
-            <h2 id="1-本书中使用的系统为-Mac-OSX"><a href="#1-本书中使用的系统为-Mac-OSX" class="headerlink" title="1. 本书中使用的系统为 Mac OSX"></a>1. 本书中使用的系统为 Mac OSX</h2><p>在接下来的过程中，我们默认提到的都是 Mac OSX 操作系统，而 Ubuntu 版本的说明，只能等到有志愿者原意帮忙的时候才可能有……</p>
-<h2 id="2-大屏幕很重要、双屏幕更重要"><a href="#2-大屏幕很重要、双屏幕更重要" class="headerlink" title="2. 大屏幕很重要、双屏幕更重要"></a>2. 大屏幕很重要、双屏幕更重要</h2><p>衣服简谱一点没关系，食物清淡一点没关系，工具不够精良绝对不行。千万不要在工具上舍不得花钱，否则你注定落魄一生。</p>
-<p>大尺寸屏幕 ——　甚至两块屏幕 —— 真的非常重要，这不仅仅是对程序员重要，其实对每个人都是一样的。<a href="http://www.cnet.com/news/study-bigger-computer-monitors-help-you-get-things-done/" target="_blank" rel="external">美国犹他大学的研究者在 2008 年经过统计调查发现</a>，大屏幕一天能帮人节省两个半小时 —— 请注意，这是干活做事过程中的两个半小时！别说程序员了，哪怕是那些每天书写文档，编辑表格的人，使用 24 吋屏幕的人要比使用 17 吋屏幕的人快 52%！这几乎是十年前，现在已经是 2016 年，iMac 的显示器已经是 27 吋了，分辨率已经是 4096 x 2304，几乎相当于十年前四块显示器的显示区域……</p>
-<p>现在很多 IT 公司都不给员工配备电脑了（也许是因为笔记本电脑的降价与普及），但，少数开明的公司，基本上都会给员工配备外接的大面积显示器 —— 其实是很便宜的投入，却很实实在在提高很多效率。事实上，爱惜自己是一种生活态度，即便公司不给买，也要自己给自己买，反正现在显示器很便宜。</p>
-<h2 id="3-注册一个-Github-帐号"><a href="#3-注册一个-Github-帐号" class="headerlink" title="3. 注册一个 Github 帐号"></a>3. 注册一个 Github 帐号</h2><p>很少有计算机书籍会把这件事儿单独拿出来说。可实际上，这确实很重要 —— 因为从骨子里来看，习得任何技能的最根本技巧，就是一句话而已：</p>
-<blockquote>
-<p>马上开始像那些已经精通这个技能的人一样生活。</p>
-</blockquote>
-<p>因为从本质上来看，一切的学习与创造，都是学习者与创造者的生活方式、生活内容。去目标技能拥有者最活跃的地方生活，像他们一样生活，直至真的就那么生活 —— 这就是学习与创造的另外一个更为生动、更为本质的描述。所谓近朱者赤近墨者黑，讲的也是一样的道理 —— 因为激活大脑里的“镜像神经元”是学习与创造的最初起点。</p>
-<p>Github 其实是目前地球上最先进、最高级、最高质量的社交网站，对，它就是个社交网站 —— 虽然貌似现在的人们普遍认为“社交网站”指的是另外一类东西。在那里，工程师们用他们固有的最高效的方式相互交流。他们写好代码就传到 Github 上去，用 Github 做开发中必须的重要事情：</p>
-<blockquote>
-<ul>
-<li>备份自己的代码</li>
-<li>文档与代码的版本管理</li>
-<li>相互最高效地交流与协作</li>
-<li>通过展现有效活动而获得更高信用</li>
-<li>更方便地展示自己与自己的成果</li>
-</ul>
-</blockquote>
-<p>在 Github 出现之前，工程师们在命令行下最常使用的命令式 <code>cd</code> 和 <code>ls</code>，现在，他们最常用的命令早已经是 <code>git</code> 了…… Github 是个崭新的世界，先开门进去罢 —— 注册个帐号就行了，多简单！</p>
-<p>一个零人沮丧的事实是，在中国有很多所谓的程序员，真的不用 Github，还有很多为了求职跑到 Github上提交假项目…… 三叹。</p>
-<h2 id="4-每天都要有一整块的思考时间"><a href="#4-每天都要有一整块的思考时间" class="headerlink" title="4. 每天都要有一整块的思考时间"></a>4. 每天都要有一整块的思考时间</h2><p>这才是最重要的一条。工程师不是每天每时每刻都写代码的，他们用更多的时间思考。这有点像什么呢？你看大家从小上学，挺辛苦地学会了识字、写字，可大多数人一辈子都不会写文章，就算写出来了，也传播不出去 —— 其实只是是因为确实没价值，因为在传播自由的时代里，真有价值的东西总是会被发现。为什么呢？因为他们不思考，也不会思考，所以，等于没有什么东西值得表达 —— 尽管已经掌握了一定的表达技能。</p>
-<p>又因为不会写东西，没什么东西可写，所以，他们的表达技能永远停留在初级阶段，因为他们没有机会用这个技能与真实的世界交流（与读者沟通，无论是单向或者双向，或者与其他作者比较，无论是更好还是更差），于是，他们永远不可能获得真正的高级技能（那些技能也有人写书出来，可纸上得来终觉浅）。</p>
-<p>工程师其实跟写书写文章的作者一样，无非是用他们特有的表达技巧去表达他们的思想，作者用自然语言文字，工程师用特定字符构成的代码…… 可关键在于，首先要有表达的标的，之后才有表达好坏的判断。工程师表达什么？他们发现问题之后解决问题，提高效率（通过大量的自动化任务）…… 那么他们天天要思考的事情多的去了，什么值得解决？要解决的话如何解决？我的解决方案是不是比别人的都更好、更优雅？为了搞定这个任务，我需要学会什么？我需要和人么样的人以什么养的方式合作？我能否持续地维护我的解决方案？我如何才能让更多的人支持我？</p>
-<p>与大家认为的“码农”并不一样，真正的工程师，时间分配大抵上是这样的，80% 的时间用来思考，20% 的时间把思考结果用代码表达出来（也许是通过带领团队）。这个思考的过程包括反复搜索(<code>search</code> 多了，就叫 <code>research</code>)，深入阅读各种文档（因为今天的工程师必定要用到大量别人写好的模块），还要思考自己写出来的代码如何写好文档才能让更多的人使用……</p>
-<p>而刚入门的时候，可能是反过来的，80% 的时间用来写代码，没有思想可以表达，就去模仿表达别人的思想…… 但，一定要有 20% 的时间花在真正的思考上，像工程师一样思考。<strong>很多人进步慢的根本原因在于，每天都在“学”，但从来不花大块的时间深入“想”。</strong></p>
-<p><strong>从一开始就要养成习惯，每天要有起码一小时的时间专心思考</strong>：</p>
-<blockquote>
-<ul>
-<li>我将要解决的问题是什么？</li>
-<li>最重要的问题是什么？</li>
-<li>它的核心关键在哪里？</li>
-<li>已有的解决方案都有哪些？</li>
-<li>我如何才能给出一个更好的方案？</li>
-<li>我的方案应该如何拆解，如何逐个实施？</li>
-</ul>
-</blockquote>
-<p><strong>给自己买一个小本子，里面夹上一根笔，随身带着。</strong> 你学的东西越多，你越离不开这种小本子，遇到什么事儿就记下来，因为你是拼命使用你的大脑的人 ，你要记住的东西太多了，平时必须依赖这种随身携带的小本子减轻你的记忆负担。虽然现在移动设备上的记事本也挺方便，但你用过一段时间就知道了，弄不好还是纸笔写写画画对大脑的帮助更大 —— 其实成本也很低很低。</p>
-<p>用整块时间思考，其实并不容易，因为刚开始的时候会很快走神。其实有很简单的解决方案的：</p>
-<blockquote>
-<p>一边思考，一边写写画画，一小时不知不觉就会过去。</p>
-</blockquote>
-<p>集中精力思考的时候，我喜欢在电脑上，而不是纸质的笔记本上，因为我的打字速度非常快，能跟得上我的思考速度 —— 手写实在是太慢了，并且太难看了哈。</p>
-<h2 id="5-功夫在行外"><a href="#5-功夫在行外" class="headerlink" title="5. 功夫在行外"></a>5. 功夫在行外</h2><p>以后请你随时留意这种情况：</p>
-<blockquote>
-<p>事情的关键往往在另外一个领域中。</p>
-</blockquote>
-<p>在中国想要成为工程师，竟然有很大的一个关键并不在于技术本身，而是在于英语阅读能力；再比如说，即便成为了一个入门级的工程师，驻足不前的根本原因并不在于技术难关无法攻克，而是在于平时的思考习惯不良，或者干脆没有真正深入思考的习惯……</p>
-<p>这可能会另很多人惊讶。可这种情况是普遍存在的。当年我教英语的时候，写了本书，《TOEFL 核心词汇 21 天突破》，其核心关键在于通过统计结果筛选必背词汇，你看，这就是“英语专业”、“师范专业”毕业的职业英语教师肯定不会的东西，于是，他们一下子被我打败了，那本书在市场上卖了两辈子之后（2003 年第一版），还在继续畅销……</p>
-<p>小时候，我父亲怕我唱歌跑调，将来会因此学外语产生困难，给我买了一把吉他。五音不全的我，竟然摸索着学，虽然弹得一般般，但也自得其乐。因为听音差，也因为无法像好歌手那样自如地控制自己的声音，所以，无论哪一个曲子都是一个小节一个小节地反复练，甚至有些小节都一下子顺不过来，以至于需要再细分成若干个环节分别练，每个都练熟了之后，还有再反复串起来练，最终才算过了及格线……</p>
-<p>成年之后，我拥有比大多数人更为强大的学习能力，无非是在这个过程中养成了几个习惯：</p>
-<blockquote>
-<ul>
-<li>我不怕麻烦，因为再麻烦的事儿，都可以拆分成无数个可处理的小块，于是就不麻烦了；</li>
-<li>即便是天赋不好，通过一定量的练习，也可以做到比大部分人好，哪怕滥竽充数也充得更像；</li>
-<li>经验告诉我，经过一段时间之后，一定会越来越有能力解决更大的麻烦…</li>
-</ul>
-</blockquote>
-<p>你看，我什么都敢学，什么都能学 —— 只要有时间 —— 竟然只是因为小时候唱歌跑调，老爸给买了一把吉他…… 除了我自己，谁会觉得这事儿有这么重要呢？而上面这三条所提及的“解决麻烦方法论”，其实不也恰恰是工程师们用代码解决现实生活问题的方法论吗？</p>
-<p>对，功夫常常就是在行外。</p>
-<h1 id="任务"><a href="#任务" class="headerlink" title="任务"></a>任务</h1><blockquote>
-<ol>
-<li>也许应该换台电脑</li>
-<li>给自己再加一个显示器</li>
-<li>里里外外翻翻 Github，随便逛逛</li>
-<li>买一个小本子随身带着。</li>
-</ol>
-</blockquote>
+          1. 本书中使用的系统为 Mac OSX在接下来的过程中，我们默认提到的都是 Mac OSX 操作系统，而 Ubuntu 版本的说明，只能等到有志愿者原意帮忙的时候才可能有……
+2. 大屏幕很重要、双屏幕更重要衣服简谱一点没关系，食物清淡一点没关系，工具不够精良绝对不行。千万不要在工具上舍不得花钱，
+          ...
 
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/06/15/makecs-before-starting-anything/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -1296,6 +821,13 @@
 
           
             
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/14/teach-yourself-without-permission/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/14/teach-yourself-without-permission/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -1317,88 +849,23 @@
       
         
           
-            <p>有一句话是这么说的：</p>
-<blockquote>
-<p>人类一思考，上帝就发笑。</p>
-</blockquote>
-<p>我从来没搞懂这句话什么意思，什么目的，什么意义…… 也觉得并不重要。</p>
-<p>我倒是清楚地知道另外一件事儿：</p>
-<blockquote>
-<p>你一说要学什么东西，人们就发笑……</p>
-</blockquote>
-<p>说实话，我花了很多年才琢磨清楚他们为什么要笑，他们的思路，他们的结论，他们的未来和结局。琢磨清楚了之后，才觉得，这事儿的合理解释意义对我并不大，因为我不是他们，他们和我也没什么关系 —— 只不过是各自的道路有过一次交叉而已，现在各自早就身处不一样的世界了。</p>
-<p>有一件事绝大多数人搞错了，导致了不一样的思路，不一样的结论，不一样的未来和结局：</p>
-<blockquote>
-<p>学习这东西，不是一定要学到大师的程度才可以拿出来开始用的。</p>
-</blockquote>
-<p>“学成归来”，是人们对大多数学习者的刻板印象，好像学不成就不要回来了似的。</p>
-<p>真实的学习过程是，学会一点最少必要知识（就是那些知道了之后就可以马上开始行动了的最少知识），然后就要马上开始实际操练…… 最终，大量的细节都是在实际操作过程中进一步学会的 —— 甚至，还有大量的细节如果不进行实际操练的话，就根本没机会学得到。</p>
-<p>在中国，每个会开车的人其实早就应该意识到这种学习方式的神奇。在中国，驾校的培训实在是太粗糙、太简单、太粗暴了…… 交了钱，进了驾校，其实前前后后在练习场上实际操作的时间少得可怜 —— 然后就冲出来上路了，虽然各自进度有些差异，但总体上来看，真正的驾驶技能几乎 100% 都来自于在真实世界里实际操作，而非驾校培训，不是吗？</p>
-<p>明明曾经靠着自己的勇气曾经学会过至少一项技能的人们，最终不知道为什么变成了另外一种人…… 真不明白为什么那么多小时候什么都学、什么都做不好却也根本没怕过的人们，长大了之后终究都成了怂货。而且怂到什么程度呢？怂到害怕别人不怂的地步……</p>
-<p>于是，绝大多数人的眼里，学习成了一条“漫长不归路” —— 听起来多可怕啊，学不成就别出来得瑟，学不成，就别回来见人！天呐。</p>
-<p>这还不算，既然在脑子里把学习这事儿类比为一条“漫长不归路”，那么“它一定是一步一步走过去的……”，于是，无论做什么事情，他们都感觉必须循序渐进，甚至，若是看到别人不循序渐进，就很生气。</p>
-<p>可是吧……</p>
-<blockquote>
-<p>循序渐进坑了一代又一代的人……</p>
-</blockquote>
-<p>其实，最有效的学习方式，真的不是从零开始，一路走到大师境地 —— 那条路上遍地尸骨訇然兽出。</p>
-<p>仔细观察一下我们的真实生活，我们从来都是这样的：</p>
-<blockquote>
-<p>横空出世，向后钻研，向前突击……</p>
-</blockquote>
-<p>这才是真实的世界。</p>
-<p>我们的教育体系，好像特别痴迷于把我们带到循序渐进的道路上去，父母们也觉得只有这样才放心（其实他们自己也是被弄脏了脑子自己不给自己洗脑的产物）…… 99% 的人循序渐进地从 ABCD 开始学，学英语 16 年，开口说不了，拿笔写不出…… 真不知道图个啥。</p>
-<p>最简单的编程，被抬高成“工程师”的境界 —— 可另外一个事实又明显地摆在那里：</p>
-<blockquote>
-<p>很多自称工程师的人，其实看到十四五岁的小黑客做的事情，也不得不心服口服 —— 若是必须、只能循序渐进才行的话，那些小黑客是不可能存在的，不是吗？</p>
-</blockquote>
-<p>小黑客们都不是靠循序渐进习得技能的。都是“横空出世”的，他们最开始做的事情，不是打基础，而是“突然有个问题要解决”，于是不管三七二十一只好“向前突破”，用尽各种方法（通常是很土的办法）先把问题解决掉…… 在这个过程中，能补的补（向后钻研），补不上的就先放在那里，留给以后…… 然后反复迂回前进。</p>
-<p>前些日子，我发了这样一条 Tweet：</p>
-<blockquote>
-<p>算了一下，一个普通人只要不笨，一年是可以成长为全栈工程师的。用不着一万小时。</p>
-</blockquote>
-<p>其实我不用猜就知道，一定会有大量的人明里暗里向我吐口水了 —— 事实上，我今年 45 岁，一路就是这么过来的，我一想学点什么，人们就发笑…… 他们的口水从来没能淹死我。</p>
-<p>我一个学会计专业的怕什么啊？我大学毕业出来搞的是销售，而不是会计，不也得现学现卖吗？做了那么久批发生意，后来跑去新东方教英语，不也是跌跌撞撞先去考托福吗？离开新东方之后开留学咨询公司，也得现学如何指导申请文书；再后来结果竟然闲着没事儿跑去学习 Ruby on Rails、后来搞出来个 <a href="http://knewone.com" target="_blank" rel="external">KnewOne</a>；在这过程中还闲着没事儿研究比特币，再后来还要学如何做创投；现在又没啥事儿干了，就准备认真研究一下计算机领域，从一个基础的地方开始，去搞定全栈技能（时代不一样了，十年前是没戏的）…… 我学我的，他们为啥那么看不惯？好奇怪…… 其实我倒也不奇怪，我知道他们的思路。</p>
-<p>这么多年来，在学习这事儿上，除了我的父母之外，真的从来没有其他人鼓励过我。我最感激我父母的方面，就是这么一条：</p>
-<blockquote>
-<p>只要我说买书、只要我说报班，我要多少钱，他们就给我多少钱 —— 虽然总是补上一句，“反正钱就这么一点点，你花在那里就不能花在别的地方了……”</p>
-</blockquote>
-<p>他们就是这样在我小时候用行动支持我的…… 再后来我自己能赚钱了，就成了我自己用行动支持我自己。</p>
-<p>来自于亲戚、朋友的鼓励呢？说实话，真的没有，完全没有 —— 当然，我的情况特殊，我并不需要别人鼓励 —— 我自我鼓励的能力超强。风凉话呢？那就太多了，认识的不认识的都想上来泼一瓢冷水 —— 现在回头看这些年，最幸福的事情就是我也不知道为啥竟然没有被他们恶心到，也没被他们吓倒，好像完全没事儿似的……</p>
-<p>所以，我这一辈子都有个好习惯：</p>
-<blockquote>
-<p>鼓励身边的所有人…… 只因为，我实在是太清楚“鼓励”这东西有多么稀缺了。</p>
-</blockquote>
-<p>老罗当年跟后来的老婆处对象的时候，据他说几乎所有人都反对，只有我一个人说，“多好啊！你那么开心……” 西乔准备考雅思的时候，我天天说的只有一句话：“没那么难的，你就弄罢……” —— 我真的没有教她什么，反正她从零基础开始一年之后考了雅思四个七分而后留学霍炬陪读最终全家移民成功。当年高雅说，“我们老师都说我数学不行……” 我只不过回了一句“让他们都去屎” —— 她到美国本科就选了数学专业，研究生选了设计…… 还有另外一个小朋友叫魏天天，第一次托福，才 82 分，当时我正在上海出差，她给我打电话，电话通了之后嚎啕大哭，我说的只不过是“哭个屁，都这样的 —— 接着考！” 后来，她考了 108 分。</p>
-<p>如果你自己是个上进的人，那你就像我一样，天天鼓励那些同道中人罢 —— 我相信这绝对是善事。</p>
-<p>还有另外一个事实是很多人曲解的：</p>
-<blockquote>
-<p>谁说学过之后用的不够熟练，就不能用了？！</p>
-</blockquote>
-<p>我说了个全栈工程师一年差不多了，很多人就愤怒了…… 对不起，我不是故意的。我用一两个月时间学会了，但用的不够好，部署到网上没多久就被人攻击了，甚至被“脱裤”了…… 这确实可以算作技艺不佳，可这碍着谁了呢？—— 哈哈，大家可能不知道，这事儿真的出现过，我当年学 ROR，用它写了个博客程序，然后就被“黑客”攻击了，删除了第一篇文章，然后留下几句话…… 他一定是觉得“这下我狠狠羞辱了李笑来一番”…… 偶尔挺想他的，不知道五年过去了，他现在怎么样？</p>
-<p>哦，对了，还有另外一个事儿：</p>
-<blockquote>
-<p>谁说没天分的人就不应该学东西了，谁说没天分的人学得不足够好就丢人了？</p>
-</blockquote>
-<p>我学过的几乎所有东西里，都没有“我有天分”的因素…… 这一方面是破令人沮丧的事实，另一方面又是勇气的来源。我最没天分的事情，可能就是唱歌。据说小时候唱歌很好听，后来有一次出去滑冰，重摔，然后脑震荡，然后就脑残了（这可是真的脑残），应该是负责辨音的部分受伤，直接的结果就是变得五音不全，没办法准确地分辨别人的音高，无法自如地控制自己的声音…… 上初中的时候，我爹给我买了一把吉他，说，“你唱歌都跑调，将来怎么学英语呀？” —— 一副“老爹只能帮到你这里了”的表情。许多年后，我弹琴自娱自乐，偶尔唱首“山丘”让同事们开心一下…… 他们很羡慕，却不知道那吉他对我来说，这么多年来，其实一直是“脑残治疗仪”…… 我做销售，也不是因为我擅长，而是当年会计没学好，所以找不到会计的工作（也有别的原因）；我去新东方教书，你真以为我英语有多好啊？只不过是考试成绩不错而已，发音那个烂啊…… 但发音烂就要被剥夺讲英语的权利吗？我不信。后来搞投资，你真以为我能点石成金啊？投了很多烂项目、死项目，花很多钱买了很多教训之后才开始慢慢摸到一点门道……</p>
-<p>而且，我心粗，没有生气恼火的基本素质。更邪门的是，我认识很多被骂得比我惨的人…… 比如王垠，比如罗永浩，比如和菜头，比如霍炬，并且，他们之间还可能对骂呢…… 偶尔好像来气了的时候，不小心不厚道地想到他们，我就又乐了…… 唉，咋整？</p>
-<p>有一天，我在朋友圈里发过这么一句话：</p>
-<blockquote>
-<p>我找到了捷径，可惜早已身不在起点。</p>
-</blockquote>
-<p>真的有很多捷径…… 比如，现在这篇文章里很多话都是“捷径”，因为你想通了，这些“捷径”就会帮你节省很多很多时间，节省很多很多精力，了却很多很多烦恼，甚至抄很多很多近路…… 捷径，不就是用来节省时间、提高效率的吗？</p>
-<p>说这么多，其实就是想说这么个事儿：</p>
-<blockquote>
-<p>我就是想带着一群人（当然总体上其实肯定是少数人），大幅度降低对学习的恐惧，大幅度压缩学而不用的时间，大幅度地跨界 —— 跨越那些貌似无法跨越的界限 —— 因为我们能活很多辈子，七年就是一辈子，你自己算算看？。</p>
-</blockquote>
-<p>这一定让一些人感觉不舒服，但相信我，我们真的不是故意的…… 我们没想到会是这种情况…… 我们本来只是想自己过得更开心一点而已。大家尽量相互谅解罢。</p>
-<p>另外，这事儿需要补充：</p>
-<blockquote>
-<p>我所说的、我所理解的全栈，究竟是什么没必要在语义上争论，但，在真正工程师的生活中，coding 应该基本上只占 20% —— 因为最终代码是用来表达思想的，用来解决问题的；所以，全栈工程师是那种有真正的问题需要解决，有真正有价值的想法需要实现，有品位的设计者、创造者。就好像我们都识字，都能写字，能写漂亮钢笔字的人也很多很多，可最终写好文章、写好教程、写好小说、写好诗歌的人才是“文字工程师”，剩下的都只是“识字而已”。</p>
-</blockquote>
-<p>哦，对了，我特地从台湾请来一位教练，做全栈工程师集训，我也要跟着学。2016 年 7 月 12 日开班，两个月，5 万元学费。具体报名方式，过两天公布。</p>
+          有一句话是这么说的：
 
-          
+人类一思考，上帝就发笑。
+
+我从来没搞懂这句话什么意思，什么目的，什么意义…… 也觉得并不重要。
+我倒是清楚地知道另外一件事儿：
+
+你一说要学什么东西，人们就发笑……
+
+说实话，我花了很多年才琢磨清楚他们为什么要笑，他们的思路，他们的结论，他们的未来和结局。琢磨清楚了之后，才
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/06/14/teach-yourself-without-permission/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -1469,6 +936,13 @@
 
           
             
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/12/makecs-preface/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/12/makecs-preface/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -1490,205 +964,20 @@
       
         
           
-            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><h2 id="1-为什么选择程序设计作为这本书的主题？"><a href="#1-为什么选择程序设计作为这本书的主题？" class="headerlink" title="1. 为什么选择程序设计作为这本书的主题？"></a>1. 为什么选择程序设计作为这本书的主题？</h2><p>也许是因为我必然不由自主地暗藏私货，因为我一直固执地认为，不管有多少人相信：</p>
-<blockquote>
-<p>(0) 在中国，对绝大多数人来说，<strong>English + Computer Skills = Freedom</strong></p>
-</blockquote>
-<p>不过，以下理由可能更为充分：</p>
-<blockquote>
-<p>(1) 程序设计也许是目前地球上最容易变现、最被高估、可事实上却实际上并不难以获得的技能。</p>
-</blockquote>
-<p>从趋势上来看，不仅目前如此，将来还会如此，并且变现容易程度与高估的幅度都会被进一步拉升 —— 不信咱就找个代驾开车坐在后座看唱本走着瞧。</p>
-<p>还有个理由是，</p>
-<blockquote>
-<p>(2) 程序设计的学习难度被有意无意地过分高估了。</p>
-</blockquote>
-<p>人们向来有把学不会的技能神秘化的倾向，也许是因为只有这样心里才舒服，觉得自己学不会正常一点。但，程序设计这个领域，实在是被过份高估了（其程度比第二语言习得领域还要高出许多许多），乃至于很多人只是因为被误导了才望而却步，根本不是做不了做不好的原因。这个领域里的每一项技能，都会让习得者有这样的慨叹，“这样简单的东西竟然这么有用！” 或者 “连这么简单的东西我都没学会的话，实在是太可惜了！”</p>
-<p>最后一个理由是，</p>
-<blockquote>
-<p>(3) 这是个最能全方面养成、锻炼、提升个人学习能力的学习项目。</p>
-</blockquote>
-<p>在计算机这个领域的顶尖范围里，集聚着人类的精英，他们设计了一个又一个的方法论去优化自己的工作环境，优化自己的工作流程，优化自己的产品，没完没了地改善，没完没了地更迭…… 也就是说，在计算机这个领域里，有大量的概念与方法论都是走在最前沿的。学习程序设计，并不是肤浅地学一门编程语言，设计一些函数，更重要、更本质的是学习计算机科学家们用来改变世界的思考方式、行为模式。</p>
-<h2 id="2-这本书可能涉及的话题"><a href="#2-这本书可能涉及的话题" class="headerlink" title="2. 这本书可能涉及的话题"></a>2. 这本书可能涉及的话题</h2><p>这真是个神奇的时代。跟过去不一样了，现在很可能已经是“一门语言打天下”的时代了，学一门 javascript，就有可能什么都做了…… 这在哪怕仅仅是三五年前都是不可能的事情。不过，我们涉及的话题可能很多很多 —— 总而言之，前面有一条路通往“<strong>全栈工程师</strong>”的方向……</p>
-<blockquote>
-<ul>
-<li>HTML, CSS, JAVASCRIPT</li>
-<li>PUG, LESS, COFFEESCRIPT</li>
-<li>MONGODB, RETHINKDB</li>
-<li>NODEJS, EXPRESSJS</li>
-<li>REACT, VUE, ANGULAR</li>
-<li>RELUX</li>
-<li>ELECTRON</li>
-<li>TDD…</li>
-</ul>
-</blockquote>
-<p>反正没有什么是不能学的……</p>
-<h2 id="3-如何自学才能真正有效？"><a href="#3-如何自学才能真正有效？" class="headerlink" title="3. 如何自学才能真正有效？"></a>3. 如何自学才能真正有效？</h2><p>学习是一种生活方式，是少数人的生活方式 —— 虽然它原本是每一个人最初的生活方式。哪儿有小朋友不学习的？他们每天都在学习（不要把学习狭隘地理解为上学、读书），可基于种种原因，绝大多数人从某一时刻开始就厌倦了学习（很可能是把学习与上学等同起来造成的），甚至干脆放弃了学习（以为离开学校就再也不用学习了）……</p>
-<p>另外一些人，不太一样，尽管他们是少数。他们甚至不认为学习只是生活内容之一，而干脆是生活方式。因为不学习的生活只能是停滞不前的，所以缺少了新鲜，缺少了刺激，由此也缺少了许许多多的乐趣。生活方式决定了生活质量，这是最基本的逻辑。</p>
-<p>再进一步，既然学习是一种他们已经选择了的生活方式，所谓的“终生学习”只是必然的结果，对他们来说并不需要“大力提倡”，他们也不需要“努力”、“坚持”、“不屈不挠”、“头悬梁锥刺股”…… 他们只是那样活着，每天进步一点点地活着，没有最好，只有更好，不需要成功，只需要不断成长。</p>
-<h2 id="3-1-自学其实是一种社交活动"><a href="#3-1-自学其实是一种社交活动" class="headerlink" title="3.1. 自学其实是一种社交活动"></a>3.1. 自学其实是一种社交活动</h2><p>很多人错误地认为所谓的“自学”，就是“自己一个人（默默地）学” —— 这恰恰是绝大多数人一生学习失败的最根本原因。很多人从来没反应过来：</p>
-<blockquote>
-<p>学习从来都不是单独孤立的行为，而是社交行为。</p>
-</blockquote>
-<p>生活中，你遇到过这样的现象没有：“看见别人打针，自己先疼得受不了……” 这是因为我们的大脑中有一种神经元，叫做“镜像神经元”（Mirror Neuron），它会让我们“感同身受”，当我们看到另外一个人正在做什么的时候，镜像神经元会尽力给我们足够的刺激，让我们“体验”那个人的感受。以前人们不知道为什么喷嚏竟然会“传染”，现在科学家们很清楚了 —— 那就是镜像神经元在起作用。</p>
-<p>镜像神经元的存在，使得我们有模仿能力、有通感能力、有同情心、有同理心…… 这也是为什么人类天然有社交需求的重要原因，因为我们的大脑皮层上都有很多的镜像神经元。</p>
-<p>一般来说，物品、书籍之类非人的东西，都不大可能激活镜像神经元。只有看到人的时候，镜像神经元才会被激发。所以，你送给小朋友一把吉他，他不会有什么兴趣的。可若是你在弹琴的时候被他看见，他的镜像神经元就会因为你的行为而被出发，进而对弹奏吉他感兴趣 —— 注意，不是对吉他本身感兴趣。若是你在弹琴的时候，带着某种能够打动他的情绪，那他更容易被影响，因为情绪更能激发镜像神经元。也就是说，一切的学习起初都基于模仿，一切的模仿，都源自于看到真人的行为 —— 哪怕是在电影里看到，虽然其实只不过是影相而已，并非真人，但毕竟是真人的影相。</p>
-<p>所以，无论学什么技能，都要找到用那种技能的人，这样我们的镜像神经元才可能更容易被激发，学习效果才会好。若是能找到热爱那项技能，乃至于一使用那项技能就很开心（最好的情绪之一）的人，那就更好了。激情这东西，是少数幸运儿才长期持有的东西，大多数人小时候挺多，过了十五六岁之后就开始有意无意磨灭了激情，且并不自知。</p>
-<p>之前提到，</p>
-<blockquote>
-<p>当我们看到另外一个人正在做什么的时候，镜像神经元会<strong>尽力</strong>给我们足够的刺激，让我们“体验”那个人的感受。</p>
-</blockquote>
-<p>这句话里有个词很重要，“尽力”。因为镜像神经元只能调用我们大脑里已有的信息去模拟对方的感受，所以，它最多也就是“尽力”，无法做到“确保正确”。今天的糖尿病患者使用的皮下注射针头，已经可以做到很细，细到让使用者“无感”的地步，所以，当一个糖尿病患者给自己注射胰岛素的时候，他自己并不觉得疼，可是看的人却能“疼”到紧皱眉头的地步，为什么？因为旁观者的大脑力没有实际用那么细的针头注射胰岛素的经验，所以镜像神经元在旁观者“感同身受”时所调用的，其实是过往旁观者自己打针的体验 —— 被很粗的针头做静脉注射的痛苦体验。</p>
-<p>所以，很多人误以为他们眼里的成功者靠的是“坚持”、靠的是“毅力”，这完全是自己的镜像神经元“尽力”的结果，是“调用自己过往经验去‘感同身受’的结果”…… 事实上呢？那些“成功者”其实并不在意成功，因为到死之前成长不应该也不可能结束，因为那是他们的生活方式，学习、进步、探索、迂回，甚至折腾、挫败和迷茫，都是他们生活中必不可少的内容，这是最初不自觉的选择，谈不上什么“坚持”，谈不上什么“毅力”…… 说实话，对他们来说，不让折腾才真痛苦呢，不学习才需要坚持和毅力呢！</p>
-<p>再进一步，这也是为什么要选择朋友的原因。人与人之间有很大的差异，最大的差异来自于性格养成，大多数人会沦为表现型人格，只有少数人才会在不断调整中保持、呵护、进一步培养“进取型”人格。他们自然而然地更为乐观，更有耐心，更有承受力，更有战斗力，更能生产与体验学习与进步的乐趣。与这样的人在一起，学习会更容易 —— 只因为镜像神经元会更容易地被正确激发。说清楚了，道理其实挺简单的。</p>
-<h2 id="3-2-刻意练习是必须自己完成的核心"><a href="#3-2-刻意练习是必须自己完成的核心" class="headerlink" title="3.2. 刻意练习是必须自己完成的核心"></a>3.2. 刻意练习是必须自己完成的核心</h2><p>有个很简单的诀窍：</p>
-<blockquote>
-<p>重复才能练就技艺。</p>
-</blockquote>
-<p>但不知道为什么，绝大多数人就是不信这事儿，尽管大多数人小时候一定读过那个寓意深刻的教育故事：《卖油翁》—— 每个人都记得那里面的金句：</p>
-<blockquote>
-<p>无它，手熟尔。</p>
-</blockquote>
-<p>这时间绝大多数的“精湛技艺”，到最后跟那个神秘的概念“智商”没有任何关系。智商是存在的，但它不是与生俱来一成不变的，所谓的智商，其实是一个人最终积累出来的知识经验的总和 —— 若是这样理解的话，就不难理解为什么到最后人与人之间的聪明程度相差天壤。因为有一些人天天往前走啊，另外一些人早就不动了啊！</p>
-<p>所谓的刻意练习，说来也很简单，就是把那些现在做起来生疏的技能通过反复使用最终做到不假思索就可以做完且做好 —— 这与智商高低全无关系。</p>
-<p>现在大多数人都会开车。谁在刚开车的时候不生疏呢？一个方向盘都弄不明白，这会儿转多了，那会儿转少了…… 可是，没有多久（绝对用不着一万小时，一百小时都用不上）之后，那方向盘就好像已经是自己身体的一部分一样，就好像已经长在自己的手上了一样，听话起来，不假思索的情况下就可以做到转动的幅度刚刚好…… 车上油门，刹车，也是一样，没多久，就好像长在脚上一样，就好像是自己身体的一部分一样，随心所欲地被我们控制（其实是“随脑所欲”）。</p>
-<p>我们的大脑就是这样的，有强大的能力把我们常用的物体、技能“吸收”进来，就好像那些东西是我们身体的一部分一样，进而随心所欲地控制。厨艺大师手中的刀子，MBA 明星手中的篮球，都是这样的，虽然看起来是“身外之物”，实际上，对他们的大脑来说，那些东西都是他们身体的一部分，是他们可以随心所欲地控制的 —— 当然，外人看来那实在是太神奇了！</p>
-<p>每个人都有过这样的体验。你见过小朋友刚开始拿笔写字有多么笨拙吧？你自己最初的时候也那样，这是跑不了的。可仅仅是几天之后，你就已经可以自如地控制那“身外之物”了，不说写得好看不好看，起码已经能一笔一划地写了。这一代人从小就使用键盘，要知道在上一代人身上，键盘可是“神奇的计算机”的一部分，是“高档电器”的组成部分，学起来可费劲了，要专门上一个“打字培训班”…… 也不一定学的会。甚至最终相当数量的人放弃了，或者连试都不愿意试，更有甚者干脆“理直气壮”声称“用那玩意写字没感觉！”，这还不够，要写文章发表在报纸上，理论只用笔而绝对不用键盘的必要 —— 真的没感觉吗？没感觉真的那么重要吗？他们有的明显是错误的感觉啊！等那些人都死光了，那些“感觉”就再也没有人提起了。这一代人最明显的变化就是，互联网已经长在自己身上了，互联网不再是一个只有坐在桌上的台式机面前才有的一个存在。天天用天天用的结果是什么？绝大多数动作都已经化作大脑皮层表面的沟回，不再需要通过思考、检索才能产生正确的行动，而是下意识中已经做完，已经做好…… 这一代的孩子们不仅随脑所欲地使用键盘，甚至可以随脑所欲地使用虚拟键盘，哼。</p>
-<p>所以，一切看起来复杂的技艺，其实都并不难，很多人最终学不会，其实只是练不成，就是说，他们并不是不理解那道理、那原理；可理解本身并无太大用处，因为真正需要做的是通过大量的重复与实践，把那道理、那原理转化为大脑皮层表面的沟回…… 缺少了刻意训练的环节，学什么都是白搭。</p>
-<p>关键来了：</p>
-<blockquote>
-<p>刻意练习，必须自己完成。</p>
-</blockquote>
-<p>没有人帮你完成，更为重要的是，没有人有义务监督你完成 —— 除非你付钱给人家监督你。但现实中出钱请人监督自己的做法总是不太成功，因为 a) 钱出的不够高，所以请不来真正负责的人；b) 钱出的足够高，吸引来的只能是唯唯诺诺的人，不敢下手太狠…… 你看，不是没有人试过，只是试过之后发现没用而已。</p>
-<h3 id="3-3-即便环境足够好也依然要靠自己"><a href="#3-3-即便环境足够好也依然要靠自己" class="headerlink" title="3.3. 即便环境足够好也依然要靠自己"></a>3.3. 即便环境足够好也依然要靠自己</h3><p>很多事情只能靠自己。学习就是吃饭，正如饭这东西没办法让别人替自己吃了一样，学习只能自己学，刻意练习只能自己练，谁都帮不上，谁都指望不上。这就是绝大多数人自学失败的最根本原因。</p>
-<p>然而，在一个恰当的环境里，在一个恰当的社交圈里，情况可能非常不同。若是你在一个表现型人格占大多数的圈子里生存，你做得好会招致嫉妒甚至陷害，你做得差会被嘲弄甚至捉弄；反过来，你若是在一个进去型人格占大多数的圈子里生存，情况会反过来，你做得好，大家会佩服你，然后模仿你，向你学习，或直接向你请教，或默默揣摩；要是你做的不好，没有人会鄙视你，没有人会捉弄你，相反会鼓励你，告诉你说大家刚开始都是这样的，看到你做的不恰当的地方，他们会告诉你，若是如此这般你也许就可能好起来…… 然而，即便是在进取型人格占大多数的社交圈里，一切的改变也都来自于自己的刻意练习，用时间浇灌的践行，才能引发真正的改变与进步。</p>
-<p>这与有一部分健身者选择去健身房锻炼也是一样的道理。</p>
-<p>难道就不能在家、在操场健身吗？能啊。去健身房锻炼就能自动长出一身腱子肉，自动甩掉一肚子肥膘吗？明显不能啊！你交了四千八百块的年费，到年底一算，单次消费八百元，因为一年下来你只去了六次…… 你会找健身房退款吗？不会的 —— 至于为什么，你可能没细想过：因为从另外一个角度来看，一年交四千八百元，是你和健身房的约定；至于去多少次，实际上是你自己与自己的约定，违约者是你自己，被约为者还是你自己，非要退费的话，你得找你自己退费……</p>
-<p>但你若是去了健身房，并且还能持续频繁地去健身房锻炼，你的身材就是会变的，而且变化还会非常大，那可是一整年啊！事实上，三个月下来，总计一百小时左右，就会发生巨大的无法忽视的变化。<strong>对，仅仅一百小时，在绝大多数领域里，就足矣把绝大多数人甩在身后</strong> —— 对一些人来说这个事实可能是解脱；对更多另人来说，这个事实其实非常残酷，因为仅仅一百个小时，他们就已经败下阵来，别说一辈子了，别说七年就是一辈子了，他们在生生世世中，第一百个小时之前就已经死去。</p>
-<h2 id="4-概念与方法论：最少必要知识"><a href="#4-概念与方法论：最少必要知识" class="headerlink" title="4. 概念与方法论：最少必要知识"></a>4. 概念与方法论：最少必要知识</h2><p>无论学什么，都要想尽一切办法（读书、搜索）尽快获得“最少必要知识”。什么是“最少必要知识”呢？所谓“最少必要知识”，指的是为了能够实践某项技能，最起码要学会的那一点知识。</p>
-<p>我为了这个概念还专门杜撰了一个英文缩写，<em>MAKE</em> —— Minimal Actionable Knoweldge &amp; Experience。注意这里的一个词：Actionable，“可行动的/可执行的”。</p>
-<p>比如，开车的最少必要知识是什么呢？</p>
-<blockquote>
-<ul>
-<li>学会如何启动</li>
-<li>学会如何制动</li>
-<li>再加上一个字：慢</li>
-</ul>
-</blockquote>
-<p>但，开车开得不好可能会影响别人的生命安全，所以得先去考个驾照…… 可大多数知识与技能并不会直接危及他人的生命安全，不是吗？你英语发音不漂亮，人家并不会因为这个就直接死掉；你写字写得不够帅气，但这并不意味着说你没有写字的权利；你 PPT 做得不好看，但这并不意味着说你不可能逻辑严谨地论证你的观点…… 有一本书特别好，好到什么程度呢？仅仅看书名就已经热血沸腾了，这本书叫：<em>Without Permission</em>.</p>
-<p>学习编程的最少必要知识是什么呢？</p>
-<blockquote>
-<p>你得习得几个程序员都应该有的起步方法论。</p>
-</blockquote>
-<p>…… 然后呢？然后你就可以开始边学习，边实践，在学习中实践，在实践中学习更多，虽然有时掉进陷阱，有时误入歧途，但，请你放心，肯定不会死人的。是谓不断进步，是谓 “路漫漫其修远兮，吾将上下而求索”。</p>
-<h2 id="4-1-只使用-Google"><a href="#4-1-只使用-Google" class="headerlink" title="4.1 只使用 Google"></a>4.1 只使用 Google</h2><p>不论你遇到什么困难，都可以去问 Google，这是目前地球上最大的“人工智能”项目。它聪明到什么程度呢？聪明到你甚至可以问它：</p>
-<blockquote>
-<p>How to use google effectively?</p>
-</blockquote>
-<p>这是第一个小任务：</p>
-<blockquote>
-<p>了解一下在 Google 搜索的时候，<code>＋</code>、<code>－</code>、<code>*</code>、<code>&quot;</code>、<code>~</code> 这些符号的用法……</p>
-</blockquote>
-<p>只要花上一小点时间，了解了这些符号的用法，那么，</p>
-<blockquote>
-<ol>
-<li>你已经比地球上的 90% 以上的人更善于使用这个最伟大的人工智能项目了；（甚至，90% 这个数字都有点保守？）</li>
-<li>你已经入门了，最起码你已经知道跟计算机打交道的时候，其实就是综合使用用<br>各种各样的符号而已…… 哪怕一个字符错了，可能结果都很不一样 —— 其实好像小学数学也是如此罢？</li>
-</ol>
-</blockquote>
-<p>既然你准备当工程师，那么，在使用 Google 的时候，除了那些常用的符号之外，还需要常用以下几个关键字：</p>
-<blockquote>
-<ul>
-<li>tutorial</li>
-<li>example</li>
-<li>tricks</li>
-<li>cheatsheet</li>
-<li>cookbook</li>
-<li>awesome</li>
-</ul>
-</blockquote>
-<p>以后在你想学任何语言或者专题的时候，比如 <code>javascript</code>，那你就 Google 这个这些组合：</p>
-<blockquote>
-<ul>
-<li><code>javascript cheatsheet</code></li>
-<li><code>javascript cookbook</code></li>
-<li><code>javascript awesome</code></li>
-</ul>
-</blockquote>
-<p>放心，你自己一定会上瘾的，用不着别人督促你……</p>
-<h3 id="4-2-在中国，你最好买一个-VPN-服务"><a href="#4-2-在中国，你最好买一个-VPN-服务" class="headerlink" title="4.2 在中国，你最好买一个 VPN 服务"></a>4.2 在中国，你最好买一个 VPN 服务</h3><p>别问我 VPN 是什么，我们有个原则：</p>
-<blockquote>
-<p><em>一切能问 Google 的，都不要去问人。</em></p>
-</blockquote>
-<p>这个习惯最初的时候看起来麻烦，可一旦养成，就知道它会帮你节省多少时间，它会让你有多大进步…… 甚至，这个原则还会让你识别哪些人真的值得交流 —— 神奇吗？</p>
-<p>别浪费时间去寻找免费资源，能买就抓紧时间买 —— 我的意思是你必须马上买一个。这是另外一个原则：一切能节省时间的服务都值得购买，因为时间才是最宝贵、最稀缺，压根无法再生的资源，跟时间比，钱算个屁。</p>
-<h3 id="4-3-只读英文文档"><a href="#4-3-只读英文文档" class="headerlink" title="4.3 只读英文文档"></a>4.3 只读英文文档</h3><p>这又是很重要很重要的原则：</p>
-<blockquote>
-<p><em>在计算机方面，只读英文文档。</em></p>
-</blockquote>
-<p>你可能已经打退堂鼓了…… 别怕。<strong>我有办法让你最多三个月就彻底解脱</strong> —— 详见附录，《<a href="/2016/06/11/makecs-appendix01/">十分钟后开始使用英语</a>》。当然，你要是连这三个月都抗不过去，你就认了罢，选择平庸的生活去罢 —— 这个世界正在变得越来越好，在一个更好的世界里，最明显的好处就是，哪怕是笨蛋，哪怕是不进步的笨蛋，也不至于饿死。</p>
-<p>在硅谷，印度人很多很多。为什么呢？他们虽然口音浓重，但英语对他们来说基本上是母语。中国人相对吃亏一点，为什么？英语相对较差。</p>
-<p>在国内，一个程序员的水平怎么样，基本只取决于一件事儿：</p>
-<blockquote>
-<ul>
-<li>英语水平</li>
-</ul>
-</blockquote>
-<p>也许你会因此惊讶，但若是你有机会去问任何一个 IT 公司的 CTO，无论是哪一个，都一定会百分之百认同这个观点 —— 这干脆就是事实。外界并不清楚这事儿而已。我总是开玩笑说（其实只不过是事实陈述），“那些在国内学英语专业的人本科毕业去当老师或者靠研究生，真不如脱产学一年计算机呢，拿着这个优势，一下子就干掉国内 90% 的所谓程序员，年薪 60 万人民币，其实指日可待…… 尤其是那些英语系的女生，一脚踏进码农的世界，瞬间就是女神中的女神。”</p>
-<p>提高英语的最直接、最有效方式，就是从此在某个领域坚决只使用英语 —— 平时，一般人还真的很难有这个环境呢！现在机会来了，你想学习，你想学习计算机，你想成为一个工程师，你就要从今天开始在计算机领域里，只读英文文档。</p>
-<blockquote>
-<p>说实话，我恨不得将这本书直接写成英文版…… 可是为了普度众生，只能委屈自己，也只能委屈各位，还在写中文。不过，<strong>我真心希望这是你读的与计算机相关的最后一本中文书！</strong></p>
-</blockquote>
-<p>这个原则要恪守，要执拗地恪守，要不屈不挠地恪守。给你看个例子，这个例子很重要，乃至于我们一提到学习、一提到进步，一定反复会提及这个例子（最早这是我在《<a href="http://zhibimo.com/read/xiaolai/everyone-can-use-english/chapter1.html" target="_blank" rel="external">人人都能用英语</a>》里提到的例子，其后一直反复使用）：</p>
-<blockquote>
-<p>请读者猜猜下图中，这个正在美国 UAB 康复中心治疗的小女孩受伤的是左臂还是右臂？</p>
-<p><img src="images/CIMT.jpg" alt=""></p>
-<p>其实她的左臂没有受伤，而之所以把左臂固定起来就是因为那是一条没有受伤的手臂，而右臂才是受伤、需要通过训练恢复的……咦？这是怎么回事儿？可是从生理上来看，大脑受损的部分是没办法恢复的，她又怎么能通过训练来让已经受伤的右臂恢复正常呢？&gt;</p>
-<p>大脑的神奇之处在于它可以利用其它未受损的部分重新习得受损部分的功能（学术上叫做“ remap ”、“ reroute ”、或者“ rewire ”）。之所以要把行动自如的左臂绑起来，是因为如果不这么做的话，面对任何需求，大脑中负责控制左臂的部分（或称为“左臂脑图”）都会“优先启动”；因为这部分是未受损的，而原本控制右臂的部分已经受损了。换言之，这时，大脑中尚不存在一个能够控制右臂的部分。而把左臂固定住之后，尽管负责控制左臂的大脑部分依然“优先启动”，但实际上却无法自如操纵左臂。而在这种情况下，就可以通过让大脑的其他部分慢慢专注于右臂，进而习得控制右臂的方法——即，可以通过这样的训练，慢慢使大脑未受损的某个区域“习得”原本只有那个已经受损的区域所负责的功能。没有多久，这个女孩子的右臂就恢复了，活动起来与原来没什么两样。可是她的大脑不再是原来的样子了，尽管某一部分受损且不可恢复，但她大脑的另外一个区域已经被开发，能够别无二致地完成受损区域曾经可以完成的功能。&gt;</p>
-<p>仅仅在 2004 年之前，这种疗法是完全不可想象的。这种最初看起来匪夷所思的疗法叫做“ CI 活动疗法”（Constraint-Induced Movement Therapy，简称“ CI ”或者“ CIMT ”）的发明者是 Edward Taub 教授。今天，这种疗法渐渐开始在全世界范围内普及，帮助无数偏瘫患者找回原来的自我和生活。可是 Taub 教授的研究经历却一波三折。为了找到偏瘫的治疗方案，他需要人为地使猴子偏瘫（故意破坏猴子大脑的某个区域），而后再想办法通过训练令那些猴子从偏瘫状态中恢复过来……上个世纪八十年代初，他被一个动物权益保护组织告上法庭，导致实验室被关闭，经费被冻结，最后甚至失去了工作，几乎所有的人都对他避之唯恐不及。接下来的六年时间里，Taub 教授的所有时间精力都被耗费在为自己辩护上——巨大的社会压力使得他甚至找不到愿意为他辩护的律师，所以他只好自己做自己的律师。案发之前，Taub 教授总计有大约 10 万美元的存款，到他最终胜诉洗清所有罪名之时，他只剩下了大约四千美元的积蓄。当然，时至今日，基于他的理论及其实践为人类创造的巨大价值，Taub教授被公认为当今全球最杰出的科学家之一。&gt;</p>
-<p><a href="http://zhibimo.com/read/xiaolai/everyone-can-use-english/chapter1.html" target="_blank" rel="external">http://zhibimo.com/read/xiaolai/everyone-can-use-english/chapter1.html</a></p>
-</blockquote>
-<p>触类旁通地想想吧，如果不把你的中文使用能力锁起来，那么在这个领域里，你的英文使用能力就一定不能发展起来 —— 就犹如上面那个小女孩的左臂没有被绑起来一样，直接导致右臂永远没有办法恢复 —— 因为大脑会走捷径，于是那一部分功能永远不可能被大脑的另外一部分学会。所以啊，还是那句话：“都已经给你说清楚了，你自己选。”</p>
-<p>是不是最终会感觉这岂不是“所有人都应该使用的方法论吗？” 是啊，早就说过了：</p>
-<blockquote>
-<p>本来人人都是工程师，只不过很多人明里暗里自己放弃了而已。</p>
-</blockquote>
-<h2 id="5-天天给自己洗脑"><a href="#5-天天给自己洗脑" class="headerlink" title="5. 天天给自己洗脑"></a>5. 天天给自己洗脑</h2><p>我们天天刷牙、洗手、洗脚、洗澡…… 我们却从来不洗脑，这岂不是咄咄怪事？</p>
-<p>在我看来，不给自己洗脑是最差的个人卫生习惯。更要命的是，很多人其实也洗脑 —— 只不过，从来不是自己给自己洗脑，而是永生永世被别人洗脑…… 这是最可怜的生活状态。</p>
-<p>晚上睡觉前，你洗澡、洗脚；早上起来，你洗脸、刷牙，然后出门。外面有风，所以有风尘，外面可能下雨，所以有泥浆，你可能要上厕所，所以想来有很多细菌，你自己做很多事情，弄不好也大汗淋漓…… 你就会觉得各种不干净，然后你怎么办？洗。不仅要洗，还要搭配各种工具，香皂、洗发露、沐浴液……</p>
-<p>一旦你开始学什么东西，你一定饱受各种打击 —— 那些不愿意学习的人，其实不仅害怕自己学不会，他们更怕的是别人竟然学得会，所以他们会提前出手，打击一切可能让自己收到打击的人或事。他们会嘲笑你（越差的人越鄙视别人），他们会泼冷水（恨不得泼的是开水），他们会鄙视你（不是靠资格，是靠自以为是），他们会疏远你（以为这样可以让你害怕）…… 更可恨的是，他们人数众多，比例上占据一定的优势。</p>
-<p>于是，你的脑子就不干净了，被他们污染了…… 怎么办？自己给自己洗干净 —— 对，就这么简单。</p>
-<p>2009 年，有一个小女孩，名字叫高雅，背着个包从大连坐火车来北京找我，说要学 TOEFL，要到国外读大学。我就给她安排了课程，她很努力，几次下来，从最初的 62 分，考到了最终的 102 分（满分 120 分）。去美国之前，她问我到了美国该学什么专业，我告诉他，本科就是学基础学科的，比如数学。她当时脱口而出：“我从小就数学不好……” 我颇不耐烦，因为我向来讨厌 “我从小 …… 就不好” 这个句型（有一类句型，是脑子被污染了的人才频繁使用的），于是就直接厉声顶了回去：“谁说的！” 我本来说的是感叹号，她却理解成了问号，声音低了好几度，头也不由自主地低了下来：“我们学校老师说的，好几个老师都这么说……” 我愣了一下，却没有软了语气，直接回了过去：“让他们都去屎！” —— 我故意用了卷舌音。</p>
-<p>后来呢？后来她去了美国，在华盛顿大学读本科，她本科读的是什么专业呢？数学。再后来在卡耐基梅隆读研究生，研究生读的是什么专业呢？设计。现在在硅谷工作。</p>
-<p>我想，我当时那一句斩钉截铁的 “让他们都去屎！”，也许是她第一次被洗脑，被洗干净，从那个脏兮兮的状态下清爽地走出来……</p>
-<p>我知道如果你告诉身边的人，你要学计算机了，你要把自己当作工程师了，那他们的反应几乎是我可以栩栩如生地想象出来的。虽然你没必要说出来那句话（“让他们去屎！”），但你自己要知道，他们的反应就跟屋外的灰尘细菌一样，是必然存在的，无法回避的，只不过，你应该回家跟洗手洗澡一样，给自己洗洗脑 —— 请务必注意个人卫生！</p>
-<p>我们每天都要给自己洗脑。可这并不是我发明的习惯啊！孔老夫子说，“吾日三省吾身”，你看看他老人家个人卫生习惯多好，不仅洗，还要天天洗，而且还是每天要给自己洗脑至少三次……</p>
-<p>以下这几句话，天天都要读给自己听，天天都要把它们当作香皂用来给自己洗脑，一遍不够就洗好几遍：</p>
-<blockquote>
-<ol>
-<li>学习其实是一种生活方式，学习本身就是最好的洗脑方式。</li>
-<li>只要我投入时间精力，长期来看，没有什么是我学不会的。</li>
-<li>我学会的东西越多，我再学新的东西就只能越来越快。</li>
-<li>学习不是目的，用起来才是真的，因为价值只能通过创造去实现。</li>
-<li>我知道我现在看起来很笨拙，但刚开始谁都是这样的，实践多了，就自然了，就自然地好起来了。</li>
-<li>在学习这件事儿上，他们不理解我是正常的，这方面我也不需要理解，因为我是一个独立的人。</li>
-<li>我不应该与他们争辩，因为我不想伤害他们；我也不应该被他们影响，因为我不想伤害自己。</li>
-<li>刻意练习永远是必要的，虽然它通常并不舒适，但它的复利效应确实巨大的。</li>
-<li>哪怕是为了下一代，我也要通过现在的努力成为学习专家，这样才有资格与我的孩子共同成长……</li>
-<li>我的路还很长，我要健康，我要干净，尤其是我的脑子更要干净。</li>
-</ol>
-</blockquote>
-<p>其实，这完全是“进取型人格宣言”，不是吗？</p>
-<p>在接下来的过程中，我们会不停地建立更多的原则。所谓的原则，就是一定要恪守的形式准则，如果不能恪守，就不能称之为原则。做个有原则的人，是很重要的原则。另外，有一本好书，就叫《<a href="http://zhibimo.com/books/wang-miao/yuan-ze" target="_blank" rel="external">原则</a>》，一定要找时间研读。</p>
-<h1 id="任务"><a href="#任务" class="headerlink" title="任务"></a>任务</h1><blockquote>
-<ol>
-<li>真正学会如何使用 Google</li>
-<li>用 Google 找到一个可购买的稳定的 VPN</li>
-<li>把“进取型人格宣言”背下来</li>
-</ol>
-</blockquote>
+          前言1. 为什么选择程序设计作为这本书的主题？也许是因为我必然不由自主地暗藏私货，因为我一直固执地认为，不管有多少人相信：
 
-          
+(0) 在中国，对绝大多数人来说，English + Computer Skills = Freedom
+
+不过，以下理由可能更为充分：
+
+(1) 程序设计也许是目前地球上最
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/06/12/makecs-preface/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -1759,6 +1048,13 @@
 
           
             
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/11/makecs-appendix01/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/11/makecs-appendix01/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -1780,65 +1076,25 @@
       
         
           
-            <h1 id="十分钟后开始使用英语……"><a href="#十分钟后开始使用英语……" class="headerlink" title="十分钟后开始使用英语……"></a>十分钟后开始使用英语……</h1><p>阅读这一篇文章，最多需要十分钟而已，之后你就可以开始使用英语了。</p>
-<p>学习英语的最少必要知识是什么呢？</p>
-<blockquote>
-<ul>
-<li>学会音标</li>
-<li>学会查词典</li>
-<li>学会查语法书</li>
-<li>学会正确地提问</li>
-<li>养成最基本语言学习习惯</li>
-</ul>
-</blockquote>
-<h2 id="1-学会音标"><a href="#1-学会音标" class="headerlink" title="1. 学会音标"></a>1. 学会音标</h2><p>音标只是一个符号系统。首先，任何人花上一下午就都可以学会。其次，千万别信那种胡说八道：“外国人都不用音标的”。先说说我们自己的母语，你什么时候见过一个受过教育的人不会用拼音的？遇到生词生字的时候，连拼音都不会的话，就算查到了，也不知道那字或词如何读。英语世界更是如此，要知道英语是目前地球上词汇量最多的语言，也就是说，在英语世界里，任何人遇到生词的概率都要大出许多许多倍 —— 只要是个正常受过教育的人，怎么可能不去查词典？怎么可能甘心于查了词典之后竟然不懂如何发音？</p>
-<p>学习音标真的很简单。</p>
-<blockquote>
-<ul>
-<li>从任何一本有文本的有声书中截取一段大约三五分钟的录音，然后把电子书的文本拷贝出来，粘贴复制到这个网站提供的工具里：<a href="http://upodn.com/phon.php" target="_blank" rel="external">http://upodn.com/phon.php</a> ，然后你就会得到一个英语与音标对应的文本。（我是如何知道这个网站的？Google 呗 —— ‘Phonetic Transcription’……）三五分钟的语音中（大约三五百个词）一定包含了所有的音素（辅音、元音）……</li>
-<li>一边看音标文本文件，一边反复跟读这段文本……</li>
-</ul>
-</blockquote>
-<p>一个下午，任何一个正常成年人都能搞定。</p>
-<h2 id="2-学会查词典"><a href="#2-学会查词典" class="headerlink" title="2. 学会查词典"></a>2. 学会查词典</h2><p>查词典，是学习语言的必需习惯 —— 正如学习是生活的必需习惯一样，也正如翻阅文档是开发者必需习惯一样，其实，哪个领域都是一样的。</p>
-<p>遇到生词就查。对，每一个。查着查着就越查越少了 —— 这是一定的。那些告诉你，“遇到生词（先）不（用）查，先猜”的人，让他们去屎。望文生义的笨蛋说的就是他们。</p>
-<p>一句话里感觉没有生词，可就是看不懂，原因可能是某个单词有另外的词义，而你却只知道最常用的词义。比如，“<em>down</em>”这个单词，竟然还可以做名词使用，意思是“小鸟小鸡身上的软毛”……</p>
-<p>那可能是有“你全都认识的词构成的你完全猜不到的词义”造成的，比如“<em>purple passage</em>”，“<em>purple</em>”你认识，“紫色的”，“<em>passage</em>”你也认识，“<em>文章</em>”，但“<em>purple passage</em>”是“辞藻过分华丽，金玉其外败絮其中的文章” —— 你可能就不知道了。</p>
-<p>还有一种情况是，语法结构弄不明白…… 比如，“as” 有很多用法，到底是哪一个呢？那就走下一步：查语法书。</p>
-<h2 id="3-学会查语法书"><a href="#3-学会查语法书" class="headerlink" title="3. 学会查语法书"></a>3. 学会查语法书</h2><p>语法书是用来查的，不是用来背的 —— 你啥时候见过人们背地图？</p>
-<p>一张地图拿过来，知道“上北下南左西右东”，以及“少量标记符号”（比如，公交线长什么样，地铁线长什么样）这两个最少必要知识之后，就可以开始查地图了，不是吗？</p>
-<p>语法书也一样，除了你在初中的时候已经学过的一些基础语法概念，比如“名词”、“动词”、“形容词”、“副词”什么的之外，你还需要知道另外一个概念：“功能词”。什么叫功能词呢？就是那些在语法书的附录里，带着页码编号的词……</p>
-<p>你应该找个时间，比如一下午，大概翻翻那些功能词都有哪些，有个印象就好。</p>
-<p>然后，在遇到“没有生词、没有不了解的词义、没有不认识的词组，但就是读不懂的句子”的时候，仔细看看那句子里有没有功能词存在？有的话，去查查语法书，在附录里找到对应的页码（可能不止一个），按图索骥地查下去，一定能找到答案……</p>
-<blockquote>
-<p>你以为你遇到过的英语老师啥都懂吗？不是的！他们就是比学生多一个技能：遇到问题的时候，他们懂得如何查词典，如何查语法书…… 哪个领域都是一样的 —— 你以为“高级程序员”什么都懂吗？某种意义上，他们只比那些“低级程序员”多一个技能：遇到问题的时候，他们懂得如何检索文档，如何问 Google……</p>
-</blockquote>
-<h2 id="4-学会正确提问"><a href="#4-学会正确提问" class="headerlink" title="4. 学会正确提问"></a>4. 学会正确提问</h2><p>能问 Google 的，都不要去问别人，这是礼貌。</p>
-<p>别问人家这个单词什么意思，别问人家这句话什么意思 —— 自己动手去查！一个词典查不到，再换一个，换一个还查不到，还有 Gooogle 呢！</p>
-<p>实在查不明白，还有个办法，去 Google 那句原文，然后加上一个汉字“的”或者“了”（这两个字是中文中使用频率最高的词），这个搜索组合很可能让你找到已经有人在网上提问过……</p>
-<p>自己折腾过了，还搞不明白，再去问可能帮你的人 —— 他们也搞不定，也有可能，那就记在本子里。很神奇的事情是，大量的问题，都会在某一天自动出现解决方案的 —— 前提是，你还记得那个问题!</p>
-<p>不会正确提问，其实只不过是懒惰的表现，懒人是没救的，所以千万不能做懒人。</p>
-<h2 id="5-养成最基本语言学习习惯"><a href="#5-养成最基本语言学习习惯" class="headerlink" title="5. 养成最基本语言学习习惯"></a>5. 养成最基本语言学习习惯</h2><p>朗读。天天朗读。每天朗读半小时，坚持两百天，才 100 小时…… 每天朗读一小时，坚持 100 天，也就是三个月多一点点 —— 你已经把 90% 的人甩在身后了，真的！</p>
-<h2 id="6-阅读先行是很自然的"><a href="#6-阅读先行是很自然的" class="headerlink" title="6. 阅读先行是很自然的"></a>6. 阅读先行是很自然的</h2><p>口语难练，这是很正常的，因为在大多数情况下，我们读书、看电影的时候，由于面对的并不是真实的人，所以我们大脑中的“镜像神经元”很难被激发，于是学习能力处于“冬眠状态”。其实每个人都很有语言天赋的，顶多是一点点的好坏差异而已。你看，几乎任何一个人在一个新的城市里住上一周以上，口音就会发生一些微妙的变化，并且根本不是故意的（都没有刻意练习） —— 只是因为镜像神经元被激发了。</p>
-<p>可是阅读这东西，用不着镜像神经元过分活跃 —— 只是在小时候启动的时候可能需要（家长喜欢看书，孩子通常更容易喜欢看书）。所以，你要相信你的阅读能力可以很快提高的，事实上，确实如此 —— 只需要啃上一本原版书，基本上就过关了。</p>
-<p>选择原版书的时候，一定要选择自己感兴趣的领域 —— 英语教科书在这方面几乎是最差的。现在对你来说，这是个很好的机会，你不是对编程感兴趣吗？不是对成为计算机工程师感兴趣吗？那就读这个领域的原版书好了。这样的时候，你的焦点并不在于英语本，而是在于那语言文字背后的思想，这样的时候，你的大脑会很厉害，它自己会想办法穿透那层“毛玻璃”（英语），看到那玻璃背后的意义…… 不知不觉之间，那“毛玻璃”就会变成“透明玻璃” —— 就这么简单。</p>
-<h2 id="7-刻意练习永远是必须的"><a href="#7-刻意练习永远是必须的" class="headerlink" title="7. 刻意练习永远是必须的"></a>7. 刻意练习永远是必须的</h2><p>每天都要挤出一点时间，把今天遇到过的生词复习几遍 —— 上学的时候不懂如何复习的人学习都不好，现在在成年阶段重新学习的时候，可别再吃这个亏了！而且，这个习惯是会“遗传”的：你的孩子若是看到你总是通过重复获得进步，他们也会自然而然地习惯于重复获得进步，这是真理。</p>
-<p><strong>没！有！别！的！了！</strong></p>
-<p>任何正常人都可以上路了。如果还想让自己更心安一点，那就去读一本书《<a href="http://zhibimo.com/read/xiaolai/everyone-can-use-english/" target="_blank" rel="external">人人都能用英语</a>》，其实只有一个字和一个感叹号：“<em>用！</em>”</p>
-<p>用吧用吧，不是罪。</p>
-<p><strong>大多数人的平庸和愚蠢，其实都是当初自己选的</strong> —— 这真是一个残酷的事实。</p>
-<h1 id="任务"><a href="#任务" class="headerlink" title="任务"></a>任务</h1><blockquote>
-<ol>
-<li>今天就彻底学会音标。</li>
-<li>从明天早上就开始坚持朗读。</li>
-<li>配置好自己的计算机以便随时查词典，请 Google <code>Mac Dictionary 添加词典</code>。</li>
-<li>请 Google <code>新编英语阅读手册</code>。</li>
-<li>请 Google <code>人人都能用英语</code>。</li>
-<li>请 Google <code>how to ask questions</code>，第一个就是 Eric Steven Raymond 写的 <em><a href="http://www.catb.org/esr/faqs/smart-questions.html" target="_blank" rel="external">How to ask questions the smart way</a></em>，必须精读。另外，还有一篇 <a href="https://hbr.org/2009/05/real-leaders-ask.html" target="_blank" rel="external">HBR 的文章</a>，也要细看。</li>
-</ol>
-</blockquote>
+          十分钟后开始使用英语……阅读这一篇文章，最多需要十分钟而已，之后你就可以开始使用英语了。
+学习英语的最少必要知识是什么呢？
 
-          
+
+学会音标
+学会查词典
+学会查语法书
+学会正确地提问
+养成最基本语言学习习惯
+
+
+1. 学会音标音标只是一个符号系统。首先，任何人花上一下午就都可以学会。其次，千万别信那种胡
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/06/11/makecs-appendix01/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -1909,6 +1165,13 @@
 
           
             
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/05/18/hello-world/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/05/18/hello-world/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -1930,10 +1193,15 @@
       
         
           
-            <p><strong>学习其实只不过是一种生活方式</strong>，否则为什么会有的人就是停不下来呢？学习不需要坚持、不需要毅力、不需要信念，不需要各种“不得已而为之的概念”，它只不过是一种选择，一个一旦真选了就再也不可逆的选择。仅此而已。</p>
-<figure class="highlight javascript"><figcaption><span>The code of an interesting life...</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span> (alive) &#123;</span><br><span class="line">    learn();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          学习其实只不过是一种生活方式，否则为什么会有的人就是停不下来呢？学习不需要坚持、不需要毅力、不需要信念，不需要各种“不得已而为之的概念”，它只不过是一种选择，一个一旦真选了就再也不可逆的选择。仅此而已。
+The code of an interesting life...while (alive) 
+          ...
 
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/05/18/hello-world/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -2168,6 +1436,25 @@
 
 
 
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'rebornagain';
+      var disqus_identifier = 'index.html';
+      var disqus_title = '';
+      var disqus_url = '';
+
+      function run_disqus_script(disqus_script){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+      
+    </script>
   
 
 

@@ -118,7 +118,7 @@ Chapter 1: Getting Started
 
 
 Mac 上的编辑器，工程师们最喜欢用的曾经是 TextMa">
-<meta property="og:updated_time" content="2016-06-17T06:33:47.000Z">
+<meta property="og:updated_time" content="2016-06-28T16:18:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Atom 编辑器进阶">
 <meta name="twitter:description" content="1. 两个共同的目标以下的内容，假定你已经读完 Atom 官方教程 Atom Flight Manual 的第一章：
@@ -147,7 +147,7 @@ Mac 上的编辑器，工程师们最喜欢用的曾经是 TextMa">
     fancybox: true,
     motion: true,
     duoshuo: {
-      userId: 0,
+      userId: undefined,
       author: '博主'
     }
   };
@@ -160,6 +160,15 @@ Mac 上的编辑器，工程师们最喜欢用的曾经是 TextMa">
 
   
 
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-48155608-1', 'auto');
+  ga('send', 'pageview');
+</script>
 
 
 
@@ -304,6 +313,13 @@ Mac 上的编辑器，工程师们最喜欢用的曾经是 TextMa">
 
           
             
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/17/makecs-atom-advanced/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/06/17/makecs-atom-advanced/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -343,7 +359,7 @@ Mac 上的编辑器，工程师们最喜欢用的曾经是 TextMa">
 <p>在 Atom 编辑器中，用 <kbd>⇧</kbd><kbd>⌘</kbd><kbd>P</kbd> 呼出 Command Palette，在里面输入 <code>init script</code>，由于这个输入框里使用的是 <code>Fuzy matching</code>, 你输入到 <code>s</code> 的时候，估计 <code>Application: Open Your Init Script</code> 已经排在第一位了，当它是第一位的时候，直接回车键 <kbd>⏎</kbd>就可以了…… 在 <code>init script</code> 文件里拷贝粘贴以下代码：</p>
 <figure class="highlight coffee"><table><tr><td class="code"><pre><span class="line"><span class="comment"># move cursor across the ending symbols...</span></span><br><span class="line">EndingSymbolRegex = <span class="regexp">/\s*[)&#125;&gt;\]/</span><span class="string">'";:=-]/</span><br><span class="line">atom.commands.add '</span>atom-text-editor<span class="string">', '</span>custom:jump-over-symbol<span class="string">': (event) -&gt;</span><br><span class="line">  editor = atom.workspace.getActiveTextEditor()</span><br><span class="line">  cursorMoved = false</span><br><span class="line">  for cursor in editor.getCursors()</span><br><span class="line">    range = cursor.getCurrentWordBufferRange(wordRegex: EndingSymbolRegex)</span><br><span class="line">    unless range.isEmpty()</span><br><span class="line">      cursor.setBufferPosition(range.end)</span><br><span class="line">      cursorMoved = true</span><br><span class="line">  event.abortKeyBinding() unless cursorMoved</span></span><br></pre></td></tr></table></figure>
 <p>然后用 <kbd>⇧</kbd><kbd>⌘</kbd><kbd>P</kbd> 呼出 Command Palette，在里面输入 <code>keymap</code>，你应该能看到<code>Application: Open Your keymap</code> 已经排在第一位了，当它是第一位的时候，直接回车键 <kbd>⏎</kbd> …… 在 <code>Keymap</code> 文件里拷贝粘贴以下代码：</p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">"enter": "custom:jump-over-symbol"</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">"atom-text-editor:not([mini])":</span><br><span class="line">  "enter": "custom:jump-over-symbol"</span><br></pre></td></tr></table></figure>
 <p>其中这个”<code>enter</code>“，你可以换成你自己喜欢的、习惯的，比如”<code>tab</code>“，或者”<code>shift-enter</code>“。</p>
 <p>现在，用 <kbd>⇧</kbd><kbd>⌘</kbd><kbd>P</kbd> 呼出 Command Palette，在里面输入 <code>reload</code>，你应该能看到<code>Window: Reload</code> 已经排在第一位了，当它是第一位的时候，直接回车键 <kbd>⏎</kbd>就可以了…… 你也能看到这个命令其实有个快捷键： <kbd>⌃</kbd><kbd>⌥</kbd><kbd>⌘</kbd><kbd>L</kbd>，但 Command Palette 太好用了，以后你就知道了，记忆过多的快捷键实在是负担，虽然一些基础快捷键（比如命令行工具里的一系列与 control 键 <kbd>⌃</kbd> 组合的快捷键）必须通过大量使用变成脊髓记忆……</p>
 <p><code>Window: Reload</code> 完成之后，你刚刚设定的快捷键就生效了。</p>
@@ -492,6 +508,13 @@ Mac 上的编辑器，工程师们最喜欢用的曾经是 TextMa">
 
           
   <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
     
   </div>
 
@@ -717,6 +740,27 @@ Mac 上的编辑器，工程师们最喜欢用的曾经是 TextMa">
 
 
 
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'rebornagain';
+      var disqus_identifier = '2016/06/17/makecs-atom-advanced/';
+      var disqus_title = 'Atom 编辑器进阶';
+      var disqus_url = 'http://xiaolai.li/2016/06/17/makecs-atom-advanced/';
+
+      function run_disqus_script(disqus_script){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+      
+        run_disqus_script('embed.js');
+      
+    </script>
   
 
 

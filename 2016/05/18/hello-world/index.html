@@ -108,7 +108,7 @@ The code of an interesting life...while (alive) &amp;#123;    learn();&amp;#125;
     fancybox: true,
     motion: true,
     duoshuo: {
-      userId: 0,
+      userId: undefined,
       author: '博主'
     }
   };
@@ -121,6 +121,15 @@ The code of an interesting life...while (alive) &amp;#123;    learn();&amp;#125;
 
   
 
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-48155608-1', 'auto');
+  ga('send', 'pageview');
+</script>
 
 
 
@@ -265,6 +274,13 @@ The code of an interesting life...while (alive) &amp;#123;    learn();&amp;#125;
 
           
             
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/05/18/hello-world/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/05/18/hello-world/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -347,6 +363,13 @@ The code of an interesting life...while (alive) &amp;#123;    learn();&amp;#125;
 
           
   <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
     
   </div>
 
@@ -572,6 +595,27 @@ The code of an interesting life...while (alive) &amp;#123;    learn();&amp;#125;
 
 
 
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'rebornagain';
+      var disqus_identifier = '2016/05/18/hello-world/';
+      var disqus_title = 'Hello World';
+      var disqus_url = 'http://xiaolai.li/2016/05/18/hello-world/';
+
+      function run_disqus_script(disqus_script){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+      
+        run_disqus_script('embed.js');
+      
+    </script>
   
 
 
