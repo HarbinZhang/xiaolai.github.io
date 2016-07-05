@@ -96,7 +96,7 @@
 更可怕的是另外一种“坏掉的文件” —— 就是那种被自己搞乱了的文件，一会儿改改这里，一会儿改改那里，到最后出了问题之后完全搞不清楚">
 <meta property="og:image" content="http://xiaolai.li/images/tp2-comparison.png">
 <meta property="og:image" content="http://xiaolai.li/images/sublimetext-regex-button.png">
-<meta property="og:updated_time" content="2016-07-05T01:49:01.000Z">
+<meta property="og:updated_time" content="2016-07-05T01:52:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="工程师的时光穿梭机 —— git">
 <meta name="twitter:description" content="工程师们整天与各种文件打交道，而且处理的都还是那种“弄错了哪怕一个字符都不行的文件”。
@@ -320,10 +320,10 @@
 <p>所以，在这里，我没准备上来就讲解 git 是什么，它的原理是什么，它的命令都有哪些，使用的时候需要注意什么…… 事实上，这种教程几乎遍地都是 —— 因为它太重要了么，所以网上随便一搜，就有一大堆经典教程（当然，教程那么多，并没有降低初学者的难度）……</p>
 <p>以下就是一个实际工作过程，你要做的就是“一步一步跟下来”，做完之后，还要再重复跟很多很多次…… 其中涉及到的 git 命令，就算不理解也没关系，反正要让你的手指头熟悉他们，反复敲 —— 就好像我们小时候抄课文一样（那时候我们也其实常常并不真的理解课文内容）—— 直到我们居然可以做到“死记硬背”为止。</p>
 <p>这些操作的目标是把一本免费公开在网上的编程书，<strong>Think Python</strong> <em>2ed</em> —— 非常经典的一本书，很多重要的基础概念，可以说它讲的是最好的 —— 把这本书的样式重新组织一下，以便阅读的时候“赏心悦目”；下图左边是<a href="http://greenteapress.com/thinkpython2/html/thinkpython2002.html#sec6" target="_blank" rel="external">它原本的显示样式</a>，右边是重新设计过后的显示样式：</p>
-<p><img src="images/tp2-comparison.png" alt=""></p>
+<p><img src="/images/tp2-comparison.png" alt=""></p>
 <p>这算是“热身运动”，这个热身运动做完之后，你再去读读网上的那些经典教程，就会发现，嗯，还真的不是很难……</p>
 <p>在这个过程中，很多的命令，你完全不知道怎么回事儿 —— 这并不重要，你就照做就好（而且刚刚说过，还要照做很多很多遍）。甚至，在这篇教程里，你要用的编辑器不是之前你费劲熟悉过的 Atom，而是 Sublimetext，这即意味着说，你可能还要事先把玩一下这个新的编辑器。再比如，你可能中间要用到“正则表达式”（事实上，你都不知道那些表达式在哪里），所以，在 Find/Replace 的过程中，也许会因为你并没有按下那个小按钮而得不到正确的结果……</p>
-<p><img src="images/sublimetext-regex-button.png" alt=""></p>
+<p><img src="/images/sublimetext-regex-button.png" alt=""></p>
 <p>反正是够折腾的，但，大家都是这样折腾过来的，所以，你其实也没什么可烦恼的。</p>
 <p>等你把这个教程折腾完了，顺带抽空也仔细读一下 <strong>Think Python</strong>，用这本书，把一些基础的编程概念谙熟于心：</p>
 <blockquote>
@@ -340,12 +340,12 @@
 <p>这点东西，是所有编程语言的核心，是你未来可以很快地学会任何一门编程语言的基础。</p>
 <hr>
 
-<h2 id="0-准备工作"><a href="#0-准备工作" class="headerlink" title="0. 准备工作"></a>0. 准备工作</h2><h3 id="0-1-确认安装过-git"><a href="#0-1-确认安装过-git" class="headerlink" title="0.1 确认安装过 git"></a>0.1 确认安装过 git</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git --version</span><br></pre></td></tr></table></figure>
+<h2 id="1-准备工作"><a href="#1-准备工作" class="headerlink" title="1. 准备工作"></a>1. 准备工作</h2><h3 id="1-1-确认安装过-git"><a href="#1-1-确认安装过-git" class="headerlink" title="1.1 确认安装过 git"></a>1.1 确认安装过 git</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git --version</span><br></pre></td></tr></table></figure>
 <p>如果没有安装过 git，那么，</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">brew install git</span><br><span class="line">brew link git</span><br></pre></td></tr></table></figure>
-<h3 id="02-使用-wget-下载-ThinkPython-的全部文件"><a href="#02-使用-wget-下载-ThinkPython-的全部文件" class="headerlink" title="02. 使用 wget 下载 ThinkPython 的全部文件"></a>02. 使用 wget 下载 ThinkPython 的全部文件</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">brew install wget</span><br><span class="line">mkdir ThinkPython2</span><br><span class="line">cd ThinkPython2</span><br><span class="line">wget -r -np -k -nd http://greenteapress.com/thinkpython2/html/</span><br></pre></td></tr></table></figure>
-<h3 id="03-安装-Sublimetext"><a href="#03-安装-Sublimetext" class="headerlink" title="03. 安装 Sublimetext"></a>03. 安装 Sublimetext</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">brew cask install sublimetext</span><br></pre></td></tr></table></figure>
-<h2 id="03-开始处理文本"><a href="#03-开始处理文本" class="headerlink" title="03. 开始处理文本"></a>03. 开始处理文本</h2><p>in Terminal<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git init</span><br><span class="line">git add .</span><br><span class="line">git commit -am &apos;initial commit&apos;</span><br><span class="line">git checkout -b move-images-into-a-folder</span><br><span class="line">mkdir images</span><br><span class="line">mv *.png images/</span><br><span class="line">subl .</span><br></pre></td></tr></table></figure></p>
+<h3 id="1-2-使用-wget-下载-ThinkPython-的全部文件"><a href="#1-2-使用-wget-下载-ThinkPython-的全部文件" class="headerlink" title="1.2. 使用 wget 下载 ThinkPython 的全部文件"></a>1.2. 使用 wget 下载 ThinkPython 的全部文件</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">brew install wget</span><br><span class="line">mkdir ThinkPython2</span><br><span class="line">cd ThinkPython2</span><br><span class="line">wget -r -np -k -nd http://greenteapress.com/thinkpython2/html/</span><br></pre></td></tr></table></figure>
+<h3 id="1-3-安装-Sublimetext"><a href="#1-3-安装-Sublimetext" class="headerlink" title="1.3. 安装 Sublimetext"></a>1.3. 安装 Sublimetext</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">brew cask install sublimetext</span><br></pre></td></tr></table></figure>
+<h2 id="2-开始处理文本"><a href="#2-开始处理文本" class="headerlink" title="2. 开始处理文本"></a>2. 开始处理文本</h2><p>in Terminal<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git init</span><br><span class="line">git add .</span><br><span class="line">git commit -am &apos;initial commit&apos;</span><br><span class="line">git checkout -b move-images-into-a-folder</span><br><span class="line">mkdir images</span><br><span class="line">mv *.png images/</span><br><span class="line">subl .</span><br></pre></td></tr></table></figure></p>
 <p>Atom 编辑器目前在处理多行文本查找替换的时候，不能正常使用正则表达式…… 真不知道为什么他们长期不修复这个问题…… 所以我们才使用 Sublimetext 在 Sublimetext 中用 <kbd>⇧</kbd><kbd>⌘</kbd><kbd>f</kbd> 呼出 find/replace panel……</p>
 <p>（请注意，这次使用的时候，是“不使用正则表达式”的，等需要使用正则表达式的时候，有提醒）</p>
 <blockquote>
@@ -411,7 +411,7 @@
 <blockquote>
 <p><a href="https://github.com/xiaolai/git-basics-tutorial" target="_blank" rel="external">https://github.com/xiaolai/git-basics-tutorial</a></p>
 </blockquote>
-<p>你反复折腾若干遍之后，可以直接读这个教程了：</p>
+<h2 id="3-推荐书籍"><a href="#3-推荐书籍" class="headerlink" title="3. 推荐书籍"></a>3. 推荐书籍</h2><p>你反复折腾若干遍之后，可以直接读这个教程了：</p>
 <blockquote>
 <p><a href="https://git-scm.com/book/en/v2" target="_blank" rel="external"><strong>Pro Git book</strong>, by <em>Scott Chacon and Ben Straub</em></a></p>
 </blockquote>
@@ -586,7 +586,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#0-准备工作"><span class="nav-text">0. 准备工作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#0-1-确认安装过-git"><span class="nav-text">0.1 确认安装过 git</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#02-使用-wget-下载-ThinkPython-的全部文件"><span class="nav-text">02. 使用 wget 下载 ThinkPython 的全部文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#03-安装-Sublimetext"><span class="nav-text">03. 安装 Sublimetext</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#03-开始处理文本"><span class="nav-text">03. 开始处理文本</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-准备工作"><span class="nav-text">1. 准备工作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-确认安装过-git"><span class="nav-text">1.1 确认安装过 git</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-使用-wget-下载-ThinkPython-的全部文件"><span class="nav-text">1.2. 使用 wget 下载 ThinkPython 的全部文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-安装-Sublimetext"><span class="nav-text">1.3. 安装 Sublimetext</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-开始处理文本"><span class="nav-text">2. 开始处理文本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-推荐书籍"><span class="nav-text">3. 推荐书籍</span></a></li></ol></div>
             
           </div>
         </section>
