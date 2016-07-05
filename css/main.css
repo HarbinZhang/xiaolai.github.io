@@ -879,7 +879,7 @@ pre .javascript .function {
 }
 .headband {
   height: 3px;
-  background: #222;
+  background: #2980b9;
 }
 .site-meta {
   margin: 0;
@@ -895,7 +895,7 @@ pre .javascript .function {
   display: inline-block;
   padding: 0 40px;
   color: #fff;
-  background: #222;
+  background: #2980b9;
   border-bottom: none;
 }
 .brand:hover {
@@ -1552,7 +1552,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #6bf1d2;
+  background: #fff249;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2292,7 +2292,7 @@ body {
 .site-meta {
   padding: 20px 0;
   color: #fff;
-  background: #222;
+  background: #2980b9;
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .site-meta {
