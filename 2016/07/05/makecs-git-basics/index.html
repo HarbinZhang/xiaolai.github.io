@@ -1,0 +1,746 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="人人都是工程师," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="工程师们整天与各种文件打交道，而且处理的都还是那种“弄错了哪怕一个字符都不行的文件”。
+比如，文件弄丢了就很可怕，所以在过去存储不稳定的时代，“备份”一直是工程师们最小心也最头疼的工作内容之一，因为存储不稳定意味着说，有些文件“突然之间就读不出来了”…… 这太可怕了。
+更可怕的是另外一种“坏掉的文件” —— 就是那种被自己搞乱了的文件，一会儿改改这里，一会儿改改那里，到最后出了问题之后完全搞不清楚">
+<meta property="og:type" content="article">
+<meta property="og:title" content="工程师的时光穿梭机 —— git">
+<meta property="og:url" content="http://xiaolai.li/2016/07/05/makecs-git-basics/index.html">
+<meta property="og:site_name" content="{am} xiaolai">
+<meta property="og:description" content="工程师们整天与各种文件打交道，而且处理的都还是那种“弄错了哪怕一个字符都不行的文件”。
+比如，文件弄丢了就很可怕，所以在过去存储不稳定的时代，“备份”一直是工程师们最小心也最头疼的工作内容之一，因为存储不稳定意味着说，有些文件“突然之间就读不出来了”…… 这太可怕了。
+更可怕的是另外一种“坏掉的文件” —— 就是那种被自己搞乱了的文件，一会儿改改这里，一会儿改改那里，到最后出了问题之后完全搞不清楚">
+<meta property="og:image" content="http://xiaolai.li/images/tp2-comparison.png">
+<meta property="og:image" content="http://xiaolai.li/images/sublimetext-regex-button.png">
+<meta property="og:updated_time" content="2016-07-05T01:49:01.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="工程师的时光穿梭机 —— git">
+<meta name="twitter:description" content="工程师们整天与各种文件打交道，而且处理的都还是那种“弄错了哪怕一个字符都不行的文件”。
+比如，文件弄丢了就很可怕，所以在过去存储不稳定的时代，“备份”一直是工程师们最小心也最头疼的工作内容之一，因为存储不稳定意味着说，有些文件“突然之间就读不出来了”…… 这太可怕了。
+更可怕的是另外一种“坏掉的文件” —— 就是那种被自己搞乱了的文件，一会儿改改这里，一会儿改改那里，到最后出了问题之后完全搞不清楚">
+<meta name="twitter:image" content="http://xiaolai.li/images/tp2-comparison.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: undefined,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 工程师的时光穿梭机 —— git | {am} xiaolai </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-48155608-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">{am} xiaolai</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">an ever-growing brain</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                工程师的时光穿梭机 —— git
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-05T00:00:00+08:00" content="2016-07-05">
+              2016-07-05
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/05/makecs-git-basics/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/07/05/makecs-git-basics/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>工程师们整天与各种文件打交道，而且处理的都还是那种“弄错了哪怕一个字符都不行的文件”。</p>
+<p>比如，文件弄丢了就很可怕，所以在过去存储不稳定的时代，“备份”一直是工程师们最小心也最头疼的工作内容之一，因为存储不稳定意味着说，有些文件“突然之间就读不出来了”…… 这太可怕了。</p>
+<p>更可怕的是另外一种“坏掉的文件” —— 就是那种被自己搞乱了的文件，一会儿改改这里，一会儿改改那里，到最后出了问题之后完全搞不清楚究竟是哪儿出了问题……</p>
+<p>经过多年的努力，工程师们终于给自己造出了非常好用的“时空穿梭机” —— git，一种所谓的“版本管理工具”。也就是说，有了这种工具之后，工程师们可以随时穿越到某个时间点上，查看当时的文件状态…… 或者，就像下棋的时候可以“悔棋”一样，把刚刚做出的改动撤销掉…… 等等。</p>
+<p>学会了之后呢，git 就显得特别简单 —— 也能深深体会到这东西是生命中不可或缺的工具（其中的工作流极其背后的方法论，甚至可以应用到自己的生活里）。可最初的学习很难，因为</p>
+<blockquote>
+<ol>
+<li>这几乎是个没有之前类似经验对应的全新知识</li>
+<li>大量的工作对初学者来说实际上没有视觉反馈</li>
+</ol>
+</blockquote>
+<p>所以，在这里，我没准备上来就讲解 git 是什么，它的原理是什么，它的命令都有哪些，使用的时候需要注意什么…… 事实上，这种教程几乎遍地都是 —— 因为它太重要了么，所以网上随便一搜，就有一大堆经典教程（当然，教程那么多，并没有降低初学者的难度）……</p>
+<p>以下就是一个实际工作过程，你要做的就是“一步一步跟下来”，做完之后，还要再重复跟很多很多次…… 其中涉及到的 git 命令，就算不理解也没关系，反正要让你的手指头熟悉他们，反复敲 —— 就好像我们小时候抄课文一样（那时候我们也其实常常并不真的理解课文内容）—— 直到我们居然可以做到“死记硬背”为止。</p>
+<p>这些操作的目标是把一本免费公开在网上的编程书，<strong>Think Python</strong> <em>2ed</em> —— 非常经典的一本书，很多重要的基础概念，可以说它讲的是最好的 —— 把这本书的样式重新组织一下，以便阅读的时候“赏心悦目”；下图左边是<a href="http://greenteapress.com/thinkpython2/html/thinkpython2002.html#sec6" target="_blank" rel="external">它原本的显示样式</a>，右边是重新设计过后的显示样式：</p>
+<p><img src="images/tp2-comparison.png" alt=""></p>
+<p>这算是“热身运动”，这个热身运动做完之后，你再去读读网上的那些经典教程，就会发现，嗯，还真的不是很难……</p>
+<p>在这个过程中，很多的命令，你完全不知道怎么回事儿 —— 这并不重要，你就照做就好（而且刚刚说过，还要照做很多很多遍）。甚至，在这篇教程里，你要用的编辑器不是之前你费劲熟悉过的 Atom，而是 Sublimetext，这即意味着说，你可能还要事先把玩一下这个新的编辑器。再比如，你可能中间要用到“正则表达式”（事实上，你都不知道那些表达式在哪里），所以，在 Find/Replace 的过程中，也许会因为你并没有按下那个小按钮而得不到正确的结果……</p>
+<p><img src="images/sublimetext-regex-button.png" alt=""></p>
+<p>反正是够折腾的，但，大家都是这样折腾过来的，所以，你其实也没什么可烦恼的。</p>
+<p>等你把这个教程折腾完了，顺带抽空也仔细读一下 <strong>Think Python</strong>，用这本书，把一些基础的编程概念谙熟于心：</p>
+<blockquote>
+<ul>
+<li>变量</li>
+<li>值（整数、分数、字符串、布林值）</li>
+<li>运算符（优先级）</li>
+<li>控制流（分支、循环）</li>
+<li>数组</li>
+<li>函数</li>
+<li>保留关键字</li>
+</ul>
+</blockquote>
+<p>这点东西，是所有编程语言的核心，是你未来可以很快地学会任何一门编程语言的基础。</p>
+<hr>
+
+<h2 id="0-准备工作"><a href="#0-准备工作" class="headerlink" title="0. 准备工作"></a>0. 准备工作</h2><h3 id="0-1-确认安装过-git"><a href="#0-1-确认安装过-git" class="headerlink" title="0.1 确认安装过 git"></a>0.1 确认安装过 git</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git --version</span><br></pre></td></tr></table></figure>
+<p>如果没有安装过 git，那么，</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">brew install git</span><br><span class="line">brew link git</span><br></pre></td></tr></table></figure>
+<h3 id="02-使用-wget-下载-ThinkPython-的全部文件"><a href="#02-使用-wget-下载-ThinkPython-的全部文件" class="headerlink" title="02. 使用 wget 下载 ThinkPython 的全部文件"></a>02. 使用 wget 下载 ThinkPython 的全部文件</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">brew install wget</span><br><span class="line">mkdir ThinkPython2</span><br><span class="line">cd ThinkPython2</span><br><span class="line">wget -r -np -k -nd http://greenteapress.com/thinkpython2/html/</span><br></pre></td></tr></table></figure>
+<h3 id="03-安装-Sublimetext"><a href="#03-安装-Sublimetext" class="headerlink" title="03. 安装 Sublimetext"></a>03. 安装 Sublimetext</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">brew cask install sublimetext</span><br></pre></td></tr></table></figure>
+<h2 id="03-开始处理文本"><a href="#03-开始处理文本" class="headerlink" title="03. 开始处理文本"></a>03. 开始处理文本</h2><p>in Terminal<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git init</span><br><span class="line">git add .</span><br><span class="line">git commit -am &apos;initial commit&apos;</span><br><span class="line">git checkout -b move-images-into-a-folder</span><br><span class="line">mkdir images</span><br><span class="line">mv *.png images/</span><br><span class="line">subl .</span><br></pre></td></tr></table></figure></p>
+<p>Atom 编辑器目前在处理多行文本查找替换的时候，不能正常使用正则表达式…… 真不知道为什么他们长期不修复这个问题…… 所以我们才使用 Sublimetext 在 Sublimetext 中用 <kbd>⇧</kbd><kbd>⌘</kbd><kbd>f</kbd> 呼出 find/replace panel……</p>
+<p>（请注意，这次使用的时候，是“不使用正则表达式”的，等需要使用正则表达式的时候，有提醒）</p>
+<blockquote>
+<p>find:<br><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&gt; img src="</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
+<p>where:<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; *.html</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
+<p>replace:<br><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&gt; img src="images/</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>回到 Terminal：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git status</span><br><span class="line">git add .</span><br><span class="line">git status</span><br><span class="line">git commit -am &apos;move images into a folder&apos;</span><br><span class="line">git checkout master</span><br><span class="line">git merge move-images-into-a-folder</span><br><span class="line">git log</span><br><span class="line">git checkout -b add-bootstrap</span><br></pre></td></tr></table></figure>
+<p>在 Sublimetext 中查找替换：</p>
+<blockquote>
+<p>find:<br><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&gt; <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span> <span class="attr">href</span>=<span class="string">"thinkpython2.css"</span>&gt;</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
+<p>where:<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; *.html</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
+<p>replace<br><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&gt; <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"</span> <span class="attr">integrity</span>=<span class="string">"sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"</span> <span class="attr">crossorigin</span>=<span class="string">"anonymous"</span>&gt;</span></span><br><span class="line">&gt; <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css"</span> <span class="attr">integrity</span>=<span class="string">"sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r"</span> <span class="attr">crossorigin</span>=<span class="string">"anonymous"</span>&gt;</span></span><br><span class="line">&gt; <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span> <span class="attr">href</span>=<span class="string">"thinkpython2.css"</span>&gt;</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
+<p>find:<br><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&gt; <span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
+<p>where:<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; *.html</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
+<p>replace:<br><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&gt;<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min&gt; .js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">&gt;<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"</span> <span class="attr">integrity</span>=<span class="string">"sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVq&gt; OtnepnHVP9aJ7xS"</span> <span class="attr">crossorigin</span>=<span class="string">"anonymous"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">&gt; <span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p><strong>这次要按下那个正则表达式按钮</strong> <code>.*</code>：</p>
+<blockquote>
+<p>find:<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; &lt;a href=&quot;(.*)&quot;&gt;&lt;img.*\s\Sa href=&quot;(.*)&quot;&gt;&lt;img.*\s\Sa href=&quot;(.*)&quot;&gt;&lt;img.*\s\Shr&gt;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
+<p>where:<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; *.html</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
+<p>replace:<br><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&gt;   <span class="tag">&lt;<span class="name">nav</span> <span class="attr">class</span>=<span class="string">"navbar navbar-default navbar-fixed-top"</span>&gt;</span></span><br><span class="line">&gt;     <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container-fluid"</span>&gt;</span></span><br><span class="line">&gt;       <span class="comment">&lt;!-- Brand and toggle get grouped for better mobile display --&gt;</span></span><br><span class="line">&gt;       <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"navbar-header"</span>&gt;</span></span><br><span class="line">&gt;         <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"navbar-toggle collapsed"</span> <span class="attr">data-toggle</span>=<span class="string">"collapse"</span> <span class="attr">data-target</span>=<span class="string">"#bs-example-navbar-collapse-1"</span> <span class="attr">aria-expanded</span>=<span class="string">"false"</span>&gt;</span></span><br><span class="line">&gt;           <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"sr-only"</span>&gt;</span>Toggle navigation<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">&gt;           <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"icon-bar"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">&gt;           <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"icon-bar"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">&gt;           <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"icon-bar"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">&gt;         <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">&gt;         <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"navbar-brand"</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span><span class="tag">&lt;<span class="name">strong</span>&gt;</span>Think Python<span class="tag">&lt;/<span class="name">strong</span>&gt;</span> - How to Think like a Computer Scientist (2e) <span class="tag">&lt;<span class="name">em</span>&gt;</span>by Allen B. Downey<span class="tag">&lt;/<span class="name">em</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">&gt;       <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">&gt;       <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">&gt;         <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"nav navbar-nav navbar-right"</span>&gt;</span></span><br><span class="line">&gt;           <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"http://greenteapress.com/thinkpython2/html/index.html"</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"glyphicon glyphicon glyphicon-book"</span> <span class="attr">aria-hidden</span>=<span class="string">"true"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">&gt;           <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"$1"</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"glyphicon glyphicon glyphicon-menu-left"</span> <span class="attr">aria-hidden</span>=<span class="string">"true"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">&gt;           <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"index.html"</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"glyphicon glyphicon glyphicon-home"</span> <span class="attr">aria-hidden</span>=<span class="string">"true"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">&gt;           <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"$3"</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"glyphicon glyphicon glyphicon-menu-right"</span> <span class="attr">aria-hidden</span>=<span class="string">"true"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">&gt;           <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"http://amzn.to/1VUYQUU"</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"glyphicon glyphicon glyphicon-shopping-cart"</span> <span class="attr">aria-hidden</span>=<span class="string">"true"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">&gt;         <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">&gt;       <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">&gt;     <span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="comment">&lt;!-- /.container-fluid --&gt;</span></span><br><span class="line">&gt;   <span class="tag">&lt;/<span class="name">nav</span>&gt;</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>不需要使用正则表达式了：</p>
+<blockquote>
+<p>find:<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; &lt;a href=&quot;thinkpython2023.html&quot;&gt;&lt;img src=&quot;images/back.png&quot; ALT=&quot;Previous&quot;&gt;&lt;/a&gt;</span><br><span class="line">&gt; &lt;a href=&quot;index.html&quot;&gt;&lt;img src=&quot;images/up.png&quot; ALT=&quot;Up&quot;&gt;&lt;/a&gt;</span><br><span class="line">&gt; &lt;hr&gt;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
+<p>where:<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; thinkpython2023.html</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
+<p>replace:<br><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&gt;   <span class="tag">&lt;<span class="name">nav</span> <span class="attr">class</span>=<span class="string">"navbar navbar-default navbar-fixed-top"</span>&gt;</span></span><br><span class="line">&gt;     <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container-fluid"</span>&gt;</span></span><br><span class="line">&gt;       <span class="comment">&lt;!-- Brand and toggle get grouped for better mobile display --&gt;</span></span><br><span class="line">&gt;       <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"navbar-header"</span>&gt;</span></span><br><span class="line">&gt;         <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"navbar-toggle collapsed"</span> <span class="attr">data-toggle</span>=<span class="string">"collapse"</span> <span class="attr">data-target</span>=<span class="string">"#bs-example-navbar-collapse-1"</span> <span class="attr">aria-expanded</span>=<span class="string">"false"</span>&gt;</span></span><br><span class="line">&gt;           <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"sr-only"</span>&gt;</span>Toggle navigation<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">&gt;           <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"icon-bar"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">&gt;           <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"icon-bar"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">&gt;           <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"icon-bar"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">&gt;         <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">&gt;         <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"navbar-brand"</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span><span class="tag">&lt;<span class="name">strong</span>&gt;</span>Think Python<span class="tag">&lt;/<span class="name">strong</span>&gt;</span> - How to Think like a Computer Scientist (2e) <span class="tag">&lt;<span class="name">em</span>&gt;</span>by Allen B. Downey<span class="tag">&lt;/<span class="name">em</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">&gt;       <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">&gt;       <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">&gt;         <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"nav navbar-nav navbar-right"</span>&gt;</span></span><br><span class="line">&gt;           <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"http://greenteapress.com/thinkpython2/html/index.html"</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"glyphicon glyphicon glyphicon-book"</span> <span class="attr">aria-hidden</span>=<span class="string">"true"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">&gt;           <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"thinkpython2022.html"</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"glyphicon glyphicon glyphicon-menu-left"</span> <span class="attr">aria-hidden</span>=<span class="string">"true"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">&gt;           <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"index.html"</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"glyphicon glyphicon glyphicon-home"</span> <span class="attr">aria-hidden</span>=<span class="string">"true"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">&gt;           <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"thinkpython2023.html"</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"glyphicon glyphicon glyphicon-menu-right"</span> <span class="attr">aria-hidden</span>=<span class="string">"true"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">&gt;           <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"http://amzn.to/1VUYQUU"</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"glyphicon glyphicon glyphicon-shopping-cart"</span> <span class="attr">aria-hidden</span>=<span class="string">"true"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">&gt;         <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">&gt;       <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">&gt;     <span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="comment">&lt;!-- /.container-fluid --&gt;</span></span><br><span class="line">&gt;   <span class="tag">&lt;/<span class="name">nav</span>&gt;</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&gt;   <span class="tag">&lt;<span class="name">nav</span> <span class="attr">class</span>=<span class="string">"navbar navbar-default navbar-fixed-top"</span>&gt;</span></span><br><span class="line">&gt;     <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container-fluid"</span>&gt;</span></span><br><span class="line">&gt;       <span class="comment">&lt;!-- Brand and toggle get grouped for better mobile display --&gt;</span></span><br><span class="line">&gt;       <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"navbar-header"</span>&gt;</span></span><br><span class="line">&gt;         <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"navbar-toggle collapsed"</span> <span class="attr">data-toggle</span>=<span class="string">"collapse"</span> <span class="attr">data-target</span>=<span class="string">"#bs-example-navbar-collapse-1"</span> <span class="attr">aria-expanded</span>=<span class="string">"false"</span>&gt;</span></span><br><span class="line">&gt;           <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"sr-only"</span>&gt;</span>Toggle navigation<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">&gt;           <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"icon-bar"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">&gt;           <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"icon-bar"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">&gt;           <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"icon-bar"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">&gt;         <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">&gt;         <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"navbar-brand"</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span><span class="tag">&lt;<span class="name">strong</span>&gt;</span>Think Python<span class="tag">&lt;/<span class="name">strong</span>&gt;</span> - How to Think like a Computer Scientist (2e) <span class="tag">&lt;<span class="name">em</span>&gt;</span>by Allen B. Downey<span class="tag">&lt;/<span class="name">em</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">&gt;       <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">&gt;       <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">&gt;         <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"nav navbar-nav navbar-right"</span>&gt;</span></span><br><span class="line">&gt;           <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"http://greenteapress.com/thinkpython2/html/index.html"</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"glyphicon glyphicon glyphicon-book"</span> <span class="attr">aria-hidden</span>=<span class="string">"true"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">&gt;           <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"index.html"</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"glyphicon glyphicon glyphicon-menu-left"</span> <span class="attr">aria-hidden</span>=<span class="string">"true"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">&gt;           <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"index.html"</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"glyphicon glyphicon glyphicon-home"</span> <span class="attr">aria-hidden</span>=<span class="string">"true"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">&gt;           <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"thinkpython2001.html"</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"glyphicon glyphicon glyphicon-menu-right"</span> <span class="attr">aria-hidden</span>=<span class="string">"true"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">&gt;           <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"http://amzn.to/1VUYQUU"</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"glyphicon glyphicon glyphicon-shopping-cart"</span> <span class="attr">aria-hidden</span>=<span class="string">"true"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">&gt;         <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">&gt;       <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">&gt;     <span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="comment">&lt;!-- /.container-fluid --&gt;</span></span><br><span class="line">&gt;   <span class="tag">&lt;/<span class="name">nav</span>&gt;</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>需要使用正则表达式：</p>
+<blockquote>
+<p>find:<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; &lt;hr&gt;\s\Sa href=&quot;(.*)&quot;&gt;&lt;img.*\s\Sa href=&quot;(.*)&quot;&gt;&lt;img.*\s\Sa href=&quot;(.*)&quot;&gt;&lt;img.*\s</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
+<p>where:<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; *.html</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
+<p>replace with nothing:<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
+<p>find:<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; &lt;hr&gt;\s\Sa href=&quot;(.*)&quot;&gt;&lt;img.*\s\Sa href=&quot;(.*)&quot;&gt;&lt;img.*\s</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
+<p>where:<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; *.html</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
+<p>replace with nothing:<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>不需要使用正则表达式了：</p>
+<blockquote>
+<p>find:<br><a href="http://amzn.to/1VUYQUU" target="_blank" rel="external">Buy this book at Amazon.com</a><br>where:<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; *.html</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
+<p>replace with nothing:<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>回到 Terminal<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -am &apos;menu added&apos;</span><br><span class="line">git checkout master</span><br><span class="line">git merge add-bootstrap</span><br><span class="line">git log</span><br><span class="line">git checkout -b content</span><br></pre></td></tr></table></figure></p>
+<p>在 Sublimetext 里</p>
+<blockquote>
+<p>find:<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; &lt;td valign=&quot;top&quot; width=&quot;100&quot; bgcolor=&quot;#b6459a&quot;&gt;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
+<p>where:<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; *.html</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
+<p>replace:<br><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&gt; <span class="tag">&lt;<span class="name">td</span> <span class="attr">valign</span>=<span class="string">"top"</span> <span class="attr">width</span>=<span class="string">"100"</span> <span class="attr">bgcolor</span>=<span class="string">"#b6459a"</span> <span class="attr">id</span>=<span class="string">"col-left"</span>&gt;</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
+<p>find:<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; &lt;td width=130 valign=&quot;top&quot;&gt;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
+<p>where:<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; *.html</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
+<p>replace:<br><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&gt; <span class="tag">&lt;<span class="name">td</span> <span class="attr">width</span>=<span class="string">130</span> <span class="attr">valign</span>=<span class="string">"top"</span> <span class="attr">id</span>=<span class="string">"col-right"</span>&gt;</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
+<p>find：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; &lt;td valign=&quot;top&quot; width=&quot;600&quot; style=&quot;padding: 20px 20px;&quot;&gt;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
+<p>where:<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; *.html</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
+<p>replace:<br><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&gt; <span class="tag">&lt;<span class="name">td</span> <span class="attr">valign</span>=<span class="string">"top"</span> <span class="attr">id</span>=<span class="string">"content"</span>&gt;</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>编辑 <code>thinkpython2.css</code> 文件，在尾部添加以下内容：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">td</span><span class="selector-id">#col-left</span>, <span class="selector-tag">td</span><span class="selector-id">#col-right</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: none;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">body</span>&#123;</span><br><span class="line">    <span class="attribute">font-family</span>: <span class="string">"Open Sans"</span>;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">18px</span>;</span><br><span class="line">    <span class="attribute">padding-top</span>: <span class="number">50px</span>;</span><br><span class="line">    <span class="attribute">max-width</span>: <span class="number">800px</span>;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#eee</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">blockquote</span> &#123;</span><br><span class="line">    <span class="attribute">border-left</span>: <span class="number">0px</span> solid <span class="number">#eee</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">pre</span><span class="selector-class">.verbatim</span> &#123;</span><br><span class="line">    <span class="attribute">font-family</span>: <span class="string">"Courier New"</span>;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">10px</span> auto;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">table</span><span class="selector-class">.c000</span> &#123;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">12px</span> auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>回到 Terminal<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -am &apos;content cleaned&apos;</span><br><span class="line">git checkout master</span><br><span class="line">git merge content</span><br></pre></td></tr></table></figure></p>
+<p>OK，到此为止。我呢，这样折腾完毕之后，把这个结果 git push 到了 github 上：</p>
+<blockquote>
+<p><a href="https://github.com/xiaolai/git-basics-tutorial" target="_blank" rel="external">https://github.com/xiaolai/git-basics-tutorial</a></p>
+</blockquote>
+<p>你反复折腾若干遍之后，可以直接读这个教程了：</p>
+<blockquote>
+<p><a href="https://git-scm.com/book/en/v2" target="_blank" rel="external"><strong>Pro Git book</strong>, by <em>Scott Chacon and Ben Straub</em></a></p>
+</blockquote>
+<p>试试看罢。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/人人都是工程师/" rel="tag">#人人都是工程师</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/06/25/makecs-html-css/" rel="next" title="快速学习 HTML 和 CSS">
+                <i class="fa fa-chevron-left"></i> 快速学习 HTML 和 CSS
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/xiaolai.jpg"
+               alt="xiaolai" />
+          <p class="site-author-name" itemprop="name">xiaolai</p>
+          <p class="site-description motion-element" itemprop="description">学习是一种生活方式</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/xiaolai" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/xiaolai" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#0-准备工作"><span class="nav-text">0. 准备工作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#0-1-确认安装过-git"><span class="nav-text">0.1 确认安装过 git</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#02-使用-wget-下载-ThinkPython-的全部文件"><span class="nav-text">02. 使用 wget 下载 ThinkPython 的全部文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#03-安装-Sublimetext"><span class="nav-text">03. 安装 Sublimetext</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#03-开始处理文本"><span class="nav-text">03. 开始处理文本</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xiaolai</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'rebornagain';
+      var disqus_identifier = '2016/07/05/makecs-git-basics/';
+      var disqus_title = '工程师的时光穿梭机 —— git';
+      var disqus_url = 'http://xiaolai.li/2016/07/05/makecs-git-basics/';
+
+      function run_disqus_script(disqus_script){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+      
+        run_disqus_script('embed.js');
+      
+    </script>
+  
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
