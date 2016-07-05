@@ -220,6 +220,7 @@ h6 {
   font-weight: bold;
   line-height: 1.5;
   font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
+  color: #2980b9;
 }
 h2,
 h3,
@@ -1552,7 +1553,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #aa0944;
+  background: #1386ec;
 }
 .links-of-blogroll {
   font-size: 13px;
