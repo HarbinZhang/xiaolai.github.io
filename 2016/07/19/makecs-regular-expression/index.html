@@ -84,25 +84,43 @@
 
 
 
-<meta name="description" content="工程师们整天与各种文件打交道，而且处理的都还是那种“弄错了哪怕一个字符都不行的文件”。
-比如，文件弄丢了就很可怕，所以在过去存储不稳定的时代，“备份”一直是工程师们最小心也最头疼的工作内容之一，因为存储不稳定意味着说，有些文件“突然之间就读不出来了”…… 这太可怕了。
-更可怕的是另外一种“坏掉的文件” —— 就是那种被自己搞乱了的文件，一会儿改改这里，一会儿改改那里，到最后出了问题之后完全搞不清楚">
+<meta name="description" content="正则表达式正则表达式（Regular Expression）这个东西，之所以感觉难学，是因为几乎所有关于它的教程都很不友好，不是对初学者不友好，是对所有人不友好 —— 也许是因为绝大多数人即便是掌握了这个东西，也觉得实在它没办法对初学者友好罢。
+瞬间提高自学能力的诀窍在于两个字：
+
+别怕。
+
+如果非要用四个字的话，就是：
+
+啥都别怕。
+
+不就是学个东西嘛，学不会也不会死人的，学得会是早晚的事情。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="工程师的时光穿梭机 —— git">
-<meta property="og:url" content="http://xiaolai.li/2016/07/05/makecs-git-basics/index.html">
+<meta property="og:title" content="正则表达式极简“入门”">
+<meta property="og:url" content="http://xiaolai.li/2016/07/19/makecs-regular-expression/index.html">
 <meta property="og:site_name" content="{am} xiaolai">
-<meta property="og:description" content="工程师们整天与各种文件打交道，而且处理的都还是那种“弄错了哪怕一个字符都不行的文件”。
-比如，文件弄丢了就很可怕，所以在过去存储不稳定的时代，“备份”一直是工程师们最小心也最头疼的工作内容之一，因为存储不稳定意味着说，有些文件“突然之间就读不出来了”…… 这太可怕了。
-更可怕的是另外一种“坏掉的文件” —— 就是那种被自己搞乱了的文件，一会儿改改这里，一会儿改改那里，到最后出了问题之后完全搞不清楚">
-<meta property="og:image" content="http://xiaolai.li/images/tp2-comparison.png">
-<meta property="og:image" content="http://xiaolai.li/images/sublimetext-regex-button.png">
-<meta property="og:updated_time" content="2016-07-05T03:06:54.000Z">
+<meta property="og:description" content="正则表达式正则表达式（Regular Expression）这个东西，之所以感觉难学，是因为几乎所有关于它的教程都很不友好，不是对初学者不友好，是对所有人不友好 —— 也许是因为绝大多数人即便是掌握了这个东西，也觉得实在它没办法对初学者友好罢。
+瞬间提高自学能力的诀窍在于两个字：
+
+别怕。
+
+如果非要用四个字的话，就是：
+
+啥都别怕。
+
+不就是学个东西嘛，学不会也不会死人的，学得会是早晚的事情。">
+<meta property="og:updated_time" content="2016-07-19T08:43:52.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="工程师的时光穿梭机 —— git">
-<meta name="twitter:description" content="工程师们整天与各种文件打交道，而且处理的都还是那种“弄错了哪怕一个字符都不行的文件”。
-比如，文件弄丢了就很可怕，所以在过去存储不稳定的时代，“备份”一直是工程师们最小心也最头疼的工作内容之一，因为存储不稳定意味着说，有些文件“突然之间就读不出来了”…… 这太可怕了。
-更可怕的是另外一种“坏掉的文件” —— 就是那种被自己搞乱了的文件，一会儿改改这里，一会儿改改那里，到最后出了问题之后完全搞不清楚">
-<meta name="twitter:image" content="http://xiaolai.li/images/tp2-comparison.png">
+<meta name="twitter:title" content="正则表达式极简“入门”">
+<meta name="twitter:description" content="正则表达式正则表达式（Regular Expression）这个东西，之所以感觉难学，是因为几乎所有关于它的教程都很不友好，不是对初学者不友好，是对所有人不友好 —— 也许是因为绝大多数人即便是掌握了这个东西，也觉得实在它没办法对初学者友好罢。
+瞬间提高自学能力的诀窍在于两个字：
+
+别怕。
+
+如果非要用四个字的话，就是：
+
+啥都别怕。
+
+不就是学个东西嘛，学不会也不会死人的，学得会是早晚的事情。">
 
 
 
@@ -120,7 +138,7 @@
   };
 </script>
 
-  <title> 工程师的时光穿梭机 —— git | {am} xiaolai </title>
+  <title> 正则表达式极简“入门” | {am} xiaolai </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -259,7 +277,7 @@
             
             
               
-                工程师的时光穿梭机 —— git
+                正则表达式极简“入门”
               
             
           </h1>
@@ -271,8 +289,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-05T00:00:00+08:00" content="2016-07-05">
-              2016-07-05
+            <time itemprop="dateCreated" datetime="2016-07-19T00:00:00+08:00" content="2016-07-19">
+              2016-07-19
             </time>
           </span>
 
@@ -282,8 +300,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/07/05/makecs-git-basics/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/07/05/makecs-git-basics/" itemprop="commentsCount"></span>
+                <a href="/2016/07/19/makecs-regular-expression/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/07/19/makecs-regular-expression/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -306,49 +324,73 @@
       
 
       
-        <p>工程师们整天与各种文件打交道，而且处理的都还是那种“弄错了哪怕一个字符都不行的文件”。</p>
-<p>比如，文件弄丢了就很可怕，所以在过去存储不稳定的时代，“备份”一直是工程师们最小心也最头疼的工作内容之一，因为存储不稳定意味着说，有些文件“突然之间就读不出来了”…… 这太可怕了。</p>
-<p>更可怕的是另外一种“坏掉的文件” —— 就是那种被自己搞乱了的文件，一会儿改改这里，一会儿改改那里，到最后出了问题之后完全搞不清楚究竟是哪儿出了问题……</p>
-<p>经过多年的努力，工程师们终于给自己造出了非常好用的“时空穿梭机” —— git，一种所谓的“版本管理工具”。也就是说，有了这种工具之后，工程师们可以随时穿越到某个时间点上，查看当时的文件状态…… 或者，就像下棋的时候可以“悔棋”一样，把刚刚做出的改动撤销掉…… 等等。</p>
-<p>学会了之后呢，git 就显得特别简单 —— 也能深深体会到这东西是生命中不可或缺的工具（其中的工作流及其背后的方法论，甚至可以应用到自己的生活里）。可最初的学习很难，因为</p>
+        <h1 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h1><p>正则表达式（Regular Expression）这个东西，之所以感觉难学，是因为几乎所有关于它的教程都很不友好，不是对初学者不友好，是对所有人不友好 —— 也许是因为绝大多数人即便是掌握了这个东西，也觉得实在它没办法对初学者友好罢。</p>
+<p>瞬间提高自学能力的诀窍在于两个字：</p>
 <blockquote>
-<ol>
-<li>这几乎是个没有之前类似经验对应的全新知识</li>
-<li>大量的工作对初学者来说实际上没有视觉反馈</li>
-</ol>
+<p>别怕。</p>
 </blockquote>
-<p>所以，在这里，我没准备上来就讲解 git 是什么，它的原理是什么，它的命令都有哪些，使用的时候需要注意什么…… 事实上，这种教程几乎遍地都是 —— 因为它太重要了么，所以网上随便一搜，就有一大堆经典教程（当然，教程那么多，并没有降低初学者的难度）……</p>
-<p>以下就是一个实际工作过程，你要做的就是“一步一步跟下来”，做完之后，还要再重复跟很多很多次…… 其中涉及到的 git 命令，就算不理解也没关系，反正要让你的手指头熟悉他们，反复敲 —— 就好像我们小时候抄课文一样（那时候我们也其实常常并不真的理解课文内容）—— 直到我们居然可以做到“死记硬背”为止。</p>
-<p>这些操作的目标是把一本免费公开在网上的编程书，<strong>Think Python</strong> <em>2ed</em> —— 非常经典的一本书，很多重要的基础概念，可以说它讲的是最好的 —— 把这本书的样式重新组织一下，以便阅读的时候“赏心悦目”；下图左边是<a href="http://greenteapress.com/thinkpython2/html/thinkpython2002.html#sec6" target="_blank" rel="external">它原本的显示样式</a>，右边是重新设计过后的显示样式：</p>
-<p><img src="/images/tp2-comparison.png" alt=""></p>
-<p>这算是“热身运动”，这个热身运动做完之后，你再去读读网上的那些经典教程，就会发现，嗯，还真的不是很难……</p>
-<p>在这个过程中，很多的命令，你完全不知道怎么回事儿 —— 这并不重要，你就照做就好（而且刚刚说过，还要照做很多很多遍）。甚至，在这篇教程里，你要用的编辑器不是之前你费劲熟悉过的 Atom，而是 Sublimetext，这即意味着说，你可能还要事先把玩一下这个新的编辑器。再比如，你可能中间要用到“正则表达式”（事实上，你都不知道那些表达式在哪里），所以，在 Find/Replace 的过程中，也许会因为你并没有按下那个小按钮而得不到正确的结果……</p>
-<p><img src="/images/sublimetext-regex-button.png" alt=""></p>
-<p>反正是够折腾的，但，大家都是这样折腾过来的，所以，你其实也没什么可烦恼的。</p>
-<p>等你把这个教程折腾完了，顺带抽空也仔细读一下 <strong>Think Python</strong>，用这本书，把一些基础的编程概念谙熟于心：</p>
+<p>如果非要用四个字的话，就是：</p>
+<blockquote>
+<p>啥都别怕。</p>
+</blockquote>
+<p>不就是学个东西嘛，学不会也不会死人的，学得会是早晚的事情。</p>
+<hr>
+<p>正则表达式，其实<a href="http://xiaolai.li/2016/07/05/makecs-git-basics/">你之前已经用过</a>，虽然当时你可能完全不明白自己再做什么。</p>
+<p>通俗点讲，</p>
+<blockquote>
+<p>正则表达式是用来<strong>匹配</strong>、<strong>捕获</strong>特定字符串的工具；之后，我们还可以对匹配到、捕获到的对象进行处理，比如<strong>替换</strong>。</p>
+</blockquote>
+<p>OK，就这样了罢。这里请注意三个概念：</p>
 <blockquote>
 <ul>
-<li>变量</li>
-<li>值（整数、分数、字符串、布林值）</li>
-<li>运算符（优先级）</li>
-<li>控制流（分支、循环）</li>
-<li>数组</li>
-<li>函数</li>
-<li>保留关键字</li>
+<li>匹配（Match）</li>
+<li>捕获（Capture）</li>
+<li>替换（Replace）</li>
 </ul>
 </blockquote>
-<p>这点东西，是所有编程语言的核心，是你未来可以很快地学会任何一门编程语言的基础。</p>
-<hr>
-
-<p>具体的实操过程我放在 github 上了：</p>
+<p>这两个概念掌握了，可以开始运用了，就算是入门了。入门之后就好办了，边用边学，边犯错边改进，最终达到精通的地步 —— 无论学什么不都是这样吗？</p>
+<p>想象一下，我们有这么一串电话号码：</p>
 <blockquote>
-<p><a href="https://github.com/xiaolai/git-basics-tutorial" target="_blank" rel="external">https://github.com/xiaolai/git-basics-tutorial</a></p>
+<p>07700 900166<br>07700 900202<br>07700 900911<br>07700 900284<br>07700 900847<br>07700 900009<br>07700 900754<br>07700 900396<br>07700 900248<br>07700 900408<br>07700 900724<br>07700 900773</p>
 </blockquote>
-<p>你反复折腾若干遍之后，可以直接读这个教程了：</p>
+<p>现在我们想把它们变成这样的格式显示：</p>
 <blockquote>
-<p><a href="https://git-scm.com/book/en/v2" target="_blank" rel="external"><strong>Pro Git book</strong>, by <em>Scott Chacon and Ben Straub</em></a></p>
+<p>(077)0090-0166<br>(077)0090-0202<br>(077)0090-0911<br>(077)0090-0284<br>(077)0090-0847<br>(077)0090-0009<br>(077)0090-0754<br>(077)0090-0396<br>(077)0090-0248<br>(077)0090-0408<br>(077)0090-0724<br>(077)0090-0773</p>
 </blockquote>
-<p>试试看罢。</p>
+<p>那我们要怎么做才行呢？显然，手动一行一行地弄很麻烦啊！每行都要添加括号，删除空格，在加上减号作为四位分隔符……</p>
+<p>在支持正则表达式的编辑器里（Atom 这方面真的很差，Sublimetext 真的强太多了），搜索<code>(\d\d\d)(\d\d) (\d\d)(\d\d\d\d)</code>，替换为<code>($1)$2$3-$4</code>…… 好神奇，一下子就搞定了!</p>
+<p>仔细看看每一个字符：<code>\d</code> 指的的任意数字，所以，07700 900773，其实就可以用 <code>\d\d\d\d\d \d\d\d\d\d\d</code>搜索到（空格前面五位数字，空格后面六位数字）。</p>
+<p>现在我们想要让它被替换为<code>(077)0090-0773</code>这样的格式…… 那么：</p>
+<blockquote>
+<ul>
+<li>我们要想办法“捕获”前三位，然后在其前后加上括号；</li>
+<li>捕获接下来的两位数字，以及空格之后的两位数字，要把他们拼起来（即，相当于把空格去掉）；</li>
+<li>捕获最后四位数字，然后在此之前加上一个减号……</li>
+</ul>
+</blockquote>
+<p>所以，我们在搜索的时候加上了括号<code>（）</code> —— 括号就是用来捕获的……</p>
+<blockquote>
+<p><code>(\d\d\d)(\d\d) (\d\d)(\d\d\d\d)</code></p>
+</blockquote>
+<p>翻译成自然语言：</p>
+<blockquote>
+<ol>
+<li>用<code>\d\d\d\d\d \d\d\d\d\d\d</code><strong>匹配</strong>这些电话号码，以便我们能在文档中搜索到所有能够匹配这个正则表达式的字符串；</li>
+<li>为了后面能够处理（即，替换），我们分别<strong>捕获</strong>了四段字符串： <code>(\d\d\d)(\d\d) (\d\d)(\d\d\d\d)</code>；</li>
+<li>然后，我们用 $1 … $4 来表示我们<strong>捕获到</strong>的字符串，然后用我们想要的拼接方式去<strong>替换</strong>匹配到的字符串：<code>($1)$2$3-$4</code>……</li>
+</ol>
+</blockquote>
+<p>差不多了，这就是“入门”，后面你要接着研究：</p>
+<blockquote>
+<ul>
+<li>各种为了精确匹配所需要的“符号”；</li>
+<li>匹配同一个类型的字符串可能有很多种方法；</li>
+<li>避免错误匹配其实并不容易……</li>
+</ul>
+</blockquote>
+<p>而后你就反应过来了，上面用的正则表达式，实在是太愚蠢了！那你就想办法用更聪明的呗…… 谁也拦不住你。</p>
+<p>还是那句话：反复使用，反复试错，没多久你就真的精通了。</p>
+<p>至于深入一步的教程么，Google 喽……</p>
 
       
     </div>
@@ -379,17 +421,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/06/25/makecs-html-css/" rel="next" title="快速学习 HTML 和 CSS">
-                <i class="fa fa-chevron-left"></i> 快速学习 HTML 和 CSS
+              <a href="/2016/07/07/makecs-using-while-learning/" rel="next" title="随学随用实例：Stylish —— 浏览器插件">
+                <i class="fa fa-chevron-left"></i> 随学随用实例：Stylish —— 浏览器插件
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/07/07/makecs-using-while-learning/" rel="prev" title="随学随用实例：Stylish —— 浏览器插件">
-                随学随用实例：Stylish —— 浏览器插件 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -523,7 +561,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#正则表达式"><span class="nav-text">正则表达式</span></a></li></ol></div>
             
           </div>
         </section>
@@ -650,9 +688,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'rebornagain';
-      var disqus_identifier = '2016/07/05/makecs-git-basics/';
-      var disqus_title = '工程师的时光穿梭机 —— git';
-      var disqus_url = 'http://xiaolai.li/2016/07/05/makecs-git-basics/';
+      var disqus_identifier = '2016/07/19/makecs-regular-expression/';
+      var disqus_title = '正则表达式极简“入门”';
+      var disqus_url = 'http://xiaolai.li/2016/07/19/makecs-regular-expression/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
